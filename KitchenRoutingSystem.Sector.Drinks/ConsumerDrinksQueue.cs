@@ -1,5 +1,5 @@
-﻿using KitchenRoutingSystem.Sector.Salad.Commands.Request;
-using KitchenRoutingSystem.Sector.Salad.Services.Interfaces;
+﻿using KitchenRoutingSystem.Sector.Drinks.Commands.Request;
+using KitchenRoutingSystem.Sector.Drinks.Services.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -9,38 +9,37 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Sector.Salad
+namespace KitchenRoutingSystem.Sector.Drinks
 {
-    public class ConsumerFriesQueue
+    public class ConsumerDrinksQueue
     {
-        private IFriesConsumerQueueService _friesConsumerQueue;
-        private readonly ILogger<ConsumerFriesQueue> _log;
+        private IDrinksConsumerQueueService _drinksConsumerQueue;
+        private readonly ILogger<ConsumerDrinksQueue> _log;
         private readonly IConfiguration _configuration;
         private readonly IMediator _mediator;
 
-        public ConsumerFriesQueue(
-            ILogger<ConsumerFriesQueue> log,
+        public ConsumerDrinksQueue(
+            ILogger<ConsumerDrinksQueue> log,
             IConfiguration configuration,
             IMediator mediator,
-            IFriesConsumerQueueService friesConsumerQueue)
+            IDrinksConsumerQueueService drinksConsumerQueue)
         {
-
             _log = log;
             _configuration = configuration;
             _mediator = mediator;
-            _friesConsumerQueue = friesConsumerQueue;
+            _drinksConsumerQueue = drinksConsumerQueue;
         }
 
         public async Task StartConsumer()
         {
             try
             {
-                _log.LogInformation($"{_configuration["FriesQueueConfiguration:FriesConsumer"] } Consumer started.");
-                _friesConsumerQueue.StartConsumerQueues(async (message) => await Dequeue(message), _configuration["FriesQueueConfiguration:FriesConsumer"]);
+                _log.LogInformation($"{_configuration["DrinksQueueConfiguration:DrinksConsumer"] } Consumer started.");
+                _drinksConsumerQueue.StartConsumerQueues(async (message) => await Dequeue(message), _configuration["DrinksQueueConfiguration:DrinksConsumer"]);
             }
             catch (Exception)
             {
-                _log.LogError($"Error to start consumer {_configuration["FriesQueueConfiguration:FriesConsumer"] }. ");
+                _log.LogError($"Error to start consumer {_configuration["DrinksQueueConfiguration:DrinksConsumer"] }. ");
             }
         }
 
@@ -49,7 +48,7 @@ namespace KitchenRoutingSystem.Sector.Salad
             try
             {
                 string json = Encoding.UTF8.GetString(message.Body.ToArray());
-                var request = JsonConvert.DeserializeObject<PrepareFriesRequest>(json);
+                var request = JsonConvert.DeserializeObject<PrepareDrinksRequest>(json);
                 var orderprcessed = await _mediator.Send(request);
 
                 return orderprcessed.StatusCode == 201 ? true : false;

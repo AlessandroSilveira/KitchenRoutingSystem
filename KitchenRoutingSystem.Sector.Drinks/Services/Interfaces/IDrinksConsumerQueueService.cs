@@ -2,9 +2,9 @@
 using System;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Sector.Salad.Services.Interfaces
+namespace KitchenRoutingSystem.Sector.Drinks.Services.Interfaces
 {
-    public interface IFriesConsumerQueueService
+    public interface IDrinksConsumerQueueService
     {
         void StartConsumerQueues(Func<BasicDeliverEventArgs, Task<bool>> consumeMessage, string queue);
     }

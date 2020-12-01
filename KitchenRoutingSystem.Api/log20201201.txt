@@ -19,3 +19,51 @@
 2020-12-01 08:45:38.707 -03:00 [INF] Preparing Fries...
 2020-12-01 08:45:42.527 -03:00 [INF] Fries quantity has updated
 2020-12-01 08:45:48.253 -03:00 [INF] Fries delivered
+2020-12-01 10:15:40.278 -03:00 [INF] Starting up
+2020-12-01 10:18:49.149 -03:00 [INF] Starting up
+2020-12-01 10:18:54.052 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 10:18:54.072 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 10:18:54.770 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 10:18:54.775 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 10:18:54.777 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 10:18:54.777 -03:00 [INF] Hosting environment: Development
+2020-12-01 10:18:54.779 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 10:19:00.011 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 10:19:00.124 -03:00 [INF] Request finished in 119.1575ms 301 
+2020-12-01 10:19:00.216 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 10:19:00.287 -03:00 [INF] Request finished in 71.4735ms 200 text/html;charset=utf-8
+2020-12-01 10:19:00.329 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 10:19:00.339 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 10:19:00.339 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 10:19:00.498 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 10:19:00.499 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 10:19:00.501 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 10:19:00.511 -03:00 [INF] Request finished in 171.3237ms 200 text/css
+2020-12-01 10:19:00.518 -03:00 [INF] Request finished in 178.3498ms 200 application/javascript
+2020-12-01 10:19:00.523 -03:00 [INF] Request finished in 193.8335ms 200 application/javascript
+2020-12-01 10:19:01.016 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 10:19:01.182 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png  
+2020-12-01 10:19:01.257 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 10:19:01.273 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 10:19:01.276 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2020-12-01 10:19:01.314 -03:00 [INF] Request finished in 131.7008ms 200 image/png
+2020-12-01 10:19:01.374 -03:00 [INF] Request finished in 116.7362ms 404 
+2020-12-01 10:19:01.374 -03:00 [INF] Request finished in 100.1935ms 404 
+2020-12-01 10:19:01.413 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 10:19:01.432 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 10:19:01.442 -03:00 [INF] Request finished in 427.4752ms 200 application/json;charset=utf-8
+2020-12-01 10:19:01.443 -03:00 [INF] Request finished in 30.8383ms 404 
+2020-12-01 10:19:01.444 -03:00 [INF] Request finished in 12.2116ms 404 
+2020-12-01 10:19:33.440 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 10:19:33.448 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 10:19:33.500 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 10:19:34.107 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 10:19:34.127 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 617.8895ms
+2020-12-01 10:19:34.133 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 10:19:34.135 -03:00 [INF] Request finished in 695.4972ms 200 application/json; charset=utf-8
+2020-12-01 10:19:34.183 -03:00 [INF] Order Created
+2020-12-01 10:19:34.327 -03:00 [INF] Order successfully registered
+2020-12-01 10:19:34.334 -03:00 [ERR] Message not consumed.
+2020-12-01 10:19:34.337 -03:00 [INF] Preparing Fries...
+2020-12-01 10:19:34.346 -03:00 [INF] Fries quantity has updated
+2020-12-01 10:19:34.350 -03:00 [INF] Fries delivered

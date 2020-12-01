@@ -1,5 +1,5 @@
-﻿using KitchenRoutingSystem.Sector.Salad.Commands.Request;
-using KitchenRoutingSystem.Sector.Salad.Services.Interfaces;
+﻿using KitchenRoutingSystem.Sector.Grill.Commands.Request;
+using KitchenRoutingSystem.Sector.Grill.Services.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -9,26 +9,26 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Sector.Salad
+namespace KitchenRoutingSystem.Sector.Grill
 {
-    public class ConsumerFriesQueue
+    public class ConsumerGrillQueue
     {
-        private IFriesConsumerQueueService _friesConsumerQueue;
-        private readonly ILogger<ConsumerFriesQueue> _log;
+        private IGrillConsumerQueueService _grillConsumerQueue;
+        private readonly ILogger<ConsumerGrillQueue> _log;
         private readonly IConfiguration _configuration;
         private readonly IMediator _mediator;
 
-        public ConsumerFriesQueue(
-            ILogger<ConsumerFriesQueue> log,
+        public ConsumerGrillQueue(
+            ILogger<ConsumerGrillQueue> log,
             IConfiguration configuration,
             IMediator mediator,
-            IFriesConsumerQueueService friesConsumerQueue)
+            IGrillConsumerQueueService grillConsumerQueue)
         {
 
             _log = log;
             _configuration = configuration;
             _mediator = mediator;
-            _friesConsumerQueue = friesConsumerQueue;
+            _grillConsumerQueue = grillConsumerQueue;
         }
 
         public async Task StartConsumer()
@@ -36,7 +36,7 @@ namespace KitchenRoutingSystem.Sector.Salad
             try
             {
                 _log.LogInformation($"{_configuration["FriesQueueConfiguration:FriesConsumer"] } Consumer started.");
-                _friesConsumerQueue.StartConsumerQueues(async (message) => await Dequeue(message), _configuration["FriesQueueConfiguration:FriesConsumer"]);
+                _grillConsumerQueue.StartConsumerQueues(async (message) => await Dequeue(message), _configuration["FriesQueueConfiguration:FriesConsumer"]);
             }
             catch (Exception)
             {
@@ -49,7 +49,7 @@ namespace KitchenRoutingSystem.Sector.Salad
             try
             {
                 string json = Encoding.UTF8.GetString(message.Body.ToArray());
-                var request = JsonConvert.DeserializeObject<PrepareFriesRequest>(json);
+                var request = JsonConvert.DeserializeObject<PrepareGrillRequest>(json);
                 var orderprcessed = await _mediator.Send(request);
 
                 return orderprcessed.StatusCode == 201 ? true : false;

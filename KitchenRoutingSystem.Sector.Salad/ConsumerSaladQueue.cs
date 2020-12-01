@@ -11,24 +11,24 @@ using System.Threading.Tasks;
 
 namespace KitchenRoutingSystem.Sector.Salad
 {
-    public class ConsumerFriesQueue
+    public class ConsumerSaladQueue
     {
-        private IFriesConsumerQueueService _friesConsumerQueue;
-        private readonly ILogger<ConsumerFriesQueue> _log;
+        private ISaladConsumerQueueService _saladConsumerQueue;
+        private readonly ILogger<ConsumerSaladQueue> _log;
         private readonly IConfiguration _configuration;
         private readonly IMediator _mediator;
 
-        public ConsumerFriesQueue(
-            ILogger<ConsumerFriesQueue> log,
+        public ConsumerSaladQueue(
+            ILogger<ConsumerSaladQueue> log,
             IConfiguration configuration,
             IMediator mediator,
-            IFriesConsumerQueueService friesConsumerQueue)
+            ISaladConsumerQueueService saladConsumerQueue)
         {
 
             _log = log;
             _configuration = configuration;
             _mediator = mediator;
-            _friesConsumerQueue = friesConsumerQueue;
+            _saladConsumerQueue = saladConsumerQueue;
         }
 
         public async Task StartConsumer()
@@ -36,7 +36,7 @@ namespace KitchenRoutingSystem.Sector.Salad
             try
             {
                 _log.LogInformation($"{_configuration["FriesQueueConfiguration:FriesConsumer"] } Consumer started.");
-                _friesConsumerQueue.StartConsumerQueues(async (message) => await Dequeue(message), _configuration["FriesQueueConfiguration:FriesConsumer"]);
+                _saladConsumerQueue.StartConsumerQueues(async (message) => await Dequeue(message), _configuration["FriesQueueConfiguration:FriesConsumer"]);
             }
             catch (Exception)
             {
@@ -49,7 +49,7 @@ namespace KitchenRoutingSystem.Sector.Salad
             try
             {
                 string json = Encoding.UTF8.GetString(message.Body.ToArray());
-                var request = JsonConvert.DeserializeObject<PrepareFriesRequest>(json);
+                var request = JsonConvert.DeserializeObject<PrepareSaladRequest>(json);
                 var orderprcessed = await _mediator.Send(request);
 
                 return orderprcessed.StatusCode == 201 ? true : false;

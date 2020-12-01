@@ -1,9 +1,12 @@
 ﻿using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Shared.Commands;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace KitchenRoutingSystem.Sector.Salad.Commands.Request
+namespace KitchenRoutingSystem.Sector.Desserts.Commands.Request
 {
-    public class PrepareFriesRequest :  CommandRequest
+    public class PrepareDessertRequest : CommandRequest
     {
         public string OrderId { get; set; }
         public Product Product { get; set; }

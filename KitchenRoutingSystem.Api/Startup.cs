@@ -15,8 +15,11 @@ using KitchenRoutingSystem.Domain.Repositories;
 using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Domain.MQ.OrderConsumer;
 using KitchenRoutingSystem.Domain.MQ.OrderConsumerQueue;
-using KitchenRoutingSystem.Sector.Fries;
-using KitchenRoutingSystem.Sector.Fries.Services.Interfaces;
+using KitchenRoutingSystem.Sector.Salad;
+using KitchenRoutingSystem.Sector.Salad.Services.Interfaces;
+using KitchenRoutingSystem.Sector.Grill;
+using KitchenRoutingSystem.Sector.Drinks;
+using KitchenRoutingSystem.Sector.Dessert;
 
 namespace KitchenRoutingSystem.Api
 {
@@ -59,6 +62,10 @@ namespace KitchenRoutingSystem.Api
             services.AddTransient<IOrderConsumerQueue, OrderConsumerQueue>();
             services.AddSingleton<OrderConsumer>();
             services.AddSingleton<ConsumerFriesQueue>();
+            services.AddSingleton<ConsumerGrillQueue>();
+            services.AddSingleton<ConsumerSaladQueue>();
+            services.AddSingleton<ConsumerDrinksQueue>();
+            services.AddSingleton<ConsumerDessertQueue>();
         }
         private static IConfiguration GetConfiguration()
         {
@@ -67,7 +74,8 @@ namespace KitchenRoutingSystem.Api
             return configBuilder.Build();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, OrderConsumer orderConsumer, ConsumerFriesQueue consumerFriesQueue)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, OrderConsumer orderConsumer, ConsumerFriesQueue consumerFriesQueue,
+            ConsumerGrillQueue consumerGrillQueue, ConsumerSaladQueue consumerSaladQueue, ConsumerDrinksQueue consumerDrinkQueue, ConsumerDessertQueue consumerDessertQueue)
         {
             if (env.IsDevelopment())
             {
@@ -86,6 +94,10 @@ namespace KitchenRoutingSystem.Api
             });
             orderConsumer.StartConsumer().Wait();
             consumerFriesQueue.StartConsumer().Wait();
+            consumerGrillQueue.StartConsumer().Wait();
+            consumerSaladQueue.StartConsumer().Wait();
+            consumerDrinkQueue.StartConsumer().Wait();
+            consumerDessertQueue.StartConsumer().Wait();
         }
     }
 }

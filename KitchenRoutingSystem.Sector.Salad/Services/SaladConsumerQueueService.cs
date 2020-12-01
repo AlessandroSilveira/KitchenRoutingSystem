@@ -1,5 +1,4 @@
 ﻿using KitchenRoutingSystem.Domain.MQ.Channel;
-using KitchenRoutingSystem.Domain.MQ.OrderConsumerQueue;
 using KitchenRoutingSystem.Sector.Salad.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -10,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace KitchenRoutingSystem.Domain.MQ.OrderConsumer
 {
-    public class FriesConsumerQueueService : QueueChannel, IFriesConsumerQueueService
+    public class SaladConsumerQueueService : QueueChannel, ISaladConsumerQueueService
     {
         private readonly IConfiguration _configuration;
-        private readonly ILogger<FriesConsumerQueueService> _log;
+        private readonly ILogger<SaladConsumerQueueService> _log;
 
-        public FriesConsumerQueueService(IConfiguration configuration, ILogger<FriesConsumerQueueService> log) : base(configuration)
+        public SaladConsumerQueueService(IConfiguration configuration, ILogger<SaladConsumerQueueService> log) : base(configuration)
         {
             _configuration = configuration;
             _log = log;
@@ -47,13 +46,13 @@ namespace KitchenRoutingSystem.Domain.MQ.OrderConsumer
             };
 
             _channel.BasicQos(0, 100, false);
-            _channel.BasicConsume(_configuration["FriesQueueConfiguration:FriesConsumer"], false, consumer);
+            _channel.BasicConsume(_configuration["SaladQueueConfiguration:SaladConsumer"], false, consumer);
         }
 
         private void SendMessageToErrorQueue(BasicDeliverEventArgs ea)
         {
             TryOpen();
-            _channel.BasicPublish("", _configuration["FriesQueueConfiguration:FriesError"], null, ea.Body);
+            _channel.BasicPublish("", _configuration["SaladQueueConfiguration:SaladError"], null, ea.Body);
             _channel.BasicAck(ea.DeliveryTag, false);
         }
     }

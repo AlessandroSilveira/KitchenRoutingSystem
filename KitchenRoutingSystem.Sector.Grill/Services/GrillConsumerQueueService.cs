@@ -1,6 +1,5 @@
 ﻿using KitchenRoutingSystem.Domain.MQ.Channel;
-using KitchenRoutingSystem.Domain.MQ.OrderConsumerQueue;
-using KitchenRoutingSystem.Sector.Salad.Services.Interfaces;
+using KitchenRoutingSystem.Sector.Grill.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
@@ -8,14 +7,14 @@ using RabbitMQ.Client.Events;
 using System;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Domain.MQ.OrderConsumer
+namespace KitchenRoutingSystem.Sector.Grill.Services
 {
-    public class FriesConsumerQueueService : QueueChannel, IFriesConsumerQueueService
+    public class GrillConsumerQueueService : QueueChannel, IGrillConsumerQueueService
     {
         private readonly IConfiguration _configuration;
-        private readonly ILogger<FriesConsumerQueueService> _log;
+        private readonly ILogger<GrillConsumerQueueService> _log;
 
-        public FriesConsumerQueueService(IConfiguration configuration, ILogger<FriesConsumerQueueService> log) : base(configuration)
+        public GrillConsumerQueueService(IConfiguration configuration, ILogger<GrillConsumerQueueService> log) : base(configuration)
         {
             _configuration = configuration;
             _log = log;
@@ -47,13 +46,13 @@ namespace KitchenRoutingSystem.Domain.MQ.OrderConsumer
             };
 
             _channel.BasicQos(0, 100, false);
-            _channel.BasicConsume(_configuration["FriesQueueConfiguration:FriesConsumer"], false, consumer);
+            _channel.BasicConsume(_configuration["GrillQueueConfiguration:GrillConsumer"], false, consumer);
         }
 
         private void SendMessageToErrorQueue(BasicDeliverEventArgs ea)
         {
             TryOpen();
-            _channel.BasicPublish("", _configuration["FriesQueueConfiguration:FriesError"], null, ea.Body);
+            _channel.BasicPublish("", _configuration["GrillQueueConfiguration:GrillError"], null, ea.Body);
             _channel.BasicAck(ea.DeliveryTag, false);
         }
     }
