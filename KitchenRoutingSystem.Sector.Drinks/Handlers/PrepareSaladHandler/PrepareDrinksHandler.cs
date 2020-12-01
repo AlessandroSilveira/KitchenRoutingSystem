@@ -31,10 +31,8 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
             _logger.LogInformation("Preparing Drinks...");
 
             //Verifying if had in storage
-            var products = _productRepository.GetAll().Result.FirstOrDefault();//.Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
+            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
             var order = _orderRepository.Get(request.OrderId).Result;
-
-
 
             if (products.Quantity == 0)
             {

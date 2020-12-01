@@ -32,7 +32,7 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareFriesHandler
             _logger.LogInformation("Preparing Fries...");
 
             //Verifying if had in storage
-            var products = _productRepository.GetAll().Result.FirstOrDefault();//.Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
+            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
             var order =  _orderRepository.Get(request.OrderId).Result;
 
             

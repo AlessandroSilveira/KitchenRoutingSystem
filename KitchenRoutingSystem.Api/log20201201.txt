@@ -67,3 +67,165 @@
 2020-12-01 10:19:34.337 -03:00 [INF] Preparing Fries...
 2020-12-01 10:19:34.346 -03:00 [INF] Fries quantity has updated
 2020-12-01 10:19:34.350 -03:00 [INF] Fries delivered
+2020-12-01 13:01:00.368 -03:00 [INF] Starting up
+2020-12-01 13:01:04.142 -03:00 [FTL] Application start-up failed
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Grill.Services.Interfaces.IGrillConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue'.) (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Salad.Services.Interfaces.ISaladConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue'.) (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Drinks.Services.Interfaces.IDrinksConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue'.) (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Desserts.Services.Interfaces.IDessertConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Grill.Services.Interfaces.IGrillConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Grill.Services.Interfaces.IGrillConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at KitchenRoutingSystem.Api.Program.Main(String[] args) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api\Program.cs:line 22
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Salad.Services.Interfaces.ISaladConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Salad.Services.Interfaces.ISaladConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Drinks.Services.Interfaces.IDrinksConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Drinks.Services.Interfaces.IDrinksConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #3) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Desserts.Services.Interfaces.IDessertConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Desserts.Services.Interfaces.IDessertConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2020-12-01 13:01:30.207 -03:00 [INF] Starting up
+2020-12-01 13:01:32.675 -03:00 [FTL] Application start-up failed
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Grill.Services.Interfaces.IGrillConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue'.) (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Salad.Services.Interfaces.ISaladConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue'.) (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Drinks.Services.Interfaces.IDrinksConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue'.) (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Desserts.Services.Interfaces.IDessertConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Grill.Services.Interfaces.IGrillConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Grill.Services.Interfaces.IGrillConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at KitchenRoutingSystem.Api.Program.Main(String[] args) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api\Program.cs:line 22
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Salad.Services.Interfaces.ISaladConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Salad.Services.Interfaces.ISaladConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Drinks.Services.Interfaces.IDrinksConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Drinks.Services.Interfaces.IDrinksConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #3) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Desserts.Services.Interfaces.IDessertConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Desserts.Services.Interfaces.IDessertConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2020-12-01 13:02:56.244 -03:00 [INF] Starting up
+2020-12-01 13:02:58.495 -03:00 [FTL] Application start-up failed
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Grill.Services.Interfaces.IGrillConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue'.) (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Salad.Services.Interfaces.ISaladConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue'.) (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Drinks.Services.Interfaces.IDrinksConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue'.) (Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Desserts.Services.Interfaces.IDessertConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Grill.Services.Interfaces.IGrillConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Grill.Services.Interfaces.IGrillConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Grill.ConsumerGrillQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at KitchenRoutingSystem.Api.Program.Main(String[] args) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api\Program.cs:line 22
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Salad.Services.Interfaces.ISaladConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Salad.Services.Interfaces.ISaladConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Salad.ConsumerSaladQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Drinks.Services.Interfaces.IDrinksConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Drinks.Services.Interfaces.IDrinksConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Drinks.ConsumerDrinksQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #3) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue Lifetime: Singleton ImplementationType: KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue': Unable to resolve service for type 'KitchenRoutingSystem.Sector.Desserts.Services.Interfaces.IDessertConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'KitchenRoutingSystem.Sector.Desserts.Services.Interfaces.IDessertConsumerQueueService' while attempting to activate 'KitchenRoutingSystem.Sector.Dessert.ConsumerDessertQueue'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+

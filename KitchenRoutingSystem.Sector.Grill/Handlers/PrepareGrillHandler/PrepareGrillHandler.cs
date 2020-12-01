@@ -30,7 +30,7 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareFriesHandler
         {
             _logger.LogInformation("Preparing Grill...");
            
-            var products = _productRepository.GetAll().Result.FirstOrDefault();//.Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
+            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
             var order = _orderRepository.Get(request.OrderId).Result;
 
             if (products.Quantity == 0)

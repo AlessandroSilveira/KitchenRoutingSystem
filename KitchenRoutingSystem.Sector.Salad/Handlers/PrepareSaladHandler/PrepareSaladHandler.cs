@@ -30,7 +30,7 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareFriesHandler
         {
             _logger.LogInformation("Preparing Salad...");
 
-            var products = _productRepository.GetAll().Result.FirstOrDefault();//.Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
+            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
             var order = _orderRepository.Get(request.OrderId).Result;
 
             if (products.Quantity == 0)
@@ -58,9 +58,6 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareFriesHandler
                 _logger.LogInformation("Salad quantity has updated");
 
                 order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, products);
-
-
-
                 await _orderRepository.Edit(order);
 
                 _logger.LogInformation("Salad delivered");
@@ -69,8 +66,6 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareFriesHandler
 
             var data = new CreateOrderResponse(order.Number, order.CreateDate, order.LastUpdateDate, order.Products, order.Total, order.Notes, order.Status);
             return CreateResponse(data, "Salad delivered");
-
-
         }
     }
 
