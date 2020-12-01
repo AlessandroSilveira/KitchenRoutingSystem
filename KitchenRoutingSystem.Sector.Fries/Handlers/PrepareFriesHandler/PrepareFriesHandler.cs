@@ -6,8 +6,8 @@ using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,52 +30,66 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
         public async Task<CommandResponse> Handle(PrepareFriesRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Preparing Fries...");
-
+             
             //Verifying if had in storage
-            //var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
-           var products = _productRepository.GetAll().Result.FirstOrDefault(); //.Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
-            var order =  _orderRepository.Get(request.OrderId).Result;
-
-            
-
-            if (products.Quantity == 0)
+            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
+           //var products = _productRepository.GetAll().Result.FirstOrDefault(); //.Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
+            var order =  _orderRepository.Get(request.orderId).Result;
+            if(order != null)
             {
-                _logger.LogInformation("Missing Fries, updating your order");
-               
-                try
+                if (products.Quantity == 0 || products.Quantity < order.Products.FirstOrDefault().Quantity)
                 {
-                    order.RemoveProduct(products);
-                    await _orderRepository.Edit(order);
-                    _logger.LogInformation("Order Updated");
+                    _logger.LogInformation("Missing Fries, updating your order");
+
+                    try
+                    {
+                        order.RemoveProduct(products);
+                        await _orderRepository.Edit(order);
+                        _logger.LogInformation("Order Updated");
+
+                        await UpdateProductList(products, order);
+                    }
+                    catch (Exception e)
+                    {
+                        _logger.LogError($"Error on update order, message: {e}");
+                        throw;
+                    }
                 }
-                catch (Exception e)
+                else
                 {
-                    _logger.LogError($"Error on update order, message: {e}");
-                    throw;
+                    await UpdateProductList(products, order);
+
+                   
+
                 }
             }
             else
-            {               
-                var newQuantity = products.Quantity - order.Products.Where(a => a.ProductType == Domain.Enums.EProductType.Fries).FirstOrDefault().Quantity;
-                products.Quantity = newQuantity;
-
-                await _productRepository.Edit(products);
-                _logger.LogInformation("Fries quantity has updated");
-
-                order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, products);
-
-               
-
-                await _orderRepository.Edit(order);
-
-                _logger.LogInformation("Fries delivered");
-
+            {
+                _logger.LogError($"It´s not possible deliver fries without an order");
+                return BadRequestResponse(null, "It´s not possible deliver fries without an order");
             }
 
             var data = new CreateOrderResponse(order.Number, order.CreateDate, order.LastUpdateDate, order.Products, order.Total, order.Notes, order.Status);
             return CreateResponse(data, "Fries delivered");
+        }
 
+        private async Task UpdateProductList(Product products, Order order)
+        {
+            var newQuantity = products.Quantity - order.Products.Where(a => a.ProductType == Domain.Enums.EProductType.Fries).FirstOrDefault().Quantity;
+            products.Quantity = newQuantity;
 
+            await _productRepository.Edit(products);
+            _logger.LogInformation("Fries quantity has updated");
+
+            order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, products);
+            await _orderRepository.Edit(order);
+
+            _logger.LogInformation("Fries delivered");
+
+            var productjson = JsonConvert.SerializeObject(products);
+            var orderjson = JsonConvert.SerializeObject(order);
+            _logger.LogInformation(productjson);
+            _logger.LogInformation(orderjson);
         }
     }
     

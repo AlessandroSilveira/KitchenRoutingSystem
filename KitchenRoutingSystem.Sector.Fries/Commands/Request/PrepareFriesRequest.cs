@@ -6,7 +6,10 @@ namespace KitchenRoutingSystem.Sector.Fries.Commands.Request
 {
     public class PrepareFriesRequest : CommandRequest
     {
-        public string OrderId { get; set; }
-        public List<Product> Product { get; set; }
+        public string orderId { get; set; }
+        public List<Product> products { get; set; }
+        
+        public bool Invalid { get; set; }
+        public bool Valid { get; set; }
     }
 }

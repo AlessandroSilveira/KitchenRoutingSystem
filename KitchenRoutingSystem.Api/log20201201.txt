@@ -591,3 +591,691 @@ File name: 'KitchenRoutingSystem.Sector.Dessert, Culture=neutral, PublicKeyToken
 2020-12-01 13:45:31.705 -03:00 [INF] krs.dessert.consumer Consumer started.
 2020-12-01 13:45:32.033 -03:00 [INF] Preparing Fries...
 2020-12-01 13:45:38.750 -03:00 [INF] Order Created
+2020-12-01 14:50:22.296 -03:00 [INF] Starting up
+2020-12-01 14:50:32.416 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 14:50:32.470 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 14:50:32.512 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 14:50:32.542 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 14:50:32.568 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 14:50:32.577 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 14:50:34.077 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 14:50:34.098 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 14:50:34.100 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 14:50:34.102 -03:00 [INF] Hosting environment: Development
+2020-12-01 14:50:34.104 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 14:50:41.555 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 14:50:41.863 -03:00 [INF] Request finished in 312.0187ms 301 
+2020-12-01 14:50:42.252 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 14:50:42.460 -03:00 [INF] Request finished in 207.2993ms 200 text/html;charset=utf-8
+2020-12-01 14:50:42.567 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 14:50:42.572 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 14:50:42.572 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 14:50:43.157 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 14:50:43.176 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 14:50:43.193 -03:00 [INF] Request finished in 620.806ms 200 text/css
+2020-12-01 14:50:43.194 -03:00 [INF] Request finished in 626.8047ms 200 application/javascript
+2020-12-01 14:50:43.200 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 14:50:43.214 -03:00 [INF] Request finished in 642.2481ms 200 application/javascript
+2020-12-01 14:50:47.449 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 14:50:47.622 -03:00 [INF] Request finished in 172.8316ms 404 
+2020-12-01 14:50:47.647 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 14:50:47.650 -03:00 [INF] Request finished in 2.8669ms 404 
+2020-12-01 14:50:48.132 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 14:50:48.170 -03:00 [INF] Request finished in 38.2919ms 404 
+2020-12-01 14:50:48.183 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 14:50:48.186 -03:00 [INF] Request finished in 3.1304ms 404 
+2020-12-01 14:50:48.432 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 14:50:48.841 -03:00 [INF] Request finished in 410.0972ms 200 application/json;charset=utf-8
+2020-12-01 14:52:12.684 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 14:52:12.700 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 14:52:13.072 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 14:52:50.059 -03:00 [INF] Order Created
+2020-12-01 14:52:51.840 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 14:52:51.865 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 38781.6063ms
+2020-12-01 14:52:51.870 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 14:52:51.871 -03:00 [INF] Request finished in 39186.8404ms 200 application/json; charset=utf-8
+2020-12-01 14:53:16.534 -03:00 [INF] Order successfully registered
+2020-12-01 14:53:16.544 -03:00 [ERR] Message not consumed.
+2020-12-01 14:53:16.546 -03:00 [INF] Preparing Fries...
+2020-12-01 14:53:30.094 -03:00 [INF] Fries quantity has updated
+2020-12-01 14:53:30.100 -03:00 [INF] Fries delivered
+2020-12-01 14:54:06.450 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 14:54:06.453 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 14:54:06.457 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 14:54:13.345 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 14:54:19.296 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 12835.3164ms
+2020-12-01 14:54:19.313 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 14:54:20.031 -03:00 [INF] Request finished in 13580.6782ms 200 application/json; charset=utf-8
+2020-12-01 14:54:21.945 -03:00 [INF] Order Created
+2020-12-01 14:54:35.283 -03:00 [INF] Preparing Fries...
+2020-12-01 14:55:36.065 -03:00 [INF] Order successfully registered
+2020-12-01 14:55:36.072 -03:00 [ERR] Message not consumed.
+2020-12-01 14:55:36.731 -03:00 [INF] Fries quantity has updated
+2020-12-01 14:55:46.946 -03:00 [ERR] Error on Dequeue message: System.NullReferenceException: Object reference not set to an instance of an object.
+   at KitchenRoutingSystem.Domain.Entities.Order.UpdateProductStatus(EProductStatus status, Product products) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Domain\Entities\Order.cs:line 67
+   at KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler.PrepareFriesHandler.Handle(PrepareFriesRequest request, CancellationToken cancellationToken) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Sector.Fries\Handlers\PrepareFriesHandler\PrepareFriesHandler.cs:line 65
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Sector.Fries.ConsumerFriesQueue.Dequeue(BasicDeliverEventArgs message) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Sector.Fries\ConsumerFriesQueue.cs:line 53
+2020-12-01 14:56:02.779 -03:00 [INF] Starting up
+2020-12-01 14:56:14.899 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 14:56:14.965 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 14:56:15.000 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 14:56:15.024 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 14:59:04.835 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 14:59:04.854 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 14:59:39.264 -03:00 [INF] Starting up
+2020-12-01 14:59:44.131 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 14:59:44.152 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 14:59:44.159 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 14:59:44.165 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 14:59:44.171 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 14:59:46.811 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 14:59:57.111 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 14:59:57.146 -03:00 [ERR] Error on Dequeue message: Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON array (e.g. [1,2,3]) into type 'KitchenRoutingSystem.Domain.Entities.Product' because the type requires a JSON object (e.g. {"name":"value"}) to deserialize correctly.
+To fix this error either change the JSON to a JSON object (e.g. {"name":"value"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List<T> that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.
+Path 'products', line 1, position 34.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureArrayContract(JsonReader reader, Type objectType, JsonContract contract)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at KitchenRoutingSystem.Sector.Fries.ConsumerFriesQueue.Dequeue(BasicDeliverEventArgs message) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Sector.Fries\ConsumerFriesQueue.cs:line 52
+2020-12-01 14:59:57.336 -03:00 [ERR] Message not consumed.
+2020-12-01 14:59:57.428 -03:00 [INF] Request finished in 324.6546ms 301 
+2020-12-01 14:59:57.573 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 14:59:57.617 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 14:59:57.622 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 14:59:57.626 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 14:59:57.628 -03:00 [INF] Hosting environment: Development
+2020-12-01 14:59:57.630 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 14:59:57.655 -03:00 [INF] Request finished in 82.5521ms 200 text/html;charset=utf-8
+2020-12-01 14:59:57.722 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 14:59:57.730 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 14:59:57.804 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 14:59:57.838 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 14:59:57.838 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 14:59:57.872 -03:00 [INF] Request finished in 150.4452ms 200 text/css
+2020-12-01 14:59:57.872 -03:00 [INF] Request finished in 141.732ms 200 application/javascript
+2020-12-01 14:59:57.964 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 14:59:57.998 -03:00 [INF] Request finished in 193.5747ms 200 application/javascript
+2020-12-01 14:59:58.305 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 14:59:58.456 -03:00 [INF] Request finished in 151.0962ms 404 
+2020-12-01 14:59:58.463 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 14:59:58.468 -03:00 [INF] Request finished in 5.3636ms 404 
+2020-12-01 14:59:58.999 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 14:59:59.006 -03:00 [INF] Request finished in 6.8951ms 404 
+2020-12-01 14:59:59.010 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 14:59:59.014 -03:00 [INF] Request finished in 3.9445ms 404 
+2020-12-01 14:59:59.196 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 14:59:59.523 -03:00 [INF] Request finished in 327.2735ms 200 application/json;charset=utf-8
+2020-12-01 15:00:53.545 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 15:00:53.556 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:00:53.607 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:01:01.822 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 15:01:03.200 -03:00 [INF] Order Created
+2020-12-01 15:01:03.205 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 9584.6137ms
+2020-12-01 15:01:03.217 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:01:03.219 -03:00 [INF] Request finished in 9674.7256ms 200 application/json; charset=utf-8
+2020-12-01 15:01:06.134 -03:00 [INF] Order successfully registered
+2020-12-01 15:01:09.592 -03:00 [ERR] Message not consumed.
+2020-12-01 15:01:23.677 -03:00 [ERR] Error on Dequeue message: Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON array (e.g. [1,2,3]) into type 'KitchenRoutingSystem.Domain.Entities.Product' because the type requires a JSON object (e.g. {"name":"value"}) to deserialize correctly.
+To fix this error either change the JSON to a JSON object (e.g. {"name":"value"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List<T> that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.
+Path 'products', line 1, position 34.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureArrayContract(JsonReader reader, Type objectType, JsonContract contract)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at KitchenRoutingSystem.Sector.Fries.ConsumerFriesQueue.Dequeue(BasicDeliverEventArgs message) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Sector.Fries\ConsumerFriesQueue.cs:line 52
+2020-12-01 15:01:23.794 -03:00 [ERR] Message not consumed.
+2020-12-01 15:01:31.290 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 15:01:31.292 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:01:31.296 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:01:37.379 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 15:01:38.332 -03:00 [INF] Order Created
+2020-12-01 15:01:38.334 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 7033.5005ms
+2020-12-01 15:01:38.338 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:01:38.341 -03:00 [INF] Request finished in 7051.7851ms 200 application/json; charset=utf-8
+2020-12-01 15:01:41.311 -03:00 [INF] Order successfully registered
+2020-12-01 15:01:41.321 -03:00 [ERR] Message not consumed.
+2020-12-01 15:01:49.919 -03:00 [ERR] Error on Dequeue message: Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON array (e.g. [1,2,3]) into type 'KitchenRoutingSystem.Domain.Entities.Product' because the type requires a JSON object (e.g. {"name":"value"}) to deserialize correctly.
+To fix this error either change the JSON to a JSON object (e.g. {"name":"value"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List<T> that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.
+Path 'products', line 1, position 34.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureArrayContract(JsonReader reader, Type objectType, JsonContract contract)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at KitchenRoutingSystem.Sector.Fries.ConsumerFriesQueue.Dequeue(BasicDeliverEventArgs message) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Sector.Fries\ConsumerFriesQueue.cs:line 52
+2020-12-01 15:01:50.012 -03:00 [ERR] Message not consumed.
+2020-12-01 15:02:13.675 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 15:02:13.677 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:02:13.684 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:02:19.425 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 15:02:21.438 -03:00 [INF] Order Created
+2020-12-01 15:02:21.439 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 7749.4206ms
+2020-12-01 15:02:21.447 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:02:21.453 -03:00 [INF] Request finished in 7776.5129ms 200 application/json; charset=utf-8
+2020-12-01 15:02:31.321 -03:00 [INF] Order successfully registered
+2020-12-01 15:02:31.322 -03:00 [ERR] Message not consumed.
+2020-12-01 15:02:31.349 -03:00 [ERR] Error on Dequeue message: Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON array (e.g. [1,2,3]) into type 'KitchenRoutingSystem.Domain.Entities.Product' because the type requires a JSON object (e.g. {"name":"value"}) to deserialize correctly.
+To fix this error either change the JSON to a JSON object (e.g. {"name":"value"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List<T> that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.
+Path 'products', line 1, position 34.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureArrayContract(JsonReader reader, Type objectType, JsonContract contract)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at KitchenRoutingSystem.Sector.Fries.ConsumerFriesQueue.Dequeue(BasicDeliverEventArgs message) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Sector.Fries\ConsumerFriesQueue.cs:line 52
+2020-12-01 15:02:31.425 -03:00 [ERR] Message not consumed.
+2020-12-01 15:02:57.635 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 15:02:57.641 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:02:57.644 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:03:02.017 -03:00 [INF] Order Created
+2020-12-01 15:03:02.020 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 15:03:02.031 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 4378.1067ms
+2020-12-01 15:03:02.038 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:03:02.043 -03:00 [INF] Request finished in 4407.605ms 200 application/json; charset=utf-8
+2020-12-01 15:03:05.570 -03:00 [INF] Order successfully registered
+2020-12-01 15:03:05.572 -03:00 [ERR] Message not consumed.
+2020-12-01 15:05:17.660 -03:00 [INF] Starting up
+2020-12-01 15:05:23.750 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:05:23.769 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:05:23.776 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:05:23.785 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:05:23.794 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:05:28.039 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:05:41.203 -03:00 [INF] Preparing Fries...
+2020-12-01 15:05:41.358 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 15:05:41.417 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 15:05:41.419 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 15:05:41.421 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 15:05:41.422 -03:00 [INF] Hosting environment: Development
+2020-12-01 15:05:41.423 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 15:05:41.457 -03:00 [INF] Request finished in 110.0007ms 301 
+2020-12-01 15:07:00.335 -03:00 [INF] Starting up
+2020-12-01 15:07:05.427 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:07:05.446 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:07:05.454 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:07:05.462 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:07:05.470 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:07:10.936 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:07:13.314 -03:00 [INF] Preparing Fries...
+2020-12-01 15:08:44.779 -03:00 [INF] Starting up
+2020-12-01 15:08:50.348 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:08:50.370 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:08:50.379 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:08:50.386 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:08:50.392 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:09:04.293 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:09:07.157 -03:00 [INF] Preparing Fries...
+2020-12-01 15:09:10.140 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 15:09:10.145 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 15:09:10.147 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 15:09:10.148 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 15:09:10.149 -03:00 [INF] Hosting environment: Development
+2020-12-01 15:09:10.150 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 15:09:10.195 -03:00 [INF] Request finished in 59.3118ms 301 
+2020-12-01 15:40:34.815 -03:00 [INF] Starting up
+2020-12-01 15:40:42.925 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:40:42.985 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:40:43.008 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:40:43.016 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:40:43.025 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:40:43.033 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:40:44.339 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 15:40:44.345 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 15:40:44.346 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 15:40:44.347 -03:00 [INF] Hosting environment: Development
+2020-12-01 15:40:44.348 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 15:40:53.644 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 15:40:54.518 -03:00 [INF] Request finished in 878.811ms 301 
+2020-12-01 15:40:54.673 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 15:40:54.797 -03:00 [INF] Request finished in 124.7379ms 200 text/html;charset=utf-8
+2020-12-01 15:40:54.865 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 15:40:54.865 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 15:40:54.865 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 15:40:55.196 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 15:40:55.196 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 15:40:55.196 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 15:40:55.205 -03:00 [INF] Request finished in 339.4274ms 200 application/javascript
+2020-12-01 15:40:55.205 -03:00 [INF] Request finished in 339.4367ms 200 text/css
+2020-12-01 15:40:55.205 -03:00 [INF] Request finished in 339.4418ms 200 application/javascript
+2020-12-01 15:40:55.822 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:40:55.886 -03:00 [INF] Request finished in 64.2146ms 404 
+2020-12-01 15:40:55.903 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:40:55.924 -03:00 [INF] Request finished in 21.2497ms 404 
+2020-12-01 15:40:56.599 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:40:56.605 -03:00 [INF] Request finished in 6.4644ms 404 
+2020-12-01 15:40:56.615 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:40:56.623 -03:00 [INF] Request finished in 11.4705ms 404 
+2020-12-01 15:40:56.851 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 15:40:57.041 -03:00 [INF] Request finished in 189.6867ms 200 application/json;charset=utf-8
+2020-12-01 15:41:40.954 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 15:41:40.964 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:41:41.044 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:41:47.627 -03:00 [INF] Order Created
+2020-12-01 15:41:49.399 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 15:41:49.421 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 8367.3784ms
+2020-12-01 15:41:49.428 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:41:49.430 -03:00 [INF] Request finished in 8476.1037ms 200 application/json; charset=utf-8
+2020-12-01 15:41:54.362 -03:00 [INF] Order successfully registered
+2020-12-01 15:41:58.522 -03:00 [ERR] Message not consumed.
+2020-12-01 15:42:01.012 -03:00 [INF] Preparing Fries...
+2020-12-01 15:42:20.792 -03:00 [INF] Fries quantity has updated
+2020-12-01 15:42:23.794 -03:00 [INF] Fries delivered
+2020-12-01 15:48:45.789 -03:00 [INF] Starting up
+2020-12-01 15:48:53.086 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:48:53.105 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:48:53.111 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:48:53.117 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:48:53.122 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:48:53.130 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:48:54.305 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 15:48:54.310 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 15:48:54.311 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 15:48:54.313 -03:00 [INF] Hosting environment: Development
+2020-12-01 15:48:54.314 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 15:49:00.088 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 15:49:00.198 -03:00 [INF] Request finished in 116.9965ms 301 
+2020-12-01 15:49:00.572 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 15:49:00.612 -03:00 [INF] Request finished in 40.7554ms 200 text/html;charset=utf-8
+2020-12-01 15:49:00.662 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 15:49:00.664 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 15:49:00.665 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 15:49:00.828 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 15:49:00.828 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 15:49:00.828 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 15:49:00.833 -03:00 [INF] Request finished in 168.4545ms 200 application/javascript
+2020-12-01 15:49:00.833 -03:00 [INF] Request finished in 170.8743ms 200 text/css
+2020-12-01 15:49:00.833 -03:00 [INF] Request finished in 168.623ms 200 application/javascript
+2020-12-01 15:49:00.999 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:49:01.037 -03:00 [INF] Request finished in 37.4839ms 404 
+2020-12-01 15:49:01.041 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:49:01.043 -03:00 [INF] Request finished in 2.281ms 404 
+2020-12-01 15:49:01.228 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:49:01.240 -03:00 [INF] Request finished in 12.3795ms 404 
+2020-12-01 15:49:01.249 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:49:01.255 -03:00 [INF] Request finished in 6.3967ms 404 
+2020-12-01 15:49:01.340 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 15:49:01.553 -03:00 [INF] Request finished in 212.5395ms 200 application/json;charset=utf-8
+2020-12-01 15:49:50.373 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 147
+2020-12-01 15:49:50.383 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:49:50.479 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:49:50.579 -03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2020-12-01 15:49:50.596 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 106.0164ms
+2020-12-01 15:49:50.602 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:49:50.606 -03:00 [INF] Request finished in 233.1896ms 400 application/problem+json; charset=utf-8
+2020-12-01 15:50:08.187 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 15:50:08.190 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:50:08.194 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:50:13.051 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 15:50:13.068 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 4870.5145ms
+2020-12-01 15:50:13.074 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:50:13.077 -03:00 [INF] Request finished in 4889.3455ms 200 application/json; charset=utf-8
+2020-12-01 15:50:13.209 -03:00 [INF] Order Created
+2020-12-01 15:50:19.102 -03:00 [INF] Order successfully registered
+2020-12-01 15:50:21.612 -03:00 [ERR] Message not consumed.
+2020-12-01 15:50:23.328 -03:00 [INF] Preparing Fries...
+2020-12-01 15:50:24.641 -03:00 [INF] Fries quantity has updated
+2020-12-01 15:50:24.645 -03:00 [INF] Fries delivered
+2020-12-01 15:50:24.657 -03:00 [INF] {"ProductId":"1","Value":2.0,"Quantity":4,"ProductType":1,"Status":0}
+2020-12-01 15:50:24.658 -03:00 [INF] {"Number":"28943ABC","CreateDate":"2020-12-01T15:50:13.2054389-03:00","LastUpdateDate":"2020-12-01T15:50:13.2055627-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":1,"ProductType":1,"Status":2}],"Total":1.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"f6eb5b9e-ab6a-481c-b846-697c2db7b121","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 15:51:12.827 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 15:51:12.829 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:51:12.831 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:51:20.384 -03:00 [INF] Order Created
+2020-12-01 15:51:20.385 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 15:51:20.391 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 7557.9252ms
+2020-12-01 15:51:20.399 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:51:20.401 -03:00 [INF] Request finished in 7574.483ms 200 application/json; charset=utf-8
+2020-12-01 15:51:23.928 -03:00 [INF] Order successfully registered
+2020-12-01 15:51:23.930 -03:00 [ERR] Message not consumed.
+2020-12-01 15:51:25.566 -03:00 [INF] Preparing Fries...
+2020-12-01 15:51:26.496 -03:00 [INF] Fries quantity has updated
+2020-12-01 15:51:26.500 -03:00 [INF] Fries delivered
+2020-12-01 15:51:26.504 -03:00 [INF] {"ProductId":"1","Value":2.0,"Quantity":-1,"ProductType":1,"Status":0}
+2020-12-01 15:51:26.505 -03:00 [INF] {"Number":"37586080","CreateDate":"2020-12-01T15:51:20.3832785-03:00","LastUpdateDate":"2020-12-01T15:51:20.3832878-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":5,"ProductType":1,"Status":2}],"Total":5.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"ca1bddfc-1939-4b14-be72-591854b51031","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 15:52:10.778 -03:00 [INF] Starting up
+2020-12-01 15:52:14.585 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:52:14.606 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:52:14.615 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:52:14.622 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:52:14.629 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:52:14.636 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:52:15.157 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 15:52:15.161 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 15:52:15.163 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 15:52:15.164 -03:00 [INF] Hosting environment: Development
+2020-12-01 15:52:15.164 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 15:52:17.679 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 15:52:17.897 -03:00 [INF] Request finished in 227.4557ms 301 
+2020-12-01 15:52:17.999 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 15:52:18.061 -03:00 [INF] Request finished in 61.5692ms 200 text/html;charset=utf-8
+2020-12-01 15:52:18.129 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 15:52:18.133 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 15:52:18.133 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 15:52:18.255 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 15:52:18.255 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 15:52:18.255 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 15:52:18.265 -03:00 [INF] Request finished in 132.0856ms 200 application/javascript
+2020-12-01 15:52:18.265 -03:00 [INF] Request finished in 135.6491ms 200 text/css
+2020-12-01 15:52:18.265 -03:00 [INF] Request finished in 131.8412ms 200 application/javascript
+2020-12-01 15:52:18.570 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:52:18.625 -03:00 [INF] Request finished in 55.2451ms 404 
+2020-12-01 15:52:18.635 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:52:18.644 -03:00 [INF] Request finished in 9.0182ms 404 
+2020-12-01 15:52:18.817 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:52:18.820 -03:00 [INF] Request finished in 2.7336ms 404 
+2020-12-01 15:52:18.827 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:52:18.830 -03:00 [INF] Request finished in 3.5453ms 404 
+2020-12-01 15:52:18.941 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 15:52:19.105 -03:00 [INF] Request finished in 163.4926ms 200 application/json;charset=utf-8
+2020-12-01 15:52:46.298 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 146
+2020-12-01 15:52:46.309 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:52:46.364 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:52:46.432 -03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2020-12-01 15:52:46.450 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 73.4783ms
+2020-12-01 15:52:46.458 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:52:46.463 -03:00 [INF] Request finished in 165.6761ms 400 application/problem+json; charset=utf-8
+2020-12-01 15:52:49.245 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 146
+2020-12-01 15:52:49.248 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:52:49.252 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:52:49.260 -03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2020-12-01 15:52:49.262 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 6.6262ms
+2020-12-01 15:52:49.264 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:52:49.266 -03:00 [INF] Request finished in 21.3626ms 400 application/problem+json; charset=utf-8
+2020-12-01 15:52:52.888 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 146
+2020-12-01 15:52:52.891 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:52:52.894 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:52:52.901 -03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2020-12-01 15:52:52.903 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 5.7425ms
+2020-12-01 15:52:52.906 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:52:52.908 -03:00 [INF] Request finished in 21.6329ms 400 application/problem+json; charset=utf-8
+2020-12-01 15:53:42.886 -03:00 [INF] Starting up
+2020-12-01 15:53:47.095 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:53:47.114 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:53:47.120 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:53:47.126 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:53:47.132 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:53:47.137 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:53:47.900 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 15:53:47.905 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 15:53:47.906 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 15:53:47.907 -03:00 [INF] Hosting environment: Development
+2020-12-01 15:53:47.908 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 15:53:50.005 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 15:53:50.136 -03:00 [INF] Request finished in 137.3764ms 301 
+2020-12-01 15:53:50.189 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 15:53:50.238 -03:00 [INF] Request finished in 49.8142ms 200 text/html;charset=utf-8
+2020-12-01 15:53:50.297 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 15:53:50.299 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 15:53:50.300 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 15:53:50.404 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 15:53:50.404 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 15:53:50.412 -03:00 [INF] Request finished in 112.6249ms 200 application/javascript
+2020-12-01 15:53:50.413 -03:00 [INF] Request finished in 115.3863ms 200 text/css
+2020-12-01 15:53:50.418 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 15:53:50.421 -03:00 [INF] Request finished in 123.666ms 200 application/javascript
+2020-12-01 15:53:50.645 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:53:50.682 -03:00 [INF] Request finished in 38.6867ms 404 
+2020-12-01 15:53:50.685 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:53:50.686 -03:00 [INF] Request finished in 1.4229ms 404 
+2020-12-01 15:53:50.896 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:53:50.899 -03:00 [INF] Request finished in 2.5074ms 404 
+2020-12-01 15:53:50.904 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:53:50.906 -03:00 [INF] Request finished in 2.2243ms 404 
+2020-12-01 15:53:50.989 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 15:53:51.192 -03:00 [INF] Request finished in 202.8496ms 200 application/json;charset=utf-8
+2020-12-01 15:55:26.198 -03:00 [INF] Starting up
+2020-12-01 15:55:31.293 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:55:31.318 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:55:31.326 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:55:31.333 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:55:31.341 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:55:31.346 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:55:31.859 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 15:55:31.863 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 15:55:31.865 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 15:55:31.866 -03:00 [INF] Hosting environment: Development
+2020-12-01 15:55:31.867 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 15:55:34.528 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 15:55:34.657 -03:00 [INF] Request finished in 143.6105ms 301 
+2020-12-01 15:55:34.715 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 15:55:34.800 -03:00 [INF] Request finished in 85.0202ms 200 text/html;charset=utf-8
+2020-12-01 15:55:34.893 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 15:55:34.904 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 15:55:35.000 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 15:55:35.093 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 15:55:35.093 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 15:55:35.100 -03:00 [INF] Request finished in 207.6358ms 200 text/css
+2020-12-01 15:55:35.100 -03:00 [INF] Request finished in 100.033ms 200 application/javascript
+2020-12-01 15:55:35.130 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 15:55:35.134 -03:00 [INF] Request finished in 230.2595ms 200 application/javascript
+2020-12-01 15:55:35.464 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:55:35.562 -03:00 [INF] Request finished in 100.0512ms 404 
+2020-12-01 15:55:35.588 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:55:35.624 -03:00 [INF] Request finished in 52.9298ms 404 
+2020-12-01 15:55:36.003 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:55:36.006 -03:00 [INF] Request finished in 3.5716ms 404 
+2020-12-01 15:55:36.023 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:55:36.028 -03:00 [INF] Request finished in 3.4566ms 404 
+2020-12-01 15:55:36.186 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 15:55:36.427 -03:00 [INF] Request finished in 241.624ms 200 application/json;charset=utf-8
+2020-12-01 15:56:07.822 -03:00 [INF] Starting up
+2020-12-01 15:56:12.384 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:56:12.408 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:56:12.415 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:56:12.422 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:56:12.428 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:56:12.435 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:56:12.945 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 15:56:12.949 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 15:56:12.950 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 15:56:12.951 -03:00 [INF] Hosting environment: Development
+2020-12-01 15:56:12.952 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 15:56:15.326 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 15:56:15.464 -03:00 [INF] Request finished in 148.9072ms 301 
+2020-12-01 15:56:15.536 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 15:56:15.635 -03:00 [INF] Request finished in 98.5386ms 200 text/html;charset=utf-8
+2020-12-01 15:56:15.718 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 15:56:15.722 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 15:56:15.723 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 15:56:15.955 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 15:56:15.955 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 15:56:15.987 -03:00 [INF] Request finished in 270.6125ms 200 text/css
+2020-12-01 15:56:15.987 -03:00 [INF] Request finished in 264.2339ms 200 application/javascript
+2020-12-01 15:56:16.022 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 15:56:16.058 -03:00 [INF] Request finished in 337.6885ms 200 application/javascript
+2020-12-01 15:56:16.296 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:56:16.334 -03:00 [INF] Request finished in 38.3355ms 404 
+2020-12-01 15:56:16.338 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 15:56:16.340 -03:00 [INF] Request finished in 2.4453ms 404 
+2020-12-01 15:56:16.573 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:56:16.576 -03:00 [INF] Request finished in 3.4185ms 404 
+2020-12-01 15:56:16.582 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 15:56:16.586 -03:00 [INF] Request finished in 3.7859ms 404 
+2020-12-01 15:56:16.712 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 15:56:16.909 -03:00 [INF] Request finished in 197.0638ms 200 application/json;charset=utf-8
+2020-12-01 15:56:47.319 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-01 15:56:47.330 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:56:47.375 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 15:56:52.592 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 15:56:52.616 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 5230.7493ms
+2020-12-01 15:56:52.623 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 15:56:52.625 -03:00 [INF] Request finished in 5306.1544ms 200 application/json; charset=utf-8
+2020-12-01 15:56:52.671 -03:00 [INF] Order Created
+2020-12-01 15:56:56.981 -03:00 [INF] Order successfully registered
+2020-12-01 15:57:00.489 -03:00 [ERR] Message not consumed.
+2020-12-01 15:57:00.494 -03:00 [INF] Preparing Fries...
+2020-12-01 15:59:09.812 -03:00 [INF] Starting up
+2020-12-01 15:59:13.720 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:59:13.737 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:59:13.743 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:59:13.749 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:59:13.757 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:59:13.779 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:59:14.400 -03:00 [INF] Preparing Fries...
+2020-12-01 15:59:27.313 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 15:59:27.309 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 15:59:27.316 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 15:59:27.318 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 15:59:27.319 -03:00 [INF] Hosting environment: Development
+2020-12-01 15:59:27.321 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 15:59:27.324 -03:00 [ERR] Error on Dequeue message: System.NullReferenceException: Object reference not set to an instance of an object.
+   at KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler.PrepareFriesHandler.Handle(PrepareFriesRequest request, CancellationToken cancellationToken) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Sector.Fries\Handlers\PrepareFriesHandler\PrepareFriesHandler.cs:line 40
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Sector.Fries.ConsumerFriesQueue.Dequeue(BasicDeliverEventArgs message) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Sector.Fries\ConsumerFriesQueue.cs:line 53
+2020-12-01 15:59:40.550 -03:00 [INF] Starting up
+2020-12-01 15:59:44.185 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 15:59:44.205 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:59:44.210 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:59:44.216 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 15:59:44.220 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 15:59:44.236 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 15:59:44.718 -03:00 [INF] Preparing Fries...
+2020-12-01 16:02:47.975 -03:00 [INF] Starting up
+2020-12-01 16:02:53.119 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 16:02:53.140 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 16:02:53.147 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 16:02:53.154 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 16:02:53.161 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 16:02:53.197 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 16:02:53.787 -03:00 [INF] Preparing Fries...
+2020-12-01 16:02:56.106 -03:00 [ERR] It´s not possible deliver fries without an order
+2020-12-01 16:02:56.129 -03:00 [ERR] Message not consumed.
+2020-12-01 16:02:56.216 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 16:02:56.249 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 16:02:56.281 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 16:02:56.284 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 16:02:56.285 -03:00 [INF] Hosting environment: Development
+2020-12-01 16:02:56.287 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 16:02:56.327 -03:00 [INF] Request finished in 119.0207ms 301 
+2020-12-01 16:02:56.377 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 16:02:56.428 -03:00 [INF] Request finished in 51.2887ms 200 text/html;charset=utf-8
+2020-12-01 16:02:56.516 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 16:02:56.518 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 16:02:56.518 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 16:02:56.614 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 16:02:56.614 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 16:02:56.614 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 16:02:56.620 -03:00 [INF] Request finished in 101.804ms 200 text/css
+2020-12-01 16:02:56.620 -03:00 [INF] Request finished in 101.82ms 200 application/javascript
+2020-12-01 16:02:56.620 -03:00 [INF] Request finished in 103.7221ms 200 application/javascript
+2020-12-01 16:02:57.070 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 16:02:57.170 -03:00 [INF] Request finished in 101.5459ms 404 
+2020-12-01 16:02:57.191 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 16:02:57.201 -03:00 [INF] Request finished in 9.6725ms 404 
+2020-12-01 16:02:57.655 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 16:02:57.661 -03:00 [INF] Request finished in 6.0563ms 404 
+2020-12-01 16:02:57.667 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 16:02:57.670 -03:00 [INF] Request finished in 3.4862ms 404 
+2020-12-01 16:02:57.908 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 16:02:58.103 -03:00 [INF] Request finished in 195.3863ms 200 application/json;charset=utf-8
+2020-12-01 16:03:32.725 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 83
+2020-12-01 16:03:32.735 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 16:03:32.797 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 16:03:40.133 -03:00 [INF] Order Created
+2020-12-01 16:03:42.083 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 16:03:42.112 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 9301.8403ms
+2020-12-01 16:03:42.120 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 16:03:42.123 -03:00 [INF] Request finished in 9397.5337ms 200 application/json; charset=utf-8
+2020-12-01 16:03:42.192 -03:00 [INF] Preparing Fries...
+2020-12-01 16:03:42.193 -03:00 [INF] Order successfully registered
+2020-12-01 16:03:45.263 -03:00 [ERR] Message not consumed.
+2020-12-01 16:03:48.979 -03:00 [INF] Missing Fries, updating your order
+2020-12-01 16:03:54.354 -03:00 [INF] Order Updated
+2020-12-01 16:06:12.574 -03:00 [INF] Starting up
+2020-12-01 16:06:17.084 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 16:06:17.101 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 16:06:17.107 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 16:06:17.112 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 16:06:17.118 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 16:06:17.124 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 16:06:17.655 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-01 16:06:17.659 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-01 16:06:17.662 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 16:06:17.663 -03:00 [INF] Hosting environment: Development
+2020-12-01 16:06:17.664 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-01 16:06:19.537 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2020-12-01 16:06:19.626 -03:00 [INF] Request finished in 95.8836ms 301 
+2020-12-01 16:06:19.685 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-01 16:06:19.765 -03:00 [INF] Request finished in 80.6007ms 200 text/html;charset=utf-8
+2020-12-01 16:06:19.820 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-01 16:06:19.826 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-01 16:06:19.826 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-01 16:06:19.916 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-12-01 16:06:19.916 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-12-01 16:06:19.922 -03:00 [INF] Request finished in 95.3694ms 200 application/javascript
+2020-12-01 16:06:19.922 -03:00 [INF] Request finished in 101.9523ms 200 application/javascript
+2020-12-01 16:06:19.924 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-12-01 16:06:19.928 -03:00 [INF] Request finished in 102.1966ms 200 text/css
+2020-12-01 16:06:20.143 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 16:06:20.187 -03:00 [INF] Request finished in 44.114ms 404 
+2020-12-01 16:06:20.191 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-01 16:06:20.193 -03:00 [INF] Request finished in 2.1654ms 404 
+2020-12-01 16:06:20.342 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 16:06:20.344 -03:00 [INF] Request finished in 2.477ms 404 
+2020-12-01 16:06:20.347 -03:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-01 16:06:20.348 -03:00 [INF] Request finished in 1.3205ms 404 
+2020-12-01 16:06:20.449 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-01 16:06:20.615 -03:00 [INF] Request finished in 165.1298ms 200 application/json;charset=utf-8
+2020-12-01 16:06:54.122 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 83
+2020-12-01 16:06:54.132 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 16:06:54.183 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 16:06:59.226 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 16:06:59.258 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 5063.0851ms
+2020-12-01 16:06:59.270 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 16:06:59.273 -03:00 [INF] Request finished in 5151.0812ms 200 application/json; charset=utf-8
+2020-12-01 16:06:59.337 -03:00 [INF] Order Created
+2020-12-01 16:06:59.449 -03:00 [INF] Order successfully registered
+2020-12-01 16:06:59.456 -03:00 [ERR] Message not consumed.
+2020-12-01 16:06:59.462 -03:00 [INF] Preparing Fries...
+2020-12-01 16:07:06.902 -03:00 [INF] Missing Fries, updating your order
+2020-12-01 16:07:13.276 -03:00 [INF] Order Updated
+2020-12-01 16:07:15.686 -03:00 [INF] Fries quantity has updated
+2020-12-01 16:07:15.728 -03:00 [INF] Fries delivered
+2020-12-01 16:07:15.740 -03:00 [INF] {"ProductId":"1","Value":2.0,"Quantity":-6,"ProductType":1,"Status":0}
+2020-12-01 16:07:15.742 -03:00 [INF] {"Number":"477CFB7E","CreateDate":"2020-12-01T16:06:59.3335315-03:00","LastUpdateDate":"2020-12-01T16:06:59.3336544-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":11,"ProductType":1,"Status":2}],"Total":11.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"918fd524-bc80-4368-ad3b-28fdaa434a54","Notifications":[],"Invalid":false,"Valid":true}
