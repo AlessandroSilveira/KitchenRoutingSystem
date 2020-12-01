@@ -1,5 +1,5 @@
-﻿using KitchenRoutingSystem.Sector.Salad.Commands.Request;
-using KitchenRoutingSystem.Sector.Salad.Services.Interfaces;
+﻿using KitchenRoutingSystem.Sector.Fries.Commands.Request;
+using KitchenRoutingSystem.Sector.Fries.Services.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -9,7 +9,7 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Sector.Salad
+namespace KitchenRoutingSystem.Sector.Fries
 {
     public class ConsumerFriesQueue
     {

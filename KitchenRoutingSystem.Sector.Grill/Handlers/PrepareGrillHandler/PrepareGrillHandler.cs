@@ -11,7 +11,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareFriesHandler
+namespace KitchenRoutingSystem.Sector.Grill.Handlers.PrepareGrillHandler
 {
     public class PrepareGrillHandler : CommandHandler, IRequestHandler<PrepareGrillRequest, CommandResponse>
     {
@@ -29,7 +29,7 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareFriesHandler
         public async Task<CommandResponse> Handle(PrepareGrillRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Preparing Grill...");
-           
+
             var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
             var order = _orderRepository.Get(request.OrderId).Result;
 

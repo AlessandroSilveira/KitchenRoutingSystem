@@ -20,6 +20,16 @@ using KitchenRoutingSystem.Sector.Salad.Services.Interfaces;
 using KitchenRoutingSystem.Sector.Grill;
 using KitchenRoutingSystem.Sector.Drinks;
 using KitchenRoutingSystem.Sector.Dessert;
+using KitchenRoutingSystem.Sector.Grill.Services.Interfaces;
+using KitchenRoutingSystem.Sector.Drinks.Services.Interfaces;
+using KitchenRoutingSystem.Sector.Grill.Services;
+using KitchenRoutingSystem.Sector.Desserts.Services.Interfaces;
+using KitchenRoutingSystem.Sector.Fries.Services.Interfaces;
+using KitchenRoutingSystem.Sector.Fries.Services;
+using KitchenRoutingSystem.Sector.Fries;
+using KitchenRoutingSystem.Sector.Desserts.Services;
+using KitchenRoutingSystem.Sector.Drinks.Services;
+using KitchenRoutingSystem.Sector.Salad.Services;
 
 namespace KitchenRoutingSystem.Api
 {
@@ -49,7 +59,13 @@ namespace KitchenRoutingSystem.Api
 
             var assemblyDomain = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Domain");
             var assemblySectorFries = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Fries");
-            services.AddMediatR(assemblyDomain, assemblySectorFries);
+            var assemblySectorGrill = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Grill");
+            var assemblySectorSalad = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Salad");
+            var assemblySectorDrinks = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Drinks");
+            var assemblySectorDessert = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Desserts");
+            
+
+            services.AddMediatR(assemblyDomain, assemblySectorFries, assemblySectorGrill, assemblySectorSalad, assemblySectorDrinks, assemblySectorDessert);
 
             services.AddSingleton<IRepository<Order>, OrderRepository>();
             services.AddSingleton<IRepository<Product>, ProductRepository>();
@@ -57,9 +73,13 @@ namespace KitchenRoutingSystem.Api
             services.AddTransient<IOrderPublishService, OrderPublishServices>();
             services.AddTransient<IProcessProductService, ProcessProductService>();
             services.AddTransient<IFriesConsumerQueueService, FriesConsumerQueueService>();
+            services.AddTransient<IGrillConsumerQueueService, GrillConsumerQueueService>();
+            services.AddTransient<ISaladConsumerQueueService, SaladConsumerQueueService>();
+            services.AddTransient<IDrinksConsumerQueueService, DrinksConsumerQueueService>();
+            services.AddTransient<IDessertConsumerQueueService, DessertConsumerQueueService>();
+            services.AddTransient<IOrderConsumerQueue, OrderConsumerQueue>();
             
 
-            services.AddTransient<IOrderConsumerQueue, OrderConsumerQueue>();
             services.AddSingleton<OrderConsumer>();
             services.AddSingleton<ConsumerFriesQueue>();
             services.AddSingleton<ConsumerGrillQueue>();

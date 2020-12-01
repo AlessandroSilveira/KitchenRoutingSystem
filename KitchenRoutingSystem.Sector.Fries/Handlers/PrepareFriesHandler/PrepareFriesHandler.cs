@@ -1,7 +1,7 @@
 ﻿using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
 using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Domain.Repositories;
-using KitchenRoutingSystem.Sector.Salad.Commands.Request;
+using KitchenRoutingSystem.Sector.Fries.Commands.Request;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
 using MediatR;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareFriesHandler
+namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
 {
     public class PrepareFriesHandler : CommandHandler, IRequestHandler<PrepareFriesRequest, CommandResponse>
     {
@@ -32,7 +32,8 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareFriesHandler
             _logger.LogInformation("Preparing Fries...");
 
             //Verifying if had in storage
-            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
+            //var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
+           var products = _productRepository.GetAll().Result.FirstOrDefault(); //.Result.Where(a => a.ProductType == request.Product.ProductType).FirstOrDefault();
             var order =  _orderRepository.Get(request.OrderId).Result;
 
             

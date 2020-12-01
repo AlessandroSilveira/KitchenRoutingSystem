@@ -7,7 +7,7 @@ using RabbitMQ.Client.Events;
 using System;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Domain.MQ.OrderConsumer
+namespace KitchenRoutingSystem.Sector.Desserts.Services
 {
     public class DessertConsumerQueueService : QueueChannel, IDessertConsumerQueueService
     {

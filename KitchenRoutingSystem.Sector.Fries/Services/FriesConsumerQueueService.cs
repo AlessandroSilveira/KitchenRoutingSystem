@@ -1,6 +1,6 @@
 ﻿using KitchenRoutingSystem.Domain.MQ.Channel;
 using KitchenRoutingSystem.Domain.MQ.OrderConsumerQueue;
-using KitchenRoutingSystem.Sector.Salad.Services.Interfaces;
+using KitchenRoutingSystem.Sector.Fries.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
@@ -8,7 +8,7 @@ using RabbitMQ.Client.Events;
 using System;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Domain.MQ.OrderConsumer
+namespace KitchenRoutingSystem.Sector.Fries.Services
 {
     public class FriesConsumerQueueService : QueueChannel, IFriesConsumerQueueService
     {

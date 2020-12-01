@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Sector.Salad.Services.Interfaces
+namespace KitchenRoutingSystem.Sector.Fries.Services.Interfaces
 {
     public interface IFriesConsumerQueueService
     {
