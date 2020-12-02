@@ -40,7 +40,7 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers
 
             var product = _mapper.Map<List<Product>>(request.Products);
             // Create Order
-            var order = new Order (product, "Order Created");
+            var order = new Order (product);
 
             // Consolida as notificações
             AddNotifications(order);

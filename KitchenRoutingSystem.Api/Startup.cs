@@ -31,6 +31,7 @@ using KitchenRoutingSystem.Sector.Drinks.Services;
 using KitchenRoutingSystem.Sector.Salad.Services;
 using KitchenRoutingSystem.Domain.DTOs;
 using AutoMapper;
+using KitchenRoutingSystem.Domain.Commands.OrderCommands.Request;
 
 namespace KitchenRoutingSystem.Api
 {
@@ -88,6 +89,7 @@ namespace KitchenRoutingSystem.Api
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<ProductDto, Product>().ReverseMap();
+                cfg.CreateMap<Order, CreateOrderRequest>().ReverseMap();
             });
             IMapper mapper = config.CreateMapper();
             services.AddSingleton(mapper);

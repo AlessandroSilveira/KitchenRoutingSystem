@@ -8,12 +8,11 @@ namespace KitchenRoutingSystem.Domain.Entities
 {
     public class Order : Entity
     {
-        public Order( List<Product> Product, string notes)
+        public Order( List<Product> Product)
         {   
             Number = Guid.NewGuid().ToString().ToUpper().Substring(0, 8);
             CreateDate = DateTime.Now;
-            LastUpdateDate = DateTime.Now;
-            Notes = notes;
+            LastUpdateDate = DateTime.Now;           
             Status = EOrderStatus.InTransit;
             Products = Product;
         }

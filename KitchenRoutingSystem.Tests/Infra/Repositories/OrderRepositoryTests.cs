@@ -26,7 +26,7 @@ namespace KitchenRoutingSystem.Tests.Infra.Repositories
                     Value = 1
                 }
             };
-            order = new Order(listProduct, "Teste");
+            order = new Order(listProduct);
         }
 
         [Fact]

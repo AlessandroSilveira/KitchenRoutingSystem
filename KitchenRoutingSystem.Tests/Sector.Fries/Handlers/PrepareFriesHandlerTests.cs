@@ -46,7 +46,7 @@ namespace KitchenRoutingSystem.Tests.Sector.Fries.Handlers
                     Status = KitchenRoutingSystem.Domain.Enums.EProductStatus.Pending,
                     Value = 1
                 }
-            }, "Teste");
+            });
 
             product = new Product
             {

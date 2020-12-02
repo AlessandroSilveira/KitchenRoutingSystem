@@ -9,9 +9,7 @@ using KitchenRoutingSystem.Sector.Salad.Handlers.PrepareSaladHandler;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using Microsoft.Extensions.Logging;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace KitchenRoutingSystem.Tests.Sector.Salad.Handlers
@@ -46,7 +44,7 @@ namespace KitchenRoutingSystem.Tests.Sector.Salad.Handlers
                     Status = KitchenRoutingSystem.Domain.Enums.EProductStatus.Pending,
                     Value = 1
                 }
-            }, "Teste");
+            });
 
             product = new Product
             {

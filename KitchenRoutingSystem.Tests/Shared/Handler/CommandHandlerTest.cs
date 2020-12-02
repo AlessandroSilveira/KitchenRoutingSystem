@@ -25,8 +25,7 @@ namespace KitchenRoutingSystem.Tests.Shared.Handler
             order = new Order(new List<Product>
             {
                 new Product()
-            },
-            "teste"); ;
+            });
         }
 
         [Fact]
