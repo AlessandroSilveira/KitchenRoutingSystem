@@ -9,19 +9,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenRoutingSystem.Domain
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenRoutingSystem.Infra", "KitchenRoutingSystem.Infra\KitchenRoutingSystem.Infra.csproj", "{FB29DFF7-6B7A-49BD-A9AB-7687C5149599}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenRoutingSystem.Tests", "KitchenRoutingSystem.Tests\KitchenRoutingSystem.Tests.csproj", "{35786BFF-D254-4364-8281-E5B4245EBA3E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenRoutingSystem.Shared", "KitchenRoutingSystem.Shared\KitchenRoutingSystem.Shared.csproj", "{A5BDB0A9-E0D9-42FA-94C4-F51B7C63BF70}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenRoutingSystem.Sector.Fries", "KitchenRoutingSystem.Sector.Fries\KitchenRoutingSystem.Sector.Fries.csproj", "{7D3132ED-22C7-474A-A7BE-4294D1A75EEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitchenRoutingSystem.Sector.Grill", "KitchenRoutingSystem.Sector.Grill\KitchenRoutingSystem.Sector.Grill.csproj", "{12CD9E82-D1E3-4D94-B482-161D9736607B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenRoutingSystem.Sector.Grill", "KitchenRoutingSystem.Sector.Grill\KitchenRoutingSystem.Sector.Grill.csproj", "{12CD9E82-D1E3-4D94-B482-161D9736607B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitchenRoutingSystem.Sector.Salad", "KitchenRoutingSystem.Sector.Salad\KitchenRoutingSystem.Sector.Salad.csproj", "{85027ADB-6D22-436F-8225-73A4C0745F2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenRoutingSystem.Sector.Salad", "KitchenRoutingSystem.Sector.Salad\KitchenRoutingSystem.Sector.Salad.csproj", "{85027ADB-6D22-436F-8225-73A4C0745F2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitchenRoutingSystem.Sector.Drinks", "KitchenRoutingSystem.Sector.Drinks\KitchenRoutingSystem.Sector.Drinks.csproj", "{445E7810-4A3E-441B-96FB-38905CA7C552}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenRoutingSystem.Sector.Drinks", "KitchenRoutingSystem.Sector.Drinks\KitchenRoutingSystem.Sector.Drinks.csproj", "{445E7810-4A3E-441B-96FB-38905CA7C552}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitchenRoutingSystem.Sector.Desserts", "KitchenRoutingSystem.Sector.Desserts\KitchenRoutingSystem.Sector.Desserts.csproj", "{31D9B264-E086-408B-8ADB-1913ECA7ACF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenRoutingSystem.Sector.Desserts", "KitchenRoutingSystem.Sector.Desserts\KitchenRoutingSystem.Sector.Desserts.csproj", "{31D9B264-E086-408B-8ADB-1913ECA7ACF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitchenRoutingSystem.Tests", "KitchenRoutingSystem.Tests\KitchenRoutingSystem.Tests.csproj", "{7E416F2B-AF33-44E3-9350-4CAF2C25998E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,6 @@ Global
 		{FB29DFF7-6B7A-49BD-A9AB-7687C5149599}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB29DFF7-6B7A-49BD-A9AB-7687C5149599}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB29DFF7-6B7A-49BD-A9AB-7687C5149599}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35786BFF-D254-4364-8281-E5B4245EBA3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35786BFF-D254-4364-8281-E5B4245EBA3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35786BFF-D254-4364-8281-E5B4245EBA3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35786BFF-D254-4364-8281-E5B4245EBA3E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A5BDB0A9-E0D9-42FA-94C4-F51B7C63BF70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A5BDB0A9-E0D9-42FA-94C4-F51B7C63BF70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5BDB0A9-E0D9-42FA-94C4-F51B7C63BF70}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +65,10 @@ Global
 		{31D9B264-E086-408B-8ADB-1913ECA7ACF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31D9B264-E086-408B-8ADB-1913ECA7ACF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31D9B264-E086-408B-8ADB-1913ECA7ACF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E416F2B-AF33-44E3-9350-4CAF2C25998E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E416F2B-AF33-44E3-9350-4CAF2C25998E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E416F2B-AF33-44E3-9350-4CAF2C25998E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E416F2B-AF33-44E3-9350-4CAF2C25998E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

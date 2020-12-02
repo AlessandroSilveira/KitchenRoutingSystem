@@ -1,4 +1,3 @@
-using KitchenRoutingSystem.Infra.Context;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +29,8 @@ using KitchenRoutingSystem.Sector.Fries;
 using KitchenRoutingSystem.Sector.Desserts.Services;
 using KitchenRoutingSystem.Sector.Drinks.Services;
 using KitchenRoutingSystem.Sector.Salad.Services;
+using KitchenRoutingSystem.Domain.DTOs;
+using AutoMapper;
 
 namespace KitchenRoutingSystem.Api
 {
@@ -48,8 +49,7 @@ namespace KitchenRoutingSystem.Api
             var configuration = GetConfiguration();
             services.AddSingleton(typeof(IConfiguration), configuration);
 
-            services.AddOptions();
-            services.AddDbContext<OrderContext>(opt => opt.UseInMemoryDatabase("KitchenRoutingServiceBase"));
+            services.AddOptions();            
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -62,8 +62,7 @@ namespace KitchenRoutingSystem.Api
             var assemblySectorGrill = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Grill");
             var assemblySectorSalad = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Salad");
             var assemblySectorDrinks = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Drinks");
-            var assemblySectorDessert = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Desserts");
-            
+            var assemblySectorDessert = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Desserts");            
 
             services.AddMediatR(assemblyDomain, assemblySectorFries, assemblySectorGrill, assemblySectorSalad, assemblySectorDrinks, assemblySectorDessert);
 
@@ -77,8 +76,7 @@ namespace KitchenRoutingSystem.Api
             services.AddTransient<ISaladConsumerQueueService, SaladConsumerQueueService>();
             services.AddTransient<IDrinksConsumerQueueService, DrinksConsumerQueueService>();
             services.AddTransient<IDessertConsumerQueueService, DessertConsumerQueueService>();
-            services.AddTransient<IOrderConsumerQueue, OrderConsumerQueue>();
-            
+            services.AddTransient<IOrderConsumerQueue, OrderConsumerQueue>();            
 
             services.AddSingleton<OrderConsumer>();
             services.AddSingleton<ConsumerFriesQueue>();
@@ -86,6 +84,14 @@ namespace KitchenRoutingSystem.Api
             services.AddSingleton<ConsumerSaladQueue>();
             services.AddSingleton<ConsumerDrinksQueue>();
             services.AddSingleton<ConsumerDessertQueue>();
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ProductDto, Product>().ReverseMap();
+            });
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+
         }
         private static IConfiguration GetConfiguration()
         {

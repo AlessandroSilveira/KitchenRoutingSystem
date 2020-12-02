@@ -1279,3 +1279,580 @@ Path 'products', line 1, position 34.
 2020-12-01 16:07:15.728 -03:00 [INF] Fries delivered
 2020-12-01 16:07:15.740 -03:00 [INF] {"ProductId":"1","Value":2.0,"Quantity":-6,"ProductType":1,"Status":0}
 2020-12-01 16:07:15.742 -03:00 [INF] {"Number":"477CFB7E","CreateDate":"2020-12-01T16:06:59.3335315-03:00","LastUpdateDate":"2020-12-01T16:06:59.3336544-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":11,"ProductType":1,"Status":2}],"Total":11.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"918fd524-bc80-4368-ad3b-28fdaa434a54","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 20:42:48.491 -03:00 [INF] Starting up
+2020-12-01 20:42:57.820 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 20:42:57.840 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 20:42:57.847 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 20:42:57.855 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 20:42:57.861 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 20:42:57.868 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 20:42:58.825 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 20:42:58.828 -03:00 [INF] Hosting environment: Development
+2020-12-01 20:42:58.831 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 20:42:59.035 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 20:42:59.260 -03:00 [INF] Request finished in 230.4796ms 200 text/html;charset=utf-8
+2020-12-01 20:42:59.990 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 20:43:00.275 -03:00 [INF] Request finished in 285.7067ms 200 application/json;charset=utf-8
+2020-12-01 21:28:41.817 -03:00 [INF] Starting up
+2020-12-01 21:28:50.304 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 21:28:50.325 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:28:50.336 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:28:50.342 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:28:50.347 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 21:28:50.353 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 21:28:50.446 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 21:28:50.477 -03:00 [INF] Hosting environment: Development
+2020-12-01 21:28:50.479 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 21:28:50.526 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 21:28:50.667 -03:00 [INF] Request finished in 152.6755ms 200 text/html;charset=utf-8
+2020-12-01 21:28:51.435 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 21:28:51.690 -03:00 [INF] Request finished in 255.7722ms 200 application/json;charset=utf-8
+2020-12-01 21:29:09.125 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 82
+2020-12-01 21:29:09.281 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:29:09.465 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 21:29:12.601 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 21:29:12.710 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 3233.9175ms
+2020-12-01 21:29:12.717 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:29:12.717 -03:00 [INF] Request finished in 3598.566ms 200 application/json; charset=utf-8
+2020-12-01 21:29:12.804 -03:00 [INF] Order Created
+2020-12-01 21:29:34.374 -03:00 [INF] Order successfully registered
+2020-12-01 21:29:40.701 -03:00 [ERR] Message not consumed.
+2020-12-01 21:29:44.347 -03:00 [INF] Preparing Fries...
+2020-12-01 21:29:44.882 -03:00 [ERR] Error on Dequeue message: AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Object -> List`1
+System.Object -> System.Collections.Generic.List`1[[KitchenRoutingSystem.Domain.DTOs.ProductDto, KitchenRoutingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Product -> ProductDto
+KitchenRoutingSystem.Domain.Entities.Product -> KitchenRoutingSystem.Domain.DTOs.ProductDto
+   at lambda_method(Closure , Product , ProductDto , ResolutionContext )
+   at lambda_method(Closure , Object , List`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , List`1 , ResolutionContext )
+   at KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler.PrepareFriesHandler.Handle(PrepareFriesRequest request, CancellationToken cancellationToken) in C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Sector.Fries\Handlers\PrepareFriesHandler\PrepareFriesHandler.cs:line 42
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Sector.Fries.ConsumerFriesQueue.Dequeue(BasicDeliverEventArgs message) in C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Sector.Fries\ConsumerFriesQueue.cs:line 53
+2020-12-01 21:29:45.017 -03:00 [ERR] Message not consumed.
+2020-12-01 21:30:30.161 -03:00 [INF] Starting up
+2020-12-01 21:30:37.117 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 21:30:37.142 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:30:37.148 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:30:37.158 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:30:37.951 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 21:30:37.962 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 21:30:38.104 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 21:30:38.123 -03:00 [INF] Hosting environment: Development
+2020-12-01 21:30:38.139 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 21:30:38.171 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 21:30:38.299 -03:00 [INF] Request finished in 132.5616ms 200 text/html;charset=utf-8
+2020-12-01 21:30:38.911 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 21:30:39.125 -03:00 [INF] Request finished in 214.6105ms 200 application/json;charset=utf-8
+2020-12-01 21:31:04.828 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 82
+2020-12-01 21:31:04.907 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:31:05.023 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 21:31:05.657 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 21:31:05.699 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 648.2175ms
+2020-12-01 21:31:05.710 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:31:05.710 -03:00 [INF] Request finished in 890.1385ms 200 application/json; charset=utf-8
+2020-12-01 21:31:05.845 -03:00 [INF] Order Created
+2020-12-01 21:31:42.605 -03:00 [INF] Order successfully registered
+2020-12-01 21:31:46.840 -03:00 [INF] Preparing Fries...
+2020-12-01 21:32:15.850 -03:00 [ERR] Message not consumed.
+2020-12-01 21:32:21.256 -03:00 [ERR] Error on Dequeue message: AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Object -> List`1
+System.Object -> System.Collections.Generic.List`1[[KitchenRoutingSystem.Domain.DTOs.ProductDto, KitchenRoutingSystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Product -> ProductDto
+KitchenRoutingSystem.Domain.Entities.Product -> KitchenRoutingSystem.Domain.DTOs.ProductDto
+   at lambda_method(Closure , Product , ProductDto , ResolutionContext )
+   at lambda_method(Closure , Object , List`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , List`1 , ResolutionContext )
+   at KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler.PrepareFriesHandler.Handle(PrepareFriesRequest request, CancellationToken cancellationToken) in C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Sector.Fries\Handlers\PrepareFriesHandler\PrepareFriesHandler.cs:line 42
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Sector.Fries.ConsumerFriesQueue.Dequeue(BasicDeliverEventArgs message) in C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Sector.Fries\ConsumerFriesQueue.cs:line 53
+2020-12-01 21:32:21.395 -03:00 [ERR] Message not consumed.
+2020-12-01 21:32:46.072 -03:00 [INF] Starting up
+2020-12-01 21:32:52.488 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 21:32:52.507 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:32:52.514 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:32:52.520 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:32:52.526 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 21:32:52.532 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 21:32:52.688 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 21:32:52.705 -03:00 [INF] Hosting environment: Development
+2020-12-01 21:32:52.718 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 21:32:52.776 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 21:32:52.939 -03:00 [INF] Request finished in 169.0734ms 200 text/html;charset=utf-8
+2020-12-01 21:32:53.900 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 21:32:54.109 -03:00 [INF] Request finished in 209.1321ms 200 application/json;charset=utf-8
+2020-12-01 21:34:21.381 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 82
+2020-12-01 21:34:21.459 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:34:21.518 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 21:34:22.086 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 21:34:22.107 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 580.3686ms
+2020-12-01 21:34:22.111 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:34:22.112 -03:00 [INF] Request finished in 745.2416ms 200 application/json; charset=utf-8
+2020-12-01 21:34:22.220 -03:00 [INF] Order Created
+2020-12-01 21:34:46.126 -03:00 [INF] Preparing Fries...
+2020-12-01 21:34:50.100 -03:00 [INF] Order successfully registered
+2020-12-01 21:35:03.165 -03:00 [ERR] Message not consumed.
+2020-12-01 21:38:36.976 -03:00 [INF] Starting up
+2020-12-01 21:38:46.151 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 21:38:46.173 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:38:46.188 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:38:46.194 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:38:46.201 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 21:38:46.207 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 21:38:46.300 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 21:38:46.311 -03:00 [INF] Hosting environment: Development
+2020-12-01 21:38:46.315 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 21:38:46.371 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 21:38:46.524 -03:00 [INF] Request finished in 157.089ms 200 text/html;charset=utf-8
+2020-12-01 21:38:47.309 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 21:38:47.707 -03:00 [INF] Request finished in 398.0067ms 200 application/json;charset=utf-8
+2020-12-01 21:38:56.130 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 82
+2020-12-01 21:38:56.205 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:38:56.259 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 21:38:56.966 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 21:38:56.997 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 722.2079ms
+2020-12-01 21:38:57.004 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:38:57.005 -03:00 [INF] Request finished in 878.6823ms 200 application/json; charset=utf-8
+2020-12-01 21:38:57.127 -03:00 [INF] Order Created
+2020-12-01 21:39:19.324 -03:00 [INF] Preparing Fries...
+2020-12-01 21:39:22.588 -03:00 [INF] Order successfully registered
+2020-12-01 21:39:34.803 -03:00 [ERR] Message not consumed.
+2020-12-01 21:39:51.041 -03:00 [INF] Fries quantity has updated
+2020-12-01 21:39:56.420 -03:00 [INF] Fries delivered
+2020-12-01 21:39:59.796 -03:00 [INF] {"ProductId":"1","Value":2.0,"Quantity":3,"ProductType":1,"Status":0}
+2020-12-01 21:40:00.366 -03:00 [INF] {"Number":"1E17A7B9","CreateDate":"2020-12-01T21:38:57.1223055-03:00","LastUpdateDate":"2020-12-01T21:38:57.1224145-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":1,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"eff8fd4a-8d73-4526-95bc-01cef1daaa3f","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 21:41:34.613 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 82
+2020-12-01 21:41:34.617 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:41:34.618 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 21:41:34.818 -03:00 [INF] Order Created
+2020-12-01 21:41:34.827 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 21:41:34.831 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 212.05ms
+2020-12-01 21:41:34.831 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:41:34.832 -03:00 [INF] Request finished in 219.1492ms 200 application/json; charset=utf-8
+2020-12-01 21:41:42.763 -03:00 [INF] Order successfully registered
+2020-12-01 21:41:44.065 -03:00 [ERR] Message not consumed.
+2020-12-01 21:41:48.421 -03:00 [INF] Preparing Fries...
+2020-12-01 21:43:08.470 -03:00 [INF] Fries quantity has updated
+2020-12-01 21:43:22.131 -03:00 [INF] Fries delivered
+2020-12-01 21:43:30.704 -03:00 [INF] {"ProductId":"1","Value":2.0,"Quantity":1,"ProductType":1,"Status":0}
+2020-12-01 21:43:31.555 -03:00 [INF] {"Number":"D1243439","CreateDate":"2020-12-01T21:41:34.8155387-03:00","LastUpdateDate":"2020-12-01T21:41:34.8155421-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":1,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"06aca48e-c3d3-4682-8577-ff75d78b9856","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 21:46:29.362 -03:00 [INF] Starting up
+2020-12-01 21:46:36.021 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 21:46:36.046 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:46:36.060 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:46:36.068 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:46:36.075 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 21:46:36.086 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 21:46:36.314 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 21:46:36.351 -03:00 [INF] Hosting environment: Development
+2020-12-01 21:46:36.353 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 21:46:36.437 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 21:46:36.622 -03:00 [INF] Request finished in 196.6402ms 200 text/html;charset=utf-8
+2020-12-01 21:46:37.408 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 21:46:37.689 -03:00 [INF] Request finished in 282.1258ms 200 application/json;charset=utf-8
+2020-12-01 21:46:50.164 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 82
+2020-12-01 21:46:50.247 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:46:50.309 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 21:46:50.909 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 21:46:50.942 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 616.226ms
+2020-12-01 21:46:50.947 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:46:50.948 -03:00 [INF] Request finished in 788.6235ms 200 application/json; charset=utf-8
+2020-12-01 21:46:51.067 -03:00 [INF] Order Created
+2020-12-01 21:47:00.167 -03:00 [INF] Order successfully registered
+2020-12-01 21:47:02.747 -03:00 [ERR] Message not consumed.
+2020-12-01 21:47:08.069 -03:00 [INF] Preparing Fries...
+2020-12-01 21:47:28.365 -03:00 [INF] Fries quantity has updated
+2020-12-01 21:47:37.343 -03:00 [INF] Fries delivered
+2020-12-01 21:47:39.946 -03:00 [INF] {"ProductId":"1","Value":2.0,"Quantity":3,"ProductType":1,"Status":0}
+2020-12-01 21:47:39.946 -03:00 [INF] {"Number":"1D9D4399","CreateDate":"2020-12-01T21:46:51.0622816-03:00","LastUpdateDate":"2020-12-01T21:46:51.0624089-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":1,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"8c33cbba-3946-44ee-bafe-4e061809f52d","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 21:54:19.680 -03:00 [INF] Starting up
+2020-12-01 21:54:27.283 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 21:54:27.306 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:54:27.313 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:54:27.320 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:54:27.326 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 21:54:27.333 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 21:54:27.422 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 21:54:27.444 -03:00 [INF] Hosting environment: Development
+2020-12-01 21:54:27.451 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 21:54:27.484 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 21:54:27.642 -03:00 [INF] Request finished in 161.4491ms 200 text/html;charset=utf-8
+2020-12-01 21:54:28.379 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 21:54:28.609 -03:00 [INF] Request finished in 230.7806ms 200 application/json;charset=utf-8
+2020-12-01 21:54:31.471 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 21:54:31.542 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:54:31.602 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 21:54:32.283 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 21:54:32.310 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 696.4398ms
+2020-12-01 21:54:32.314 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:54:32.314 -03:00 [INF] Request finished in 846.2696ms 200 application/json; charset=utf-8
+2020-12-01 21:54:32.461 -03:00 [INF] Order Created
+2020-12-01 21:54:33.113 -03:00 [ERR] Error on Dequeue message: System.ArgumentNullException: Value cannot be null. (Parameter 'routingKey')
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicPublish(String exchange, String routingKey, Boolean mandatory, IBasicProperties basicProperties, ReadOnlyMemory`1 body)
+   at RabbitMQ.Client.IModelExensions.BasicPublish(IModel model, String exchange, String routingKey, IBasicProperties basicProperties, ReadOnlyMemory`1 body)
+   at KitchenRoutingSystem.Domain.Services.ProcessProductService.SendOrderToGrillSector(Byte[] messageBodyBytes) in C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Domain\Services\ProcessProductService.cs:line 96
+   at KitchenRoutingSystem.Domain.Handlers.ProcessProductHandlers.ProcessProductHandler.Handle(ProcessProductCommad request, CancellationToken cancellationToken) in C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Domain\Handlers\ProcessProductHandlers\ProcessProductHandler.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers.ProcessOrderHandler.Handle(ProcessOrderRequest request, CancellationToken cancellationToken) in C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Domain\Handlers\ProcessOrderHandlers\ProcessOrderHandler.cs:line 56
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Api.OrderConsumer.Dequeue(BasicDeliverEventArgs message) in C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api\OrderConsumer.cs:line 52
+2020-12-01 21:54:33.392 -03:00 [ERR] Message not consumed.
+2020-12-01 21:58:08.617 -03:00 [INF] Starting up
+2020-12-01 21:58:16.371 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 21:58:16.389 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:58:16.397 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:58:16.402 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:58:16.408 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 21:58:16.416 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 21:58:16.544 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 21:58:16.566 -03:00 [INF] Hosting environment: Development
+2020-12-01 21:58:16.570 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 21:58:16.604 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 21:58:16.728 -03:00 [INF] Request finished in 129.5483ms 200 text/html;charset=utf-8
+2020-12-01 21:58:17.394 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 21:58:17.699 -03:00 [INF] Request finished in 303.8013ms 200 application/json;charset=utf-8
+2020-12-01 21:58:25.733 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 21:58:25.806 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:58:25.881 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 21:58:26.450 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 21:58:26.479 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 581.8676ms
+2020-12-01 21:58:26.486 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:58:26.486 -03:00 [INF] Request finished in 755.7741ms 200 application/json; charset=utf-8
+2020-12-01 21:58:26.583 -03:00 [INF] Order Created
+2020-12-01 21:58:26.756 -03:00 [INF] Order successfully registered
+2020-12-01 21:58:26.767 -03:00 [ERR] Message not consumed.
+2020-12-01 21:58:31.493 -03:00 [INF] Preparing Grill...
+2020-12-01 21:59:27.553 -03:00 [INF] Starting up
+2020-12-01 21:59:33.598 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 21:59:33.621 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:59:33.633 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:59:33.639 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 21:59:33.648 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 21:59:33.655 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 21:59:33.763 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 21:59:33.788 -03:00 [INF] Hosting environment: Development
+2020-12-01 21:59:33.795 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 21:59:33.830 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 21:59:33.960 -03:00 [INF] Request finished in 133.3747ms 200 text/html;charset=utf-8
+2020-12-01 21:59:34.702 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 21:59:34.999 -03:00 [INF] Request finished in 298.7554ms 200 application/json;charset=utf-8
+2020-12-01 21:59:48.690 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 21:59:48.765 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:59:48.830 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 21:59:49.379 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 21:59:49.410 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 565.039ms
+2020-12-01 21:59:49.415 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 21:59:49.416 -03:00 [INF] Request finished in 730.2271ms 200 application/json; charset=utf-8
+2020-12-01 21:59:49.543 -03:00 [INF] Order Created
+2020-12-01 21:59:50.648 -03:00 [INF] Order successfully registered
+2020-12-01 21:59:50.654 -03:00 [ERR] Message not consumed.
+2020-12-01 21:59:57.893 -03:00 [INF] Preparing Grill...
+2020-12-01 22:01:55.293 -03:00 [INF] Starting up
+2020-12-01 22:02:01.483 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:02:01.502 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:02:01.511 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:02:01.525 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:02:01.532 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 22:02:01.543 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 22:02:01.743 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 22:02:01.862 -03:00 [INF] Hosting environment: Development
+2020-12-01 22:02:01.866 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 22:02:01.913 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 22:02:02.063 -03:00 [INF] Request finished in 156.8413ms 200 text/html;charset=utf-8
+2020-12-01 22:02:46.327 -03:00 [INF] Starting up
+2020-12-01 22:02:52.043 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:02:52.059 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:02:52.067 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:02:52.072 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:02:52.078 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 22:02:52.084 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 22:02:52.194 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 22:02:52.219 -03:00 [INF] Hosting environment: Development
+2020-12-01 22:02:52.226 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 22:02:52.266 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 22:02:52.384 -03:00 [INF] Request finished in 122.9297ms 200 text/html;charset=utf-8
+2020-12-01 22:02:53.045 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 22:02:53.346 -03:00 [INF] Request finished in 300.8073ms 200 application/json;charset=utf-8
+2020-12-01 22:02:57.002 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 22:02:57.066 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:02:57.120 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 22:02:57.913 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 22:02:57.951 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 811.9574ms
+2020-12-01 22:02:57.955 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:02:57.959 -03:00 [INF] Request finished in 960.9632ms 200 application/json; charset=utf-8
+2020-12-01 22:03:20.157 -03:00 [INF] Order Created
+2020-12-01 22:03:59.871 -03:00 [INF] Order successfully registered
+2020-12-01 22:03:59.872 -03:00 [ERR] Message not consumed.
+2020-12-01 22:16:23.564 -03:00 [INF] Starting up
+2020-12-01 22:16:33.369 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:16:33.388 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:16:33.398 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:16:56.557 -03:00 [INF] Starting up
+2020-12-01 22:17:02.473 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:17:02.494 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:17:02.506 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:17:05.349 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:17:05.356 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 22:17:05.376 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 22:17:07.466 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 22:17:07.520 -03:00 [INF] Hosting environment: Development
+2020-12-01 22:17:07.543 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 22:17:07.605 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 22:17:07.751 -03:00 [INF] Request finished in 151.3506ms 200 text/html;charset=utf-8
+2020-12-01 22:17:12.169 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 22:17:12.205 -03:00 [INF] Preparing Grill...
+2020-12-01 22:18:05.635 -03:00 [INF] Starting up
+2020-12-01 22:18:11.913 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:18:11.928 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:18:11.935 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:18:24.181 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:18:24.194 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 22:18:24.200 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 22:18:24.326 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 22:18:24.349 -03:00 [INF] Hosting environment: Development
+2020-12-01 22:18:24.366 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 22:18:24.422 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 22:18:24.520 -03:00 [INF] Request finished in 102.2392ms 200 text/html;charset=utf-8
+2020-12-01 22:18:25.243 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 22:18:25.603 -03:00 [INF] Request finished in 360.1602ms 200 application/json;charset=utf-8
+2020-12-01 22:18:34.303 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 22:18:34.383 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:18:34.465 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 22:18:35.044 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 22:18:35.073 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 594.7213ms
+2020-12-01 22:18:35.078 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:18:35.078 -03:00 [INF] Request finished in 778.4045ms 200 application/json; charset=utf-8
+2020-12-01 22:18:41.641 -03:00 [INF] Order Created
+2020-12-01 22:18:42.750 -03:00 [INF] Order successfully registered
+2020-12-01 22:18:44.846 -03:00 [ERR] Message not consumed.
+2020-12-01 22:18:47.273 -03:00 [INF] Preparing Grill...
+2020-12-01 22:19:32.717 -03:00 [INF] Starting up
+2020-12-01 22:19:38.989 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:19:39.006 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:19:39.012 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:20:12.097 -03:00 [INF] Starting up
+2020-12-01 22:20:21.143 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:20:21.168 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:20:21.174 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:20:25.117 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:20:25.138 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 22:20:25.143 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 22:20:25.241 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 22:20:25.262 -03:00 [INF] Hosting environment: Development
+2020-12-01 22:20:25.273 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 22:20:25.347 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 22:20:25.497 -03:00 [INF] Request finished in 167.4639ms 200 text/html;charset=utf-8
+2020-12-01 22:20:26.229 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 22:20:26.608 -03:00 [INF] Request finished in 379.5174ms 200 application/json;charset=utf-8
+2020-12-01 22:20:35.417 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 22:20:35.517 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:20:35.577 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 22:20:36.148 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 22:20:36.195 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 588.3155ms
+2020-12-01 22:20:36.240 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:20:36.241 -03:00 [INF] Request finished in 826.984ms 200 application/json; charset=utf-8
+2020-12-01 22:20:48.422 -03:00 [INF] Order Created
+2020-12-01 22:21:06.465 -03:00 [INF] Preparing Fries...
+2020-12-01 22:21:07.700 -03:00 [INF] Order successfully registered
+2020-12-01 22:22:07.781 -03:00 [INF] Starting up
+2020-12-01 22:22:13.700 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:22:13.719 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:22:13.726 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:22:19.968 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:25:13.168 -03:00 [INF] Starting up
+2020-12-01 22:25:19.231 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:25:19.255 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:25:19.263 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:25:25.240 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:25:28.198 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 22:25:28.251 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 22:25:28.442 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 22:25:28.466 -03:00 [INF] Hosting environment: Development
+2020-12-01 22:25:28.475 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 22:25:28.544 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 22:28:16.005 -03:00 [INF] Starting up
+2020-12-01 22:28:23.681 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:28:23.697 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:28:23.703 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:28:23.710 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:28:28.754 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 22:28:29.503 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 22:28:29.672 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 22:28:29.733 -03:00 [INF] Hosting environment: Development
+2020-12-01 22:28:29.735 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 22:28:29.816 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 22:28:30.008 -03:00 [INF] Request finished in 201.3231ms 200 text/html;charset=utf-8
+2020-12-01 22:28:36.009 -03:00 [INF] Preparing Fries...
+2020-12-01 22:28:37.855 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 22:29:26.875 -03:00 [INF] Starting up
+2020-12-01 22:29:32.259 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-01 22:29:32.278 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:29:32.284 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:29:32.292 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-01 22:29:34.706 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-01 22:29:36.335 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-01 22:29:36.505 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-01 22:29:36.518 -03:00 [INF] Hosting environment: Development
+2020-12-01 22:29:36.530 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-01 22:29:36.664 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/index.html  
+2020-12-01 22:29:40.245 -03:00 [INF] Preparing Fries...
+2020-12-01 22:29:44.182 -03:00 [INF] Request finished in 7530.3741ms 200 text/html;charset=utf-8
+2020-12-01 22:29:44.750 -03:00 [INF] Order Created
+2020-12-01 22:29:44.871 -03:00 [ERR] Error on Dequeue message: System.NullReferenceException: Object reference not set to an instance of an object.
+   at KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler.PrepareFriesHandler.Handle(PrepareFriesRequest request, CancellationToken cancellationToken) in C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Sector.Fries\Handlers\PrepareFriesHandler\PrepareFriesHandler.cs:line 42
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Sector.Fries.ConsumerFriesQueue.Dequeue(BasicDeliverEventArgs message) in C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Sector.Fries\ConsumerFriesQueue.cs:line 53
+2020-12-01 22:29:48.498 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:62496/swagger/v1/swagger.json  
+2020-12-01 22:29:52.510 -03:00 [ERR] Message not consumed.
+2020-12-01 22:29:53.414 -03:00 [INF] Order successfully registered
+2020-12-01 22:29:55.142 -03:00 [ERR] Message not consumed.
+2020-12-01 22:29:55.150 -03:00 [INF] Preparing Fries...
+2020-12-01 22:29:55.200 -03:00 [INF] Fries quantity has updated
+2020-12-01 22:29:55.204 -03:00 [INF] Fries delivered
+2020-12-01 22:29:55.216 -03:00 [INF] Request finished in 6717.8509ms 200 application/json;charset=utf-8
+2020-12-01 22:29:55.226 -03:00 [INF] {"ProductId":"1","Value":2.0,"Quantity":3,"ProductType":1,"Status":0}
+2020-12-01 22:29:55.226 -03:00 [INF] {"Number":"287A6D03","CreateDate":"2020-12-01T22:29:44.6275724-03:00","LastUpdateDate":"2020-12-01T22:29:44.6277269-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":1,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"edf7418d-4394-4062-837e-ff3df21a362c","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 22:30:15.811 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 22:30:15.895 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:30:15.967 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 22:30:24.611 -03:00 [INF] Order Created
+2020-12-01 22:30:27.645 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 22:30:27.697 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 11707.795ms
+2020-12-01 22:30:27.714 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:30:27.716 -03:00 [INF] Request finished in 11913.5691ms 200 application/json; charset=utf-8
+2020-12-01 22:30:32.968 -03:00 [INF] Order successfully registered
+2020-12-01 22:30:33.981 -03:00 [INF] Preparing Fries...
+2020-12-01 22:30:34.877 -03:00 [INF] Fries quantity has updated
+2020-12-01 22:30:36.524 -03:00 [INF] Fries delivered
+2020-12-01 22:30:36.527 -03:00 [INF] {"ProductId":"1","Value":2.0,"Quantity":1,"ProductType":1,"Status":0}
+2020-12-01 22:30:36.527 -03:00 [INF] {"Number":"EBF8A01A","CreateDate":"2020-12-01T22:30:21.9751427-03:00","LastUpdateDate":"2020-12-01T22:30:21.9751473-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":1,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"7c0c845e-cf5c-48e2-8678-dfa51155328f","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 22:30:52.444 -03:00 [ERR] Message not consumed.
+2020-12-01 22:31:52.088 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 22:31:52.090 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:31:52.094 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 22:31:55.403 -03:00 [INF] Order Created
+2020-12-01 22:31:56.109 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 22:31:56.111 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 4016.3108ms
+2020-12-01 22:31:56.111 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:31:56.112 -03:00 [INF] Request finished in 4024.8243ms 200 application/json; charset=utf-8
+2020-12-01 22:31:56.232 -03:00 [INF] Order successfully registered
+2020-12-01 22:31:56.235 -03:00 [ERR] Message not consumed.
+2020-12-01 22:32:00.285 -03:00 [INF] Preparing Fries...
+2020-12-01 22:32:00.288 -03:00 [INF] Missing Fries, updating your order
+2020-12-01 22:32:00.290 -03:00 [INF] Order Updated
+2020-12-01 22:32:00.291 -03:00 [INF] Fries quantity has updated
+2020-12-01 22:32:00.292 -03:00 [INF] Fries delivered
+2020-12-01 22:32:00.295 -03:00 [INF] {"ProductId":"1","Value":2.0,"Quantity":-1,"ProductType":1,"Status":0}
+2020-12-01 22:32:00.295 -03:00 [INF] {"Number":"3F2777B7","CreateDate":"2020-12-01T22:31:55.4026998-03:00","LastUpdateDate":"2020-12-01T22:31:55.4028168-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":1,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"1993fcd9-4d22-4c61-84fd-d2ac2ed140d7","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 22:32:34.460 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 22:32:34.461 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:32:34.463 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 22:32:39.370 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 22:32:39.371 -03:00 [INF] Order Created
+2020-12-01 22:32:39.372 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 4908.2095ms
+2020-12-01 22:32:39.372 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:32:39.372 -03:00 [INF] Request finished in 4912.8194ms 200 application/json; charset=utf-8
+2020-12-01 22:32:39.701 -03:00 [INF] Order successfully registered
+2020-12-01 22:32:39.702 -03:00 [ERR] Message not consumed.
+2020-12-01 22:32:49.355 -03:00 [INF] Preparing Grill...
+2020-12-01 22:32:58.690 -03:00 [INF] Grill quantity has updated
+2020-12-01 22:32:58.693 -03:00 [INF] Grill delivered
+2020-12-01 22:32:58.722 -03:00 [INF] {"ProductId":"2","Value":5.0,"Quantity":1,"ProductType":2,"Status":0}
+2020-12-01 22:32:58.723 -03:00 [INF] {"Number":"5ABA6E2C","CreateDate":"2020-12-01T22:32:39.3705668-03:00","LastUpdateDate":"2020-12-01T22:32:39.3705686-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":2,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"0a0ec870-7c87-4099-8339-dcc7b8dd3768","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 22:33:18.009 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 22:33:18.011 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:33:18.012 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 22:33:34.671 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 22:33:34.704 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 16692.1131ms
+2020-12-01 22:33:34.705 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:33:34.706 -03:00 [INF] Request finished in 16697.2279ms 200 application/json; charset=utf-8
+2020-12-01 22:33:35.691 -03:00 [INF] Order Created
+2020-12-01 22:33:38.750 -03:00 [INF] Order successfully registered
+2020-12-01 22:33:38.750 -03:00 [ERR] Message not consumed.
+2020-12-01 22:33:38.765 -03:00 [INF] Preparing Salad...
+2020-12-01 22:33:47.542 -03:00 [INF] Salad quantity has updated
+2020-12-01 22:33:47.543 -03:00 [INF] Salad delivered
+2020-12-01 22:33:47.543 -03:00 [INF] {"ProductId":"3","Value":1.0,"Quantity":2,"ProductType":3,"Status":0}
+2020-12-01 22:33:47.543 -03:00 [INF] {"Number":"CA41A610","CreateDate":"2020-12-01T22:33:34.6720203-03:00","LastUpdateDate":"2020-12-01T22:33:34.6720223-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":3,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"52b3f8cd-5687-4a4c-ac8a-60119acbf3f5","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 22:34:18.508 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 22:34:18.509 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:34:18.510 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 22:34:22.356 -03:00 [INF] Order Created
+2020-12-01 22:34:24.056 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 22:34:24.063 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 5550.1985ms
+2020-12-01 22:34:24.063 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:34:24.063 -03:00 [INF] Request finished in 5555.5318ms 200 application/json; charset=utf-8
+2020-12-01 22:34:24.246 -03:00 [INF] Order successfully registered
+2020-12-01 22:34:24.247 -03:00 [ERR] Message not consumed.
+2020-12-01 22:34:24.250 -03:00 [INF] Preparing Salad...
+2020-12-01 22:34:28.226 -03:00 [INF] Salad quantity has updated
+2020-12-01 22:34:28.230 -03:00 [INF] Salad delivered
+2020-12-01 22:34:28.230 -03:00 [INF] {"ProductId":"3","Value":1.0,"Quantity":0,"ProductType":3,"Status":0}
+2020-12-01 22:34:28.230 -03:00 [INF] {"Number":"C4BAD5C7","CreateDate":"2020-12-01T22:34:22.339187-03:00","LastUpdateDate":"2020-12-01T22:34:22.3391899-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":3,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"981e2dc2-6c90-4317-b3b9-4cd43f4bb1d8","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 22:34:52.727 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 22:34:52.728 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:34:52.729 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 22:34:55.006 -03:00 [INF] Order Created
+2020-12-01 22:34:55.053 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 22:34:55.054 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 2325.2162ms
+2020-12-01 22:34:55.056 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:34:55.056 -03:00 [INF] Request finished in 2329.22ms 200 application/json; charset=utf-8
+2020-12-01 22:34:55.425 -03:00 [INF] Order successfully registered
+2020-12-01 22:34:55.425 -03:00 [ERR] Message not consumed.
+2020-12-01 22:34:55.436 -03:00 [INF] Preparing Drinks...
+2020-12-01 22:34:57.655 -03:00 [INF] Drinks quantity has updated
+2020-12-01 22:34:57.656 -03:00 [INF] Drinks delivered
+2020-12-01 22:34:57.656 -03:00 [INF] {"ProductId":"4","Value":6.0,"Quantity":8,"ProductType":4,"Status":0}
+2020-12-01 22:34:57.656 -03:00 [INF] {"Number":"0259D0F9","CreateDate":"2020-12-01T22:34:55.0061145-03:00","LastUpdateDate":"2020-12-01T22:34:55.0061182-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":4,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"1cb6840a-4bc4-42d2-8704-363563508cd0","Notifications":[],"Invalid":false,"Valid":true}
+2020-12-01 22:35:07.614 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:62496/Order application/json 165
+2020-12-01 22:35:07.617 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:35:07.617 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-01 22:35:11.054 -03:00 [INF] Order Created
+2020-12-01 22:35:11.652 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Domain.Commands.OrderCommands.Request.CreateOrderRequest'.
+2020-12-01 22:35:11.654 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 4036.1381ms
+2020-12-01 22:35:11.657 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-01 22:35:11.657 -03:00 [INF] Request finished in 4043.0826ms 200 application/json; charset=utf-8
+2020-12-01 22:35:12.683 -03:00 [INF] Order successfully registered
+2020-12-01 22:35:12.684 -03:00 [ERR] Message not consumed.
+2020-12-01 22:35:12.697 -03:00 [INF] Preparing Dessert...
+2020-12-01 22:35:14.703 -03:00 [INF] Dessert quantity has updated
+2020-12-01 22:35:14.704 -03:00 [INF] Dessert delivered
+2020-12-01 22:35:14.704 -03:00 [INF] {"ProductId":"5","Value":3.0,"Quantity":2,"ProductType":5,"Status":0}
+2020-12-01 22:35:14.704 -03:00 [INF] {"Number":"507F8B96","CreateDate":"2020-12-01T22:35:11.0322214-03:00","LastUpdateDate":"2020-12-01T22:35:11.032224-03:00","Products":[{"ProductId":"1","Value":1.0,"Quantity":2,"ProductType":5,"Status":2}],"Total":2.0,"Notes":"Order Created","Status":3,"DeliveryTag":0,"Id":"37ec9e70-b35f-439f-9c36-ac61c7c4e6ec","Notifications":[],"Invalid":false,"Valid":true}

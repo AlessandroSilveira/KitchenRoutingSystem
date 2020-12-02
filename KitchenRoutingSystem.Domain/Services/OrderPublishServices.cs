@@ -1,41 +1,32 @@
 ﻿using KitchenRoutingSystem.Domain.Commands.OrderCommands.Request;
+using KitchenRoutingSystem.Domain.MQ.Channel;
 using KitchenRoutingSystem.Domain.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
-using System;
 using System.Text;
 
 namespace KitchenRoutingSystem.Domain.Services
 {
-    public class OrderPublishServices : IOrderPublishService
+    public class OrderPublishServices : QueueChannel, IOrderPublishService
     {
         private readonly IConfiguration _configuration;
+        private readonly ILogger<OrderPublishServices> _logger;
 
-        public OrderPublishServices(IConfiguration configuration)
+        public OrderPublishServices(IConfiguration configuration, ILogger<OrderPublishServices> logger) : base(configuration)
         {
             _configuration = configuration;
+            _logger = logger;
         }
 
         public void PublishOrder(CreateOrderRequest order)
         {
             var message = JsonConvert.SerializeObject(order);
             var messageBodyBytes = Encoding.UTF8.GetBytes(message);
-            var factory = new ConnectionFactory
-            {
-                HostName = _configuration["RabbitConfig:HostName"],
-                Port = Convert.ToInt32(_configuration["RabbitConfig:Port"]),
-                UserName = _configuration["RabbitConfig:UserName"],
-                Password = _configuration["RabbitConfig:Password"],
-                VirtualHost = _configuration["RabbitConfig:VirtualHost"],
-                AutomaticRecoveryEnabled = true,
-            };
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                channel.BasicPublish("", _configuration["OrderQueueConfiguration:OrderConsumer"], null, messageBodyBytes);
 
-            }
+            _channel.BasicPublish("", _configuration["OrderQueueConfiguration:OrderConsumer"], null, messageBodyBytes);
+            _logger.LogInformation($"Message delived in {_configuration["OrderQueueConfiguration: OrderConsumer"]} queue ");
         }
     }
 }

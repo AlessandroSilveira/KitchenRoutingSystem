@@ -1,6 +1,8 @@
 ﻿using KitchenRoutingSystem.Domain.Commands.OrderCommands.Request;
+using KitchenRoutingSystem.Shared.Commands.Response;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace KitchenRoutingSystem.Api.Controllers
 {
@@ -15,13 +17,14 @@ namespace KitchenRoutingSystem.Api.Controllers
         }
 
         [HttpPost("/Order")]       
-        public IActionResult Create([FromBody] CreateOrderRequest command
+        public async Task<ActionResult<CommandResponse>> Create([FromBody] CreateOrderRequest command
         )
         {
-            var dados = command;
+            var result = await _mediator.Send(command);
 
-            var result = _mediator.Send(command);
-            return Ok(dados);
+
+
+            return Ok(result);
         }
     }
 }

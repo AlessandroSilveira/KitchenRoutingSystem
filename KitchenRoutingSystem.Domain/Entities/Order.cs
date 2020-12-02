@@ -1,4 +1,5 @@
-﻿using KitchenRoutingSystem.Domain.Enums;
+﻿using KitchenRoutingSystem.Domain.DTOs;
+using KitchenRoutingSystem.Domain.Enums;
 using Shop.Domain.Shared.Entities;
 using System;
 using System.Collections.Generic;
@@ -60,7 +61,7 @@ namespace KitchenRoutingSystem.Domain.Entities
             CalculateTotal();
         }
 
-        public void UpdateProductStatus(EProductStatus status, Product products)
+        public void UpdateProductStatus(EProductStatus status, ProductDto products)
         {
             var product = Products.Find(a => a.ProductId == products.ProductId);
             Products.Remove(product);

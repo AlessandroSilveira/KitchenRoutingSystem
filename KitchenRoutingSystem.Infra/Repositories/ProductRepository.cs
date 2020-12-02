@@ -8,7 +8,7 @@ namespace KitchenRoutingSystem.Infra.Repositories
 {
     public class ProductRepository : IRepository<Product>
     {
-        private static List<Product> products = new List<Product>
+        private static readonly List<Product> products = new List<Product>
         {
             new Product
             {

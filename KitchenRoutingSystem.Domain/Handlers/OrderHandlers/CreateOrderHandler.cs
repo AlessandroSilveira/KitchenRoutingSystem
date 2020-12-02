@@ -2,13 +2,10 @@
 using System.Threading.Tasks;
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Request;
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
-using KitchenRoutingSystem.Domain.Entities;
-using KitchenRoutingSystem.Domain.Repositories;
 using KitchenRoutingSystem.Domain.Services.Interfaces;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
 using MediatR;
-using Newtonsoft.Json;
 
 namespace KitchenRoutingSystem.Domain.Handlers.OrderHandlers
 {

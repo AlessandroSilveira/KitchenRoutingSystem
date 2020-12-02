@@ -1,5 +1,6 @@
 ﻿using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
 using KitchenRoutingSystem.Domain.Commands.ProcessProductCommads;
+using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Services.Interfaces;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
@@ -44,11 +45,11 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessProductHandlers
                         _processProductService.SendOrderToDrinkSector(messageBodyBytes);
                         break;
                     case Enums.EProductType.Dessert:
-                        _processProductService.SendOrderToDesertector(messageBodyBytes);
+                        _processProductService.SendOrderToDessertSector(messageBodyBytes);
                         break;
                 }
             }
-            var data = new CreateOrderResponse("", DateTime.Now, DateTime.Now, new System.Collections.Generic.List<Entities.Product>(), 0, "", Enums.EOrderStatus.Canceled);
+            var data = new CreateOrderResponse("", DateTime.Now, DateTime.Now, new System.Collections.Generic.List<ProductDto>(), 0, "", Enums.EOrderStatus.Canceled);
             return  CreateResponse(data, "Order sent successfully");
         }
     }

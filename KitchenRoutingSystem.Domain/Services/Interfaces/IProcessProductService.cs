@@ -11,6 +11,6 @@ namespace KitchenRoutingSystem.Domain.Services.Interfaces
         void SendOrderToGrillSector(byte[] messageBodyBytes);
         void SendOrderToSaladSector(byte[] messageBodyBytes);
         void SendOrderToDrinkSector(byte[] messageBodyBytes);
-        void SendOrderToDesertector(byte[] messageBodyBytes);        
+        void SendOrderToDessertSector(byte[] messageBodyBytes);        
     }
 }

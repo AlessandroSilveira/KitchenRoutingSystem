@@ -1,4 +1,5 @@
 ﻿using Flunt.Validations;
+using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Domain.Enums;
 using KitchenRoutingSystem.Shared.Commands;
@@ -13,7 +14,7 @@ namespace KitchenRoutingSystem.Domain.Commands.PorcessOrderCommands.Request
         public string Number { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime LastUpdateDate { get; set; }
-        public List<Product> Products { get; set; }
+        public List<ProductDto> Products { get; set; }
         public decimal Total { get; set; }
         public string Notes { get; set; }
         public EOrderStatus Status { get; set; }

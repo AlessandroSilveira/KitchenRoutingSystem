@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Domain.Repositories;
-using KitchenRoutingSystem.Infra.Context;
-using Microsoft.EntityFrameworkCore;
 
 namespace KitchenRoutingSystem.Infra.Repositories
 {
     public class OrderRepository : IRepository<Order>
     {
-        private static List<Order> orders = new List<Order>();
+        private static readonly List<Order> orders = new List<Order>();
         public async Task<List<Order>> GetAll()
         {
             return await Task.Run(() => orders.ToList());

@@ -1,6 +1,7 @@
 ﻿using KitchenRoutingSystem.Domain.MQ.Channel;
 using KitchenRoutingSystem.Domain.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using System;
 
@@ -9,115 +10,42 @@ namespace KitchenRoutingSystem.Domain.Services
     public class ProcessProductService : QueueChannel, IProcessProductService
     {
         private readonly IConfiguration _configuration;
-        
+        private readonly ILogger<ProcessProductService> _logger;
 
-        public ProcessProductService(IConfiguration configuration) : base(configuration)
+        public ProcessProductService(IConfiguration configuration, ILogger<ProcessProductService> logger) : base(configuration)
         {
             _configuration = configuration;
+            _logger = logger;
         }
 
-        
-
-        public void SendOrderToDesertector(byte[] messageBodyBytes)
-        {
-            var factory = new ConnectionFactory
-            {
-                HostName = _configuration["RabbitConfig:HostName"],
-                Port = Convert.ToInt32(_configuration["RabbitConfig:Port"]),
-                UserName = _configuration["RabbitConfig:UserName"],
-                Password = _configuration["RabbitConfig:Password"],
-                VirtualHost = _configuration["RabbitConfig:VirtualHost"],
-                AutomaticRecoveryEnabled = true,
-            };
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                channel.BasicPublish("", _configuration["DessertQueueConfiguration:DessertQueue"], null, messageBodyBytes);
-
-            }
-           
+        public void SendOrderToDessertSector(byte[] messageBodyBytes)
+        {           
+            _channel.BasicPublish("", _configuration["DessertQueueConfiguration:DessertConsumer"], null, messageBodyBytes);
+            _logger.LogInformation($"Message delived in {_configuration["DessertQueueConfiguration:DessertConsumer"]} queue ");
         }
 
         public void SendOrderToDrinkSector(byte[] messageBodyBytes)
-        {
-            var factory = new ConnectionFactory
-            {
-                HostName = _configuration["RabbitConfig:HostName"],
-                Port = Convert.ToInt32(_configuration["RabbitConfig:Port"]),
-                UserName = _configuration["RabbitConfig:UserName"],
-                Password = _configuration["RabbitConfig:Password"],
-                VirtualHost = _configuration["RabbitConfig:VirtualHost"],
-                AutomaticRecoveryEnabled = true,
-            };
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                channel.BasicPublish("", _configuration["DrinksQueueConfiguration:DrinksQueue"], null, messageBodyBytes);
-
-            }
-
-          
+        {            
+            _channel.BasicPublish("", _configuration["DrinksQueueConfiguration:DrinksConsumer"], null, messageBodyBytes);
+            _logger.LogInformation($"Message delived in {_configuration["DrinksQueueConfiguration:DrinksConsumer"]} queue ");
         }
 
         public void SendOrderToFriesSector(byte[] messageBodyBytes)
         {
-            //var factory = new ConnectionFactory
-            //{
-            //    HostName = _configuration["RabbitConfig:HostName"],
-            //    Port = Convert.ToInt32(_configuration["RabbitConfig:Port"]),
-            //    UserName = _configuration["RabbitConfig:UserName"],
-            //    Password = _configuration["RabbitConfig:Password"],
-            //    VirtualHost = _configuration["RabbitConfig:VirtualHost"],
-            //    AutomaticRecoveryEnabled = true,
-            //};
-            //using (var connection = factory.CreateConnection())
-            //using (var channel = connection.CreateModel())
-            //{
-            //    channel.BasicPublish("", _configuration["FriesQueueConfiguration:FriesQueue"], null, messageBodyBytes);
-
-            //}
             _channel.BasicPublish("", _configuration["FriesQueueConfiguration:FriesConsumer"], null, messageBodyBytes);
+            _logger.LogInformation($"Message delived in {_configuration["FriesQueueConfiguration:FriesConsumer"]} queue ");
         }
 
         public void SendOrderToGrillSector(byte[] messageBodyBytes)
         {
-            var factory = new ConnectionFactory
-            {
-                HostName = _configuration["RabbitConfig:HostName"],
-                Port = Convert.ToInt32(_configuration["RabbitConfig:Port"]),
-                UserName = _configuration["RabbitConfig:UserName"],
-                Password = _configuration["RabbitConfig:Password"],
-                VirtualHost = _configuration["RabbitConfig:VirtualHost"],
-                AutomaticRecoveryEnabled = true,
-            };
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                channel.BasicPublish("", _configuration["GrillQueueConfiguration:GrillQueue"], null, messageBodyBytes);
-
-            }
-          
+            _channel.BasicPublish("", _configuration["GrillQueueConfiguration:GrillConsumer"], null, messageBodyBytes);
+            _logger.LogInformation($"Message delived in {_configuration["GrillQueueConfiguration:GrillConsumer"]} queue ");
         }
 
         public void SendOrderToSaladSector(byte[] messageBodyBytes)
         {
-            var factory = new ConnectionFactory
-            {
-                HostName = _configuration["RabbitConfig:HostName"],
-                Port = Convert.ToInt32(_configuration["RabbitConfig:Port"]),
-                UserName = _configuration["RabbitConfig:UserName"],
-                Password = _configuration["RabbitConfig:Password"],
-                VirtualHost = _configuration["RabbitConfig:VirtualHost"],
-                AutomaticRecoveryEnabled = true,
-            };
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                channel.BasicPublish("", _configuration["SaladQueueConfiguration:SaladQueue"], null, messageBodyBytes);
-
-            }
-
-            
+            _channel.BasicPublish("", _configuration["SaladQueueConfiguration:SaladConsumer"], null, messageBodyBytes);
+            _logger.LogInformation($"Message delived in {_configuration["SaladQueueConfiguration:SaladConsumer"]} queue ");
         }
     }
 }
