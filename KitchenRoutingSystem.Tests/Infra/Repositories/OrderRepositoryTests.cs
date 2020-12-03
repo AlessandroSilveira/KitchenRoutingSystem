@@ -12,9 +12,9 @@ namespace KitchenRoutingSystem.Tests.Infra.Repositories
         private OrderRepository _orderRepository;
         Order order;
 
-        public OrderRepositoryTests()
-        {  
-            _orderRepository = new OrderRepository();
+        public OrderRepositoryTests(OrderRepository orderRepository)
+        {
+
             var listProduct = new List<Product>
             {
                 new Product
@@ -27,35 +27,34 @@ namespace KitchenRoutingSystem.Tests.Infra.Repositories
                 }
             };
             order = new Order(listProduct);
+            _orderRepository = orderRepository;
         }
 
         [Fact]
         public void Get_ShouldReturnOrderByIdAsync()
         {
-            var orderAdd = _orderRepository.Add(order).Result;
-            var retorno = _orderRepository.Get(orderAdd.Number).Result;
+            var orderAdd = _orderRepository.AddAsync(order).Result;
+            var retorno = _orderRepository.GetByIdAsync(orderAdd.Number).Result;
            
             retorno.Should().BeOfType<Order>();
-            retorno.Should().NotBeNull();
-            
+            retorno.Should().NotBeNull();            
         }
 
         [Fact]
         public void GetAll_ShouldReturnAllOrder()
         {
-            var orderAdd = _orderRepository.Add(order).Result;
+            var orderAdd = _orderRepository.AddAsync(order).Result;
 
-            var retorno = _orderRepository.GetAll().Result;
+            var retorno = _orderRepository.GetAllAsync().Result;
 
             retorno.Should().BeOfType<List<Order>>();
             retorno.Should().NotBeNull();
-
         }
 
         [Fact]
         public void Add_ShouldReturnOrder()
         {
-            var retorno = _orderRepository.Add(order).Result;
+            var retorno = _orderRepository.AddAsync(order).Result;
 
             retorno.Should().BeOfType<Order>();
             retorno.Should().NotBeNull();
@@ -65,7 +64,7 @@ namespace KitchenRoutingSystem.Tests.Infra.Repositories
         [Fact]
         public async void Edit_ShouldReturnOrder()
         {
-            var orderAdd = _orderRepository.Add(order).Result;
+            var orderAdd = _orderRepository.AddAsync(order).Result;
 
             var newProduct = new Product
             {
@@ -78,9 +77,9 @@ namespace KitchenRoutingSystem.Tests.Infra.Repositories
 
             orderAdd.Products.Add(newProduct);
 
-            await _orderRepository.Edit(orderAdd);
+            await _orderRepository.UpdateAsync(orderAdd);
 
-            var getOrder = _orderRepository.Get(orderAdd.Number);
+            var getOrder = _orderRepository.GetByIdAsync(orderAdd.Number);
 
             getOrder.Result.Products.Count.Should().BeGreaterThan(1);
             getOrder.Result.Should().NotBeNull();
@@ -89,11 +88,11 @@ namespace KitchenRoutingSystem.Tests.Infra.Repositories
         [Fact]
         public async void Delete_ShouldReturnEmptyOrder()
         {
-            var retorno = _orderRepository.Add(order).Result;
+            var retorno = _orderRepository.AddAsync(order).Result;
 
-            await _orderRepository.Delete(retorno.Number);
+            await _orderRepository.RemoveAsync(retorno.Number);
 
-            var orderEmpty = _orderRepository.Get(retorno.Number).Result;
+            var orderEmpty = _orderRepository.GetByIdAsync(retorno.Number).Result;
 
             orderEmpty.Should().BeNull();
         }

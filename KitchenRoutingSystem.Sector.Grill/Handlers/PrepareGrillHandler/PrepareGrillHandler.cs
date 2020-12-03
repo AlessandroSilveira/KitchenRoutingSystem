@@ -2,7 +2,7 @@
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
 using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
-using KitchenRoutingSystem.Domain.Repositories;
+using KitchenRoutingSystem.Domain.Repository;
 using KitchenRoutingSystem.Sector.Grill.Commands.Request;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
@@ -19,12 +19,12 @@ namespace KitchenRoutingSystem.Sector.Grill.Handlers.PrepareGrillHandler
 {
     public class PrepareGrillHandler : CommandHandler, IRequestHandler<PrepareGrillRequest, CommandResponse>
     {
-        private readonly IRepository<Product> _productRepository;
-        private readonly IRepository<Order> _orderRepository;
+        private readonly IProductRepository _productRepository;
+        private readonly IOrderRepository _orderRepository;
         private readonly ILogger<PrepareGrillHandler> _logger;
         private readonly IMapper _mapper;
 
-        public PrepareGrillHandler(IRepository<Product> productRepository, ILogger<PrepareGrillHandler> logger, IRepository<Order> orderRepository, IMapper mapper)
+        public PrepareGrillHandler(IProductRepository productRepository, ILogger<PrepareGrillHandler> logger, IOrderRepository orderRepository, IMapper mapper)
         {
             _productRepository = productRepository;
             _logger = logger;
@@ -36,8 +36,8 @@ namespace KitchenRoutingSystem.Sector.Grill.Handlers.PrepareGrillHandler
         {
             _logger.LogInformation("Preparing Grill...");
             
-            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
-            var order = _orderRepository.Get(request.orderId).Result;
+            var products = _productRepository.SearchAsync(a => a.ProductType == request.products.FirstOrDefault().ProductType).Result.FirstOrDefault();
+            var order = _orderRepository.GetByIdAsync(request.orderId).Result;
             var productDto = _mapper.Map<List<ProductDto>>(order.Products);
 
             if (order != null)
@@ -49,7 +49,7 @@ namespace KitchenRoutingSystem.Sector.Grill.Handlers.PrepareGrillHandler
                     try
                     {
                         order.RemoveProduct(products);
-                        await _orderRepository.Edit(order);
+                        await _orderRepository.UpdateAsync(order);
                         _logger.LogInformation("Order Updated");
 
                         await UpdateProductList(products, order);
@@ -80,11 +80,11 @@ namespace KitchenRoutingSystem.Sector.Grill.Handlers.PrepareGrillHandler
 
             products.Quantity = newQuantity;
 
-            await _productRepository.Edit(products);
+            await _productRepository.UpdateAsync(products);
             _logger.LogInformation("Grill quantity has updated");
 
             order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
-            await _orderRepository.Edit(order);
+            await _orderRepository.UpdateAsync(order);
 
             _logger.LogInformation("Grill delivered");
 

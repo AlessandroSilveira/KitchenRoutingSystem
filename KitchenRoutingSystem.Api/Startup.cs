@@ -9,8 +9,6 @@ using Microsoft.OpenApi.Models;
 using System;
 using KitchenRoutingSystem.Domain.Services.Interfaces;
 using KitchenRoutingSystem.Domain.Services;
-using KitchenRoutingSystem.Infra.Repositories;
-using KitchenRoutingSystem.Domain.Repositories;
 using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Domain.MQ.OrderConsumer;
 using KitchenRoutingSystem.Domain.MQ.OrderConsumerQueue;
@@ -32,6 +30,7 @@ using KitchenRoutingSystem.Sector.Salad.Services;
 using KitchenRoutingSystem.Domain.DTOs;
 using AutoMapper;
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Request;
+using KitchenRoutingSystem.Infra.Context;
 
 namespace KitchenRoutingSystem.Api
 {
@@ -58,6 +57,9 @@ namespace KitchenRoutingSystem.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KitchenRoutingSystem.Api", Version = "v1" });
             });
 
+            services.AddDbContext<Context>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             var assemblyDomain = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Domain");
             var assemblySectorFries = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Fries");
             var assemblySectorGrill = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Grill");
@@ -66,9 +68,6 @@ namespace KitchenRoutingSystem.Api
             var assemblySectorDessert = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Desserts");            
 
             services.AddMediatR(assemblyDomain, assemblySectorFries, assemblySectorGrill, assemblySectorSalad, assemblySectorDrinks, assemblySectorDessert);
-
-            services.AddSingleton<IRepository<Order>, OrderRepository>();
-            services.AddSingleton<IRepository<Product>, ProductRepository>();
 
             services.AddTransient<IOrderPublishService, OrderPublishServices>();
             services.AddTransient<IProcessProductService, ProcessProductService>();
@@ -86,7 +85,7 @@ namespace KitchenRoutingSystem.Api
             services.AddSingleton<ConsumerDrinksQueue>();
             services.AddSingleton<ConsumerDessertQueue>();
 
-            var config = new AutoMapper.MapperConfiguration(cfg =>
+            var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<ProductDto, Product>().ReverseMap();
                 cfg.CreateMap<Order, CreateOrderRequest>().ReverseMap();

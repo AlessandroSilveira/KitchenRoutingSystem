@@ -3,7 +3,7 @@ using KitchenRoutingSystem.Domain.Commands.PorcessOrderCommands.Request;
 using KitchenRoutingSystem.Domain.Commands.PorcessOrderCommands.Response;
 using KitchenRoutingSystem.Domain.Commands.ProcessProductCommads;
 using KitchenRoutingSystem.Domain.Entities;
-using KitchenRoutingSystem.Domain.Repositories;
+using KitchenRoutingSystem.Domain.Repository;
 using KitchenRoutingSystem.Domain.Services.Interfaces;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
@@ -17,12 +17,12 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers
 {
     public class ProcessOrderHandler : CommandHandler, IRequestHandler<ProcessOrderRequest, CommandResponse>
     {
-        private readonly IRepository<Order> _orderRepository;
+        private readonly IOrderRepository _orderRepository;
         private readonly ILogger<ProcessOrderHandler> _logger;
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
-        public ProcessOrderHandler(IRepository<Order> orderRepository, IMediator mediator, ILogger<ProcessOrderHandler> logger, IMapper mapper)
+        public ProcessOrderHandler(IOrderRepository orderRepository, IMediator mediator, ILogger<ProcessOrderHandler> logger, IMapper mapper)
         {
             _orderRepository = orderRepository;
             _mediator = mediator;
@@ -45,7 +45,7 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers
             // Consolida as notificações
             AddNotifications(order);
 
-             var newOrder =  await _orderRepository.Add(order);
+             var newOrder =  await _orderRepository.AddAsync(order);
             _logger.LogInformation("Order Created");
 
             // Return data

@@ -2,7 +2,7 @@
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
 using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
-using KitchenRoutingSystem.Domain.Repositories;
+using KitchenRoutingSystem.Domain.Repository;
 using KitchenRoutingSystem.Sector.Fries.Commands.Request;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
@@ -19,12 +19,12 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
 {
     public class PrepareFriesHandler : CommandHandler, IRequestHandler<PrepareFriesRequest, CommandResponse>
     {
-        private readonly IRepository<Product> _productRepository;
-        private readonly IRepository<Order> _orderRepository;
+        private readonly IProductRepository _productRepository;
+        private readonly IOrderRepository _orderRepository;
         private readonly ILogger<PrepareFriesHandler> _logger;
         private readonly IMapper _mapper;
 
-        public PrepareFriesHandler(IRepository<Product> productRepository, ILogger<PrepareFriesHandler> logger, IRepository<Order> orderRepository, IMapper mapper)
+        public PrepareFriesHandler(IProductRepository productRepository, ILogger<PrepareFriesHandler> logger, IOrderRepository orderRepository, IMapper mapper)
         {
             _productRepository = productRepository;
             _logger = logger;
@@ -37,8 +37,8 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
             _logger.LogInformation("Preparing Fries...");
 
             //Verifying product in storage
-            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
-            var order = _orderRepository.Get(request.orderId).Result;
+            var products = _productRepository.SearchAsync(a => a.ProductType == request.products.FirstOrDefault().ProductType).Result.FirstOrDefault();
+            var order = _orderRepository.GetByIdAsync(request.orderId).Result;
             var productDto = _mapper.Map<List<ProductDto>>(order.Products);
 
             if (order != null)
@@ -50,7 +50,7 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
                     try
                     {
                         order.RemoveProduct(products);
-                        await _orderRepository.Edit(order);
+                        await _orderRepository.UpdateAsync(order);
                         _logger.LogInformation("Order Updated");
 
                         await UpdateProductList(products, order);
@@ -85,11 +85,11 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
 
             products.Quantity = newQuantity;
 
-            await _productRepository.Edit(products);
+            await _productRepository.UpdateAsync(products);
             _logger.LogInformation("Fries quantity has updated");
 
             order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
-            await _orderRepository.Edit(order);
+            await _orderRepository.UpdateAsync(order);
 
             _logger.LogInformation("Fries delivered");
 

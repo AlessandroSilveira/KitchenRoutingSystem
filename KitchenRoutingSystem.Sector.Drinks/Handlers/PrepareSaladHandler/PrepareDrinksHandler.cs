@@ -2,7 +2,7 @@
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
 using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
-using KitchenRoutingSystem.Domain.Repositories;
+using KitchenRoutingSystem.Domain.Repository;
 using KitchenRoutingSystem.Sector.Drinks.Commands.Request;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
@@ -19,12 +19,12 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
 {
     public class PrepareDrinksHandler : CommandHandler, IRequestHandler<PrepareDrinksRequest, CommandResponse>
     {
-        private readonly IRepository<Product> _productRepository;
-        private readonly IRepository<Order> _orderRepository;
+        private readonly IProductRepository _productRepository;
+        private readonly IOrderRepository _orderRepository;
         private readonly ILogger<PrepareDrinksHandler> _logger;
         private readonly IMapper _mapper;
 
-        public PrepareDrinksHandler(IRepository<Product> productRepository, ILogger<PrepareDrinksHandler> logger, IRepository<Order> orderRepository, IMapper mapper)
+        public PrepareDrinksHandler(IProductRepository productRepository, ILogger<PrepareDrinksHandler> logger, IOrderRepository orderRepository, IMapper mapper)
         {
             _productRepository = productRepository;
             _logger = logger;
@@ -37,8 +37,8 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
             _logger.LogInformation("Preparing Drinks...");
 
             //Verifying product in storage
-            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
-            var order = _orderRepository.Get(request.orderId).Result;
+            var products = _productRepository.SearchAsync(a => a.ProductType == request.products.FirstOrDefault().ProductType).Result.FirstOrDefault();
+            var order = _orderRepository.GetByIdAsync(request.orderId).Result;
             var productDto = _mapper.Map<List<ProductDto>>(order.Products);
 
             if (order != null)
@@ -50,7 +50,7 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
                     try
                     {
                         order.RemoveProduct(products);
-                        await _orderRepository.Edit(order);
+                        await _orderRepository.UpdateAsync(order);
                         _logger.LogInformation("Order Updated");
 
                         await UpdateProductList(products, order);
@@ -83,11 +83,11 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
 
             products.Quantity = newQuantity;
 
-            await _productRepository.Edit(products);
+            await _productRepository.UpdateAsync(products);
             _logger.LogInformation("Drinks quantity has updated");
 
             order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
-            await _orderRepository.Edit(order);
+            await _orderRepository.UpdateAsync(order);
 
             _logger.LogInformation("Drinks delivered");
 

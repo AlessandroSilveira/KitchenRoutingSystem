@@ -2,7 +2,7 @@
 using FluentAssertions;
 using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
-using KitchenRoutingSystem.Domain.Repositories;
+using KitchenRoutingSystem.Domain.Repository;
 using KitchenRoutingSystem.Infra.Repositories;
 using KitchenRoutingSystem.Sector.Grill.Commands.Request;
 using KitchenRoutingSystem.Sector.Grill.Handlers.PrepareGrillHandler;
@@ -18,20 +18,18 @@ namespace KitchenRoutingSystem.Tests.Sector.Grill.Handlers
 {
     public class PrepareSaladHandlerTests
     {
-        private Mock<IRepository<Order>> _repositoryOrderMock;
-        private Mock<IRepository<Product>> _repositoryProductMock;
+        private Mock<IOrderRepository> _repositoryOrderMock;
+        private Mock<IProductRepository> _repositoryProductMock;
         private Mock<ILogger<PrepareGrillHandler>> _loggerMock;
         private Mock<IMapper> _mapperMock;
-        private PrepareGrillHandler prepareGrillHandler;
-        private readonly ProductRepository _productRepository;
-        private readonly OrderRepository _orderRepository;
+        private PrepareGrillHandler prepareGrillHandler;        
         Order order;
         Product product;
 
         public PrepareSaladHandlerTests()
         {
-            _repositoryProductMock = new Mock<IRepository<Product>>();
-            _repositoryOrderMock = new Mock<IRepository<Order>>();
+            _repositoryProductMock = new Mock<IProductRepository>();
+            _repositoryOrderMock = new Mock<IOrderRepository>();
             _loggerMock = new Mock<ILogger<PrepareGrillHandler>>();
             _mapperMock = new Mock<IMapper>();
             prepareGrillHandler = new PrepareGrillHandler(_repositoryProductMock.Object, _loggerMock.Object, _repositoryOrderMock.Object, _mapperMock.Object);
@@ -56,21 +54,18 @@ namespace KitchenRoutingSystem.Tests.Sector.Grill.Handlers
                 Status = KitchenRoutingSystem.Domain.Enums.EProductStatus.Pending,
                 Value = 1
             };
-            _productRepository = new ProductRepository();
-            _orderRepository = new OrderRepository();
+            
 
         }
 
         [Fact]
         public void Handler_ShouldReturnCommandResponse()
         {
-            var orderAdd = _orderRepository.Add(order).Result;
-            var productAdd = _productRepository.Add(product).Result;
-            var productList = _productRepository.GetAll().Result;
+         
 
             var prepareGrillRequest = new PrepareGrillRequest
             {
-                orderId = orderAdd.Number,
+                orderId = order.Number,
                 products = new List<ProductDto>
                 {
                     new ProductDto
@@ -84,11 +79,11 @@ namespace KitchenRoutingSystem.Tests.Sector.Grill.Handlers
                 }
             };
 
-            _repositoryProductMock.Setup(a => a.GetAll()).ReturnsAsync(productList);
-            _repositoryOrderMock.Setup(a => a.Get(orderAdd.Number)).ReturnsAsync(orderAdd);
-            _repositoryOrderMock.Setup(a => a.Edit(orderAdd)).Verifiable();
-            _repositoryProductMock.Setup(a => a.Edit(productAdd)).Verifiable();
-            _mapperMock.Setup(a => a.Map<List<ProductDto>>(orderAdd.Products)).Returns(prepareGrillRequest.products);
+            _repositoryProductMock.Setup(a => a.GetAllAsync()).ReturnsAsync(It.IsAny<List<Product>>);
+            _repositoryOrderMock.Setup(a => a.GetByIdAsync(order.Number)).ReturnsAsync(order);
+            _repositoryOrderMock.Setup(a => a.UpdateAsync(order)).Verifiable();
+            _repositoryProductMock.Setup(a => a.UpdateAsync(product)).Verifiable();
+            _mapperMock.Setup(a => a.Map<List<ProductDto>>(order.Products)).Returns(prepareGrillRequest.products);
 
             var result = prepareGrillHandler.Handle(prepareGrillRequest, default).Result;
 
