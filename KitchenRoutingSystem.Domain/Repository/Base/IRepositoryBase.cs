@@ -7,15 +7,10 @@ namespace KitchenRoutingSystem.Domain.Repository.Base
 {
     public interface IRepositoryBase<TEntity> where TEntity : class
     {
-        Task<TEntity> AddAsync(TEntity obj);
-        Task<TEntity> GetByIdAsync(string id);
-        Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<TEntity> UpdateAsync(TEntity obj);
-        Task RemoveAsync(string id);
-        Task<IEnumerable<TEntity>> SearchAsync(Expression<Func<TEntity, bool>> predicate);
-
-        Task Dispose();
-        Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> predicate);
-        void DetachLocal(Func<TEntity, bool> predicate);
+        Task<TEntity> Get(string id);
+        Task<IEnumerable<TEntity>> GetAll();
+        Task<TEntity> Add(TEntity entity);
+        Task<int> Delete(int id);
+        Task<int> Update(TEntity entity);
     }
 }

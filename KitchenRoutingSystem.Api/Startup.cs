@@ -1,7 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,15 +29,15 @@ using KitchenRoutingSystem.Sector.Salad.Services;
 using KitchenRoutingSystem.Domain.DTOs;
 using AutoMapper;
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Request;
-using KitchenRoutingSystem.Infra.Context;
 using KitchenRoutingSystem.Domain.Repository;
 using KitchenRoutingSystem.Infra.Repositories;
-using KitchenRoutingSystem.Domain.Repository.Base;
-using KitchenRoutingSystem.Infra.Repositories.Base;
 using System.Reflection;
 using KitchenRoutingSystem.Domain.Handlers.OrderHandlers;
 using KitchenRoutingSystem.Domain.Handlers.ProcessProductHandlers;
 using KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers;
+using KitchenRoutingSystem.Infra.Repositories.UnitOfWork;
+using KitchenRoutingSystem.Domain.Repository.UnitOfWork;
+using KitchenRoutingSystem.Shared;
 
 namespace KitchenRoutingSystem.Api
 {
@@ -57,6 +56,12 @@ namespace KitchenRoutingSystem.Api
             var configuration = GetConfiguration();
             services.AddSingleton(typeof(IConfiguration), configuration);
 
+            services.AddApplication();
+
+
+
+           
+
             services.AddOptions();            
 
             services.AddControllers();
@@ -64,9 +69,6 @@ namespace KitchenRoutingSystem.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KitchenRoutingSystem.Api", Version = "v1" });
             });
-
-            services.AddDbContext<ApplicationContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
 
             var assemblyDomain = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Domain");
             var assemblySectorFries = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Fries");
@@ -79,7 +81,7 @@ namespace KitchenRoutingSystem.Api
 
             //services.AddMediatR(assemblyDomain, assemblySectorFries, assemblySectorGrill, assemblySectorSalad, assemblySectorDrinks, assemblySectorDessert);
 
-            services.AddScoped<IApplicationContext>(provider => provider.GetService<ApplicationContext>());
+            
 
             services.AddMediatR(typeof(CreateOrderHandler).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(ProcessOrderHandler).GetTypeInfo().Assembly);
@@ -97,12 +99,11 @@ namespace KitchenRoutingSystem.Api
             services.AddTransient<IDessertConsumerQueueService, DessertConsumerQueueService>();
             services.AddTransient<IOrderConsumerQueue, OrderConsumerQueue>();
 
-            //services.AddTransient<IOrderRepository, OrderRepository>();
-            //services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-            services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
-            services.AddScoped(typeof(IProductRepository), typeof(ProductRepository));
-            services.AddTransient(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+
 
             services.AddSingleton<OrderConsumer>();
             services.AddSingleton<ConsumerFriesQueue>();

@@ -37,8 +37,8 @@ namespace KitchenRoutingSystem.Sector.Dessert.Handlers.PrepareDessertHandler
             _logger.LogInformation("Preparing Dessert...");
 
             //Verifying product in storage
-            var products = _productRepository.SearchAsync(a => a.ProductType == request.products.FirstOrDefault().ProductType).Result.FirstOrDefault();
-            var order = _orderRepository.GetByIdAsync(request.orderId).Result;
+            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
+            var order = _orderRepository.Get(request.orderId).Result;
             var productDto = _mapper.Map<List<ProductDto>>(order.Products);
 
             if (order != null)
@@ -50,7 +50,7 @@ namespace KitchenRoutingSystem.Sector.Dessert.Handlers.PrepareDessertHandler
                     try
                     {
                         order.RemoveProduct(products);
-                        await _orderRepository.UpdateAsync(order);
+                        await _orderRepository.Update(order);
                         _logger.LogInformation("Order Updated");
 
                         await UpdateProductList(products, order);
@@ -85,11 +85,11 @@ namespace KitchenRoutingSystem.Sector.Dessert.Handlers.PrepareDessertHandler
 
             products.Quantity = newQuantity;
 
-            await _productRepository.UpdateAsync(products);
+            await _productRepository.Update(products);
             _logger.LogInformation("Dessert quantity has updated");
 
             order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
-            await _orderRepository.UpdateAsync(order);
+            await _orderRepository.Update(order);
 
             _logger.LogInformation("Dessert delivered");
 

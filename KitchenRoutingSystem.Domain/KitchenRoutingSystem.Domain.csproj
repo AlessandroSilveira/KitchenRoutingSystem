@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repository\IApplicationContext.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="MediatR" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
