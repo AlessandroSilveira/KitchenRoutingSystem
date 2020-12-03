@@ -31,6 +31,14 @@ using KitchenRoutingSystem.Domain.DTOs;
 using AutoMapper;
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Request;
 using KitchenRoutingSystem.Infra.Context;
+using KitchenRoutingSystem.Domain.Repository;
+using KitchenRoutingSystem.Infra.Repositories;
+using KitchenRoutingSystem.Domain.Repository.Base;
+using KitchenRoutingSystem.Infra.Repositories.Base;
+using System.Reflection;
+using KitchenRoutingSystem.Domain.Handlers.OrderHandlers;
+using KitchenRoutingSystem.Domain.Handlers.ProcessProductHandlers;
+using KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers;
 
 namespace KitchenRoutingSystem.Api
 {
@@ -57,17 +65,28 @@ namespace KitchenRoutingSystem.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KitchenRoutingSystem.Api", Version = "v1" });
             });
 
-            services.AddDbContext<Context>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
 
             var assemblyDomain = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Domain");
             var assemblySectorFries = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Fries");
             var assemblySectorGrill = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Grill");
             var assemblySectorSalad = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Salad");
             var assemblySectorDrinks = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Drinks");
-            var assemblySectorDessert = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Desserts");            
+            var assemblySectorDessert = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Desserts");
 
-            services.AddMediatR(assemblyDomain, assemblySectorFries, assemblySectorGrill, assemblySectorSalad, assemblySectorDrinks, assemblySectorDessert);
+            //services.AddScoped<IApplicationContext>(provider => provider.GetService<ApplicationContext>());
+
+            //services.AddMediatR(assemblyDomain, assemblySectorFries, assemblySectorGrill, assemblySectorSalad, assemblySectorDrinks, assemblySectorDessert);
+
+            services.AddScoped<IApplicationContext>(provider => provider.GetService<ApplicationContext>());
+
+            services.AddMediatR(typeof(CreateOrderHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(ProcessOrderHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(ProcessProductHandler).GetTypeInfo().Assembly);
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+
 
             services.AddTransient<IOrderPublishService, OrderPublishServices>();
             services.AddTransient<IProcessProductService, ProcessProductService>();
@@ -76,7 +95,14 @@ namespace KitchenRoutingSystem.Api
             services.AddTransient<ISaladConsumerQueueService, SaladConsumerQueueService>();
             services.AddTransient<IDrinksConsumerQueueService, DrinksConsumerQueueService>();
             services.AddTransient<IDessertConsumerQueueService, DessertConsumerQueueService>();
-            services.AddTransient<IOrderConsumerQueue, OrderConsumerQueue>();            
+            services.AddTransient<IOrderConsumerQueue, OrderConsumerQueue>();
+
+            //services.AddTransient<IOrderRepository, OrderRepository>();
+            //services.AddTransient<IProductRepository, ProductRepository>();
+
+            services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
+            services.AddScoped(typeof(IProductRepository), typeof(ProductRepository));
+            services.AddTransient(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 
             services.AddSingleton<OrderConsumer>();
             services.AddSingleton<ConsumerFriesQueue>();
@@ -84,6 +110,8 @@ namespace KitchenRoutingSystem.Api
             services.AddSingleton<ConsumerSaladQueue>();
             services.AddSingleton<ConsumerDrinksQueue>();
             services.AddSingleton<ConsumerDessertQueue>();
+
+
 
             var config = new MapperConfiguration(cfg =>
             {

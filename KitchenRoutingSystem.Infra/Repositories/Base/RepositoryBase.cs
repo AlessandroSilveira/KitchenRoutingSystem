@@ -11,10 +11,10 @@ namespace KitchenRoutingSystem.Infra.Repositories.Base
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
     {
 
-        protected Context.Context Context;
+        protected Context.ApplicationContext Context;
 
 
-        public RepositoryBase(Context.Context context)
+        public RepositoryBase(Context.ApplicationContext context)
         {
             Context = context;
         }

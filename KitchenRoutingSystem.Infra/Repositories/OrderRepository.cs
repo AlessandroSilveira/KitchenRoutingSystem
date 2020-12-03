@@ -6,7 +6,7 @@ namespace KitchenRoutingSystem.Infra.Repositories
 {
     public class OrderRepository : RepositoryBase<Order>, IOrderRepository
     {
-        public OrderRepository(Context.Context context) : base(context)
+        public OrderRepository(Context.ApplicationContext context) : base(context)
         {
         }
     }

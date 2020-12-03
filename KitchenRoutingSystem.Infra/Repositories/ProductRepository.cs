@@ -6,7 +6,7 @@ namespace KitchenRoutingSystem.Infra.Repositories
 {
     public class ProductRepository : RepositoryBase<Product> , IProductRepository
     {
-        public ProductRepository(Context.Context context) : base(context)
+        public ProductRepository(Context.ApplicationContext context) : base(context)
         {
         }
     }

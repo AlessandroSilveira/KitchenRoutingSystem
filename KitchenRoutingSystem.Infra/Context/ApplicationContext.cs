@@ -1,18 +1,16 @@
 ﻿using KitchenRoutingSystem.Domain.Entities;
+using KitchenRoutingSystem.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace KitchenRoutingSystem.Infra.Context
 {
-    public class Context : DbContext
+    public class ApplicationContext : DbContext, IApplicationContext
     {
-        public Context()
+        public ApplicationContext()
         {
         }
 
-        public Context(DbContextOptions<Context> options)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
         }
@@ -23,6 +21,7 @@ namespace KitchenRoutingSystem.Infra.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Order>().ToTable("Order");
             modelBuilder.Entity<Product>().ToTable("Product");
             

@@ -10,10 +10,10 @@ namespace KitchenRoutingSystem.Tests.Infra.Repositories
     public class ProductRepositoryTests 
     {
         private ProductRepository _productRepository;
-        private Context context;
+        private ApplicationContext context;
         public ProductRepositoryTests()
         {
-            context = new Context();
+            context = new ApplicationContext();
             _productRepository = new ProductRepository(context);         
         }
 
