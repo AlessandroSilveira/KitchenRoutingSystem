@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repositories\Base\**" />
+    <EmbeddedResource Remove="Repositories\Base\**" />
+    <None Remove="Repositories\Base\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Context\ApplicationContext.cs" />
   </ItemGroup>
 

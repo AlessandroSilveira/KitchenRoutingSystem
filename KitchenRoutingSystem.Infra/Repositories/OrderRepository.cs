@@ -13,6 +13,11 @@ namespace KitchenRoutingSystem.Infra.Repositories
     {
         private readonly IConfiguration _configuration;
 
+        public OrderRepository(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         public async Task<Order> Add(Order obj)
         {
             var sql = "INSERT INTO Order (Number, CreateDate, LastUpdateDate, Products, Total, Notes, Status) Values (@Number, @CreateDate, @LastUpdateDate, @Products, @Total, @Notes, @Status);";
@@ -35,7 +40,7 @@ namespace KitchenRoutingSystem.Infra.Repositories
             }
         }
 
-        public async Task<Order> Get(int id)
+        public async Task<Order> Get(string id)
         {
             var sql = "SELECT * FROM Order WHERE Number = @Id;";
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
@@ -45,6 +50,7 @@ namespace KitchenRoutingSystem.Infra.Repositories
                 return result.FirstOrDefault();
             }
         }
+
 
         public async Task<IEnumerable<Order>> GetAll()
         {

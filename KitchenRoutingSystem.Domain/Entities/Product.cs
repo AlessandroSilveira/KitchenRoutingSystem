@@ -9,5 +9,8 @@ namespace KitchenRoutingSystem.Domain.Entities
         public int Quantity { get;  set; }
         public EProductType ProductType {get;  set;}
         public EProductStatus Status { get; set; }
+
     }
+
+   
 }

@@ -20,19 +20,11 @@ namespace KitchenRoutingSystem.Domain.Entities
         public string Number { get; private set; }
         public DateTime CreateDate { get; private set; }        
         public DateTime LastUpdateDate { get; private set; }
-        public List<Product> Products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
         public decimal Total => CalculateTotal();
         public string Notes { get; private set; }
         public EOrderStatus Status { get; private set; }
         public ulong DeliveryTag { get; set; }
-
-
-
-        public void AddItems(List<Product> items)
-        {
-            Products.AddRange(items);
-            LastUpdateDate = DateTime.Now;
-        }
 
         public decimal CalculateTotal()
         {
@@ -58,14 +50,6 @@ namespace KitchenRoutingSystem.Domain.Entities
         {
             Products.Remove(products);
             CalculateTotal();
-        }
-
-        public void UpdateProductStatus(EProductStatus status, ProductDto products)
-        {
-            var product = Products.Find(a => a.ProductId == products.ProductId);
-            Products.Remove(product);
-            product.Status = status;
-            Products.Add(product);
         }
     }
 }

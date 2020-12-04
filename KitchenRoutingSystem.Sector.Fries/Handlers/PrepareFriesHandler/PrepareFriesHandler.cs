@@ -3,6 +3,7 @@ using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
 using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Domain.Repository;
+using KitchenRoutingSystem.Domain.Repository.UnitOfWork;
 using KitchenRoutingSystem.Sector.Fries.Commands.Request;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
@@ -19,17 +20,17 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
 {
     public class PrepareFriesHandler : CommandHandler, IRequestHandler<PrepareFriesRequest, CommandResponse>
     {
-        private readonly IProductRepository _productRepository;
-        private readonly IOrderRepository _orderRepository;
-        private readonly ILogger<PrepareFriesHandler> _logger;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ILogger<PrepareFriesHandler> _logger;
+        private readonly IMediator _mediator;
 
-        public PrepareFriesHandler(IProductRepository productRepository, ILogger<PrepareFriesHandler> logger, IOrderRepository orderRepository, IMapper mapper)
+        public PrepareFriesHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<PrepareFriesHandler> logger, IMediator mediator)
         {
-            _productRepository = productRepository;
-            _logger = logger;
-            _orderRepository = orderRepository;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _logger = logger;
+            _mediator = mediator;
         }
 
         public async Task<CommandResponse> Handle(PrepareFriesRequest request, CancellationToken cancellationToken)
@@ -37,8 +38,13 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
             _logger.LogInformation("Preparing Fries...");
 
             //Verifying product in storage
-            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
-            var order = _orderRepository.Get(request.orderId).Result;
+            
+
+            var products = _unitOfWork.Products.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
+
+            //var order = _orderRepository.Get(request.orderId).Result;
+            var order = await _unitOfWork.Orders.Get(request.orderId);
+
             var productDto = _mapper.Map<List<ProductDto>>(order.Products);
 
             if (order != null)
@@ -50,7 +56,7 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
                     try
                     {
                         order.RemoveProduct(products);
-                        await _orderRepository.Update(order);
+                        await _unitOfWork.Orders.Update(order);
                         _logger.LogInformation("Order Updated");
 
                         await UpdateProductList(products, order);
@@ -73,7 +79,6 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
             }
 
 
-
             var data = new CreateOrderResponse(order.Number, order.CreateDate, order.LastUpdateDate, productDto, order.Total, order.Notes, order.Status);
             return CreateResponse(data, "Fries delivered");
         }
@@ -85,11 +90,11 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
 
             products.Quantity = newQuantity;
 
-            await _productRepository.Update(products);
+            await _unitOfWork.Products.Update(products);
             _logger.LogInformation("Fries quantity has updated");
 
-            order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
-            await _orderRepository.Update(order);
+            //order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
+            await _unitOfWork.Orders.Update(order);
 
             _logger.LogInformation("Fries delivered");
 

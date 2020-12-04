@@ -3,14 +3,11 @@ using KitchenRoutingSystem.Domain.Commands.PorcessOrderCommands.Request;
 using KitchenRoutingSystem.Domain.Commands.PorcessOrderCommands.Response;
 using KitchenRoutingSystem.Domain.Commands.ProcessProductCommads;
 using KitchenRoutingSystem.Domain.Entities;
-using KitchenRoutingSystem.Domain.Repository;
 using KitchenRoutingSystem.Domain.Repository.UnitOfWork;
-using KitchenRoutingSystem.Domain.Services.Interfaces;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,12 +19,14 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILogger<ProcessOrderHandler> _logger;
+        private readonly IMediator _mediator;
 
-        public ProcessOrderHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<ProcessOrderHandler> logger)
+        public ProcessOrderHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<ProcessOrderHandler> logger, IMediator mediator)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _logger = logger;
+            _mediator = mediator;
         }
 
         public async Task<CommandResponse> Handle(ProcessOrderRequest request, CancellationToken cancellationToken)

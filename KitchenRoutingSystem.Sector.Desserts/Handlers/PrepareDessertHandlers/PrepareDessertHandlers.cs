@@ -88,7 +88,7 @@ namespace KitchenRoutingSystem.Sector.Dessert.Handlers.PrepareDessertHandler
             await _productRepository.Update(products);
             _logger.LogInformation("Dessert quantity has updated");
 
-            order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
+            //order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
             await _orderRepository.Update(order);
 
             _logger.LogInformation("Dessert delivered");

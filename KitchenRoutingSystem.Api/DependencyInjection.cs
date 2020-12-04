@@ -1,10 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
 using MediatR;
-using System.Text;
-
+using AutoMapper;
+using System;
 
 namespace KitchenRoutingSystem.Shared
 {
@@ -12,10 +10,20 @@ namespace KitchenRoutingSystem.Shared
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            //Mediator
+            var assemblyDomain = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Domain");
+            var assemblySectorFries = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Fries");
+            var assemblySectorGrill = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Grill");
+            var assemblySectorSalad = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Salad");
+            var assemblySectorDrinks = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Drinks");
+            var assemblySectorDessert = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Desserts");
+            services.AddMediatR(assemblyDomain, assemblySectorFries, assemblySectorGrill, assemblySectorSalad, assemblySectorDrinks, assemblySectorDessert);
+
+
+
+            //AutoMapper
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-            //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            
             return services;
         }
     }

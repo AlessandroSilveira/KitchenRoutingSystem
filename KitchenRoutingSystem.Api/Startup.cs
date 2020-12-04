@@ -1,11 +1,9 @@
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using System;
 using KitchenRoutingSystem.Domain.Services.Interfaces;
 using KitchenRoutingSystem.Domain.Services;
 using KitchenRoutingSystem.Domain.Entities;
@@ -31,10 +29,6 @@ using AutoMapper;
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Request;
 using KitchenRoutingSystem.Domain.Repository;
 using KitchenRoutingSystem.Infra.Repositories;
-using System.Reflection;
-using KitchenRoutingSystem.Domain.Handlers.OrderHandlers;
-using KitchenRoutingSystem.Domain.Handlers.ProcessProductHandlers;
-using KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers;
 using KitchenRoutingSystem.Infra.Repositories.UnitOfWork;
 using KitchenRoutingSystem.Domain.Repository.UnitOfWork;
 using KitchenRoutingSystem.Shared;
@@ -57,7 +51,7 @@ namespace KitchenRoutingSystem.Api
             services.AddSingleton(typeof(IConfiguration), configuration);
 
             services.AddApplication();
-            services.AddMapper();
+            
 
             services.AddOptions();            
 
@@ -66,26 +60,6 @@ namespace KitchenRoutingSystem.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KitchenRoutingSystem.Api", Version = "v1" });
             });
-
-            //var assemblyDomain = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Domain");
-            //var assemblySectorFries = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Fries");
-            //var assemblySectorGrill = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Grill");
-            //var assemblySectorSalad = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Salad");
-            //var assemblySectorDrinks = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Drinks");
-            //var assemblySectorDessert = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Desserts");
-
-            //services.AddScoped<IApplicationContext>(provider => provider.GetService<ApplicationContext>());
-
-            //services.AddMediatR(assemblyDomain, assemblySectorFries, assemblySectorGrill, assemblySectorSalad, assemblySectorDrinks, assemblySectorDessert);
-
-            
-
-            //services.AddMediatR(typeof(CreateOrderHandler).GetTypeInfo().Assembly);
-            //services.AddMediatR(typeof(ProcessOrderHandler).GetTypeInfo().Assembly);
-            //services.AddMediatR(typeof(ProcessProductHandler).GetTypeInfo().Assembly);
-
-            //services.AddMediatR(Assembly.GetExecutingAssembly());
-
 
             services.AddTransient<IOrderPublishService, OrderPublishServices>();
             services.AddTransient<IProcessProductService, ProcessProductService>();
@@ -108,7 +82,7 @@ namespace KitchenRoutingSystem.Api
             services.AddSingleton<ConsumerSaladQueue>();
             services.AddSingleton<ConsumerDrinksQueue>();
             services.AddSingleton<ConsumerDessertQueue>();
-
+            services.AddSingleton<Seed>();
 
 
             var config = new MapperConfiguration(cfg =>
@@ -128,7 +102,8 @@ namespace KitchenRoutingSystem.Api
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, OrderConsumer orderConsumer, ConsumerFriesQueue consumerFriesQueue,
-            ConsumerGrillQueue consumerGrillQueue, ConsumerSaladQueue consumerSaladQueue, ConsumerDrinksQueue consumerDrinkQueue, ConsumerDessertQueue consumerDessertQueue)
+            ConsumerGrillQueue consumerGrillQueue, ConsumerSaladQueue consumerSaladQueue, ConsumerDrinksQueue consumerDrinkQueue, ConsumerDessertQueue consumerDessertQueue
+            , Seed seed)
         {
             if (env.IsDevelopment())
             {
@@ -151,6 +126,7 @@ namespace KitchenRoutingSystem.Api
             consumerSaladQueue.StartConsumer().Wait();
             consumerDrinkQueue.StartConsumer().Wait();
             consumerDessertQueue.StartConsumer().Wait();
+            seed.SeedProducts();
         }
     }
 }
