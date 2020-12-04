@@ -57,10 +57,7 @@ namespace KitchenRoutingSystem.Api
             services.AddSingleton(typeof(IConfiguration), configuration);
 
             services.AddApplication();
-
-
-
-           
+            services.AddMapper();
 
             services.AddOptions();            
 
@@ -70,12 +67,12 @@ namespace KitchenRoutingSystem.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KitchenRoutingSystem.Api", Version = "v1" });
             });
 
-            var assemblyDomain = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Domain");
-            var assemblySectorFries = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Fries");
-            var assemblySectorGrill = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Grill");
-            var assemblySectorSalad = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Salad");
-            var assemblySectorDrinks = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Drinks");
-            var assemblySectorDessert = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Desserts");
+            //var assemblyDomain = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Domain");
+            //var assemblySectorFries = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Fries");
+            //var assemblySectorGrill = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Grill");
+            //var assemblySectorSalad = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Salad");
+            //var assemblySectorDrinks = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Drinks");
+            //var assemblySectorDessert = AppDomain.CurrentDomain.Load("KitchenRoutingSystem.Sector.Desserts");
 
             //services.AddScoped<IApplicationContext>(provider => provider.GetService<ApplicationContext>());
 
@@ -83,11 +80,11 @@ namespace KitchenRoutingSystem.Api
 
             
 
-            services.AddMediatR(typeof(CreateOrderHandler).GetTypeInfo().Assembly);
-            services.AddMediatR(typeof(ProcessOrderHandler).GetTypeInfo().Assembly);
-            services.AddMediatR(typeof(ProcessProductHandler).GetTypeInfo().Assembly);
+            //services.AddMediatR(typeof(CreateOrderHandler).GetTypeInfo().Assembly);
+            //services.AddMediatR(typeof(ProcessOrderHandler).GetTypeInfo().Assembly);
+            //services.AddMediatR(typeof(ProcessProductHandler).GetTypeInfo().Assembly);
 
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            //services.AddMediatR(Assembly.GetExecutingAssembly());
 
 
             services.AddTransient<IOrderPublishService, OrderPublishServices>();

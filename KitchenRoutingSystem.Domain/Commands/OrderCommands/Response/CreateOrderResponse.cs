@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace KitchenRoutingSystem.Domain.Commands.OrderCommands.Response
 {
-    public class CreateOrderResponse
+    public class CreateOrderResponse 
     {
         public CreateOrderResponse(string number, DateTime createDate, DateTime lastUpdateDate, List<ProductDto> products, decimal total, string notes, EOrderStatus status)
         {
