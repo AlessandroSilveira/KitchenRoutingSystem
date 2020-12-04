@@ -2,7 +2,9 @@
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
 using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
+using KitchenRoutingSystem.Domain.Enums;
 using KitchenRoutingSystem.Domain.Repository;
+using KitchenRoutingSystem.Domain.Repository.UnitOfWork;
 using KitchenRoutingSystem.Sector.Drinks.Commands.Request;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
@@ -19,17 +21,15 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
 {
     public class PrepareDrinksHandler : CommandHandler, IRequestHandler<PrepareDrinksRequest, CommandResponse>
     {
-        private readonly IProductRepository _productRepository;
-        private readonly IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<PrepareDrinksHandler> _logger;
         private readonly IMapper _mapper;
 
-        public PrepareDrinksHandler(IProductRepository productRepository, ILogger<PrepareDrinksHandler> logger, IOrderRepository orderRepository, IMapper mapper)
-        {
-            _productRepository = productRepository;
-            _logger = logger;
-            _orderRepository = orderRepository;
+        public PrepareDrinksHandler( ILogger<PrepareDrinksHandler> logger, IMapper mapper, IUnitOfWork unitOfWork)
+        {            
+            _logger = logger;            
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<CommandResponse> Handle(PrepareDrinksRequest request, CancellationToken cancellationToken)
@@ -37,8 +37,8 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
             _logger.LogInformation("Preparing Drinks...");
 
             //Verifying product in storage
-            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
-            var order = _orderRepository.Get(request.orderId).Result;
+            var products = _unitOfWork.Products.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
+            var order = _unitOfWork.Orders.Get(request.orderId).Result;
             var productDto = _mapper.Map<List<ProductDto>>(order.Products);
 
             if (order != null)
@@ -50,7 +50,7 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
                     try
                     {
                         order.RemoveProduct(products);
-                        await _orderRepository.Update(order);
+                        await _unitOfWork.Orders.Update(order);
                         _logger.LogInformation("Order Updated");
 
                         await UpdateProductList(products, order);
@@ -83,11 +83,11 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
 
             products.Quantity = newQuantity;
 
-            await _productRepository.Update(products);
+            await _unitOfWork.Products.Update(products);
             _logger.LogInformation("Drinks quantity has updated");
 
-            order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
-            await _orderRepository.Update(order);
+            UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
+            await _unitOfWork.Orders.Update(order);
 
             _logger.LogInformation("Drinks delivered");
 
@@ -95,6 +95,13 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
             var orderjson = JsonConvert.SerializeObject(order);
             _logger.LogInformation(productjson);
             _logger.LogInformation(orderjson);
+        }
+        public void UpdateProductStatus(EProductStatus status, ProductDto products)
+        {
+            var product = _mapper.Map<Product>(products);
+            _unitOfWork.Products.Delete(Convert.ToInt32(product.ProductId));
+            products.Status = status;
+            _unitOfWork.Products.Add(product);
         }
     }
 

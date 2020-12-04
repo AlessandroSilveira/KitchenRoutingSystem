@@ -9,6 +9,7 @@ using KitchenRoutingSystem.Shared.Handler;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -37,9 +38,11 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers
                 return BadRequestResponse(null, "Your order contains no products");
             }
 
-            var product = _mapper.Map<List<Product>>(request.Products);
+            var product = _mapper.Map<List<Product>>(request.Products)
             // Create Order
-            var order = new Order(product);
+
+              
+            var order = new Order(product.FirstOrDefault().ProductId);
 
             // Consolida as notificações
             AddNotifications(order);

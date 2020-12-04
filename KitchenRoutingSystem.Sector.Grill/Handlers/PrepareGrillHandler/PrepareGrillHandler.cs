@@ -93,14 +93,14 @@ namespace KitchenRoutingSystem.Sector.Grill.Handlers.PrepareGrillHandler
             _logger.LogInformation(productjson);
             _logger.LogInformation(orderjson);
         }
-
         public void UpdateProductStatus(EProductStatus status, ProductDto products)
         {
-
-            _unitOfWork.Products.Remove(product);
-            .Status = status;
-            Products.Add(product);
+            var product = _mapper.Map<Product>(products);
+            _unitOfWork.Products.Delete(Convert.ToInt32(product.ProductId));
+            products.Status = status;
+            _unitOfWork.Products.Add(product);
         }
+
     }
 
 }

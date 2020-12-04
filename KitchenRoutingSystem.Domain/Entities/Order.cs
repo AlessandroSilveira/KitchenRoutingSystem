@@ -8,19 +8,19 @@ namespace KitchenRoutingSystem.Domain.Entities
 {
     public class Order : Entity
     {
-        public Order( List<Product> Product)
+        public Order( int ProductId)
         {   
             Number = Guid.NewGuid().ToString().ToUpper().Substring(0, 8);
             CreateDate = DateTime.Now;
             LastUpdateDate = DateTime.Now;           
             Status = EOrderStatus.InTransit;
-            Products = Product;
+            ProductId = ProductId;
         }
 
         public string Number { get; private set; }
         public DateTime CreateDate { get; private set; }        
         public DateTime LastUpdateDate { get; private set; }
-        public virtual ICollection<Product> Products { get; set; }
+        public int ProductId { get; set; }
         public decimal Total => CalculateTotal();
         public string Notes { get; private set; }
         public EOrderStatus Status { get; private set; }

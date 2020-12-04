@@ -2,7 +2,9 @@
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
 using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
+using KitchenRoutingSystem.Domain.Enums;
 using KitchenRoutingSystem.Domain.Repository;
+using KitchenRoutingSystem.Domain.Repository.UnitOfWork;
 using KitchenRoutingSystem.Sector.Salad.Commands.Request;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
@@ -19,17 +21,15 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareSaladHandler
 {
     public class PrepareSaladHandler : CommandHandler, IRequestHandler<PrepareSaladRequest, CommandResponse>
     {
-        private readonly IProductRepository _productRepository;
-        private readonly IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unityOfWork;
         private readonly ILogger<PrepareSaladHandler> _logger;
         private readonly IMapper _mapper;
 
-        public PrepareSaladHandler(IProductRepository productRepository, ILogger<PrepareSaladHandler> logger, IOrderRepository orderRepository, IMapper mapper)
-        {
-            _productRepository = productRepository;
-            _logger = logger;
-            _orderRepository = orderRepository;
+        public PrepareSaladHandler(ILogger<PrepareSaladHandler> logger, IMapper mapper, IUnitOfWork unityOfWork)
+        { 
+            _logger = logger;            
             _mapper = mapper;
+            _unityOfWork = unityOfWork;
         }
 
         public async Task<CommandResponse> Handle(PrepareSaladRequest request, CancellationToken cancellationToken)
@@ -37,8 +37,8 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareSaladHandler
             _logger.LogInformation("Preparing Salad...");
 
             //Verifying product in storage
-            var products = _productRepository.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
-            var order = _orderRepository.Get(request.orderId).Result;
+            var products = _unityOfWork.Products.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
+            var order = _unityOfWork.Orders.Get(request.orderId).Result;
             var productDto = _mapper.Map<List<ProductDto>>(order.Products);
 
             if (order != null)
@@ -50,7 +50,7 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareSaladHandler
                     try
                     {
                         order.RemoveProduct(products);
-                        await _orderRepository.Update(order);
+                        await _unityOfWork.Orders.Update(order);
                         _logger.LogInformation("Order Updated");
 
                         await UpdateProductList(products, order);
@@ -61,18 +61,15 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareSaladHandler
                         throw;
                     }
                 }
-                else
-                {
+                else                
                     await UpdateProductList(products, order);
-                }
+                
             }
             else
             {
                 _logger.LogError($"It´s not possible deliver Salad without an order");
                 return BadRequestResponse(null, "It´s not possible deliver Salad without an order");
             }
-
-
 
             var data = new CreateOrderResponse(order.Number, order.CreateDate, order.LastUpdateDate, productDto, order.Total, order.Notes, order.Status);
             return CreateResponse(data, "Salad delivered");
@@ -85,11 +82,11 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareSaladHandler
 
             products.Quantity = newQuantity;
 
-            await _productRepository.Update(products);
+            await _unityOfWork.Products.Update(products);
             _logger.LogInformation("Salad quantity has updated");
 
-            order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
-            await _orderRepository.Update(order);
+            UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
+            await _unityOfWork.Orders.Update(order);
 
             _logger.LogInformation("Salad delivered");
 
@@ -97,6 +94,14 @@ namespace KitchenRoutingSystem.Sector.Salad.Handlers.PrepareSaladHandler
             var orderjson = JsonConvert.SerializeObject(order);
             _logger.LogInformation(productjson);
             _logger.LogInformation(orderjson);
+        }
+
+        public void UpdateProductStatus(EProductStatus status, ProductDto products)
+        {
+            var product = _mapper.Map<Product>(products);
+            _unityOfWork.Products.Delete(Convert.ToInt32(product.ProductId));
+            products.Status = status;
+            _unityOfWork.Products.Add(product);
         }
     }
 
