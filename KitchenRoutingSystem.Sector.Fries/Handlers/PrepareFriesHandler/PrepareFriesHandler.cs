@@ -2,7 +2,6 @@
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
 using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
-using KitchenRoutingSystem.Domain.Repository;
 using KitchenRoutingSystem.Domain.Repository.UnitOfWork;
 using KitchenRoutingSystem.Sector.Fries.Commands.Request;
 using KitchenRoutingSystem.Shared.Commands.Response;
@@ -37,19 +36,15 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
         {
             _logger.LogInformation("Preparing Fries...");
 
-            //Verifying product in storage
-            
-
             var products = _unitOfWork.Products.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
 
-            //var order = _orderRepository.Get(request.orderId).Result;
-            var order = await _unitOfWork.Orders.Get(request.orderId);
+            var orderProduct = await _unitOfWork.OrderProducts.Get(request.orderId);
 
-            var productDto = _mapper.Map<List<ProductDto>>(order.Products);
+            var productDto = _mapper.Map<List<ProductDto>>(Convert.ToInt32(products.ProductId));
 
-            if (order != null)
+            if (orderProduct != null)
             {
-                if (products.Quantity == 0 || products.Quantity < order.Products.FirstOrDefault().Quantity)
+                if (products.Quantity == 0 || products.Quantity < orderProduct.Quantity)
                 {
                     _logger.LogInformation("Missing Fries, updating your order");
 
@@ -97,11 +92,6 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
             await _unitOfWork.Orders.Update(order);
 
             _logger.LogInformation("Fries delivered");
-
-            var productjson = JsonConvert.SerializeObject(products);
-            var orderjson = JsonConvert.SerializeObject(order);
-            _logger.LogInformation(productjson);
-            _logger.LogInformation(orderjson);
         }
     }
 

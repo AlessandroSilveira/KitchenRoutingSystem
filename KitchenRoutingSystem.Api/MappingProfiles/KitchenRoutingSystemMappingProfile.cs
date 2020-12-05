@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using KitchenRoutingSystem.Domain.Entities;
-using KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers;
+using KitchenRoutingSystem.Domain.Handlers.CreateOrderHandlers;
 using KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler;
 
 namespace KitchenRoutingSystem.Api.MappingProfiles
@@ -9,8 +9,8 @@ namespace KitchenRoutingSystem.Api.MappingProfiles
     {
         public KitchenRoutingSystemMappingProfile()
         {
-            CreateMap<ProcessOrderHandler, Order>().ReverseMap();
-            CreateMap<ProcessOrderHandler, Product>().ReverseMap();
+            CreateMap<CreateOrderHandler, Order>().ReverseMap();
+            CreateMap<CreateOrderHandler, Product>().ReverseMap();
 
             CreateMap<PrepareFriesHandler, Order>().ReverseMap();
             CreateMap<PrepareFriesHandler, Product>().ReverseMap();

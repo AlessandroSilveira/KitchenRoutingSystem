@@ -8,5 +8,6 @@ namespace KitchenRoutingSystem.Domain.Repository.UnitOfWork
     {
         IOrderRepository Orders { get; }
         IProductRepository Products { get; }
+        IOrderProductsRepository OrderProducts { get; }
     }
 }

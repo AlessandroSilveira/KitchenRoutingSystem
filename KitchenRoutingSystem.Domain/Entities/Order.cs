@@ -8,28 +8,28 @@ namespace KitchenRoutingSystem.Domain.Entities
 {
     public class Order : Entity
     {
-        public Order( int ProductId)
+        public Order(List<Product> product)
         {   
             Number = Guid.NewGuid().ToString().ToUpper().Substring(0, 8);
             CreateDate = DateTime.Now;
             LastUpdateDate = DateTime.Now;           
             Status = EOrderStatus.InTransit;
-            ProductId = ProductId;
+            Product = product;
         }
 
         public string Number { get; private set; }
         public DateTime CreateDate { get; private set; }        
-        public DateTime LastUpdateDate { get; private set; }
-        public int ProductId { get; set; }
+        public DateTime LastUpdateDate { get; private set; }       
         public decimal Total => CalculateTotal();
         public string Notes { get; private set; }
-        public EOrderStatus Status { get; private set; }
+        public EOrderStatus Status { get; private set; }        
         public ulong DeliveryTag { get; set; }
+        public List<Product> Product { get; }
 
         public decimal CalculateTotal()
         {
             var total = 0M;
-            foreach (var item in Products)
+            foreach (var item in Product)
                 total += item.Value * item.Quantity;
 
             return total;
@@ -46,9 +46,9 @@ namespace KitchenRoutingSystem.Domain.Entities
             LastUpdateDate = DateTime.Now;
         }
 
-        public void RemoveProduct(Product products)
+        public void RemoveProduct(Product product)
         {
-            Products.Remove(products);
+            Product.Remove(product);
             CalculateTotal();
         }
     }

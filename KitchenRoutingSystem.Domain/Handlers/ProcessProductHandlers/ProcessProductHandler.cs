@@ -41,19 +41,19 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessProductHandlers
                         break;
                     case Enums.EProductType.Grill:
                         _processProductService.SendOrderToGrillSector(messageBodyBytes);
-                        _logger.LogInformation("Message sento to Fries Sector");
+                        _logger.LogInformation("Message sento to Grill Sector");
                         break;
                     case Enums.EProductType.Salad:
                         _processProductService.SendOrderToSaladSector(messageBodyBytes);
-                        _logger.LogInformation("Message sento to Fries Sector");
+                        _logger.LogInformation("Message sento to Salad Sector");
                         break;
                     case Enums.EProductType.Drink:
                         _processProductService.SendOrderToDrinkSector(messageBodyBytes);
-                        _logger.LogInformation("Message sento to Fries Sector");
+                        _logger.LogInformation("Message sento to Drink Sector");
                         break;
                     case Enums.EProductType.Dessert:
                         _processProductService.SendOrderToDessertSector(messageBodyBytes);
-                        _logger.LogInformation("Message sento to Fries Sector");
+                        _logger.LogInformation("Message sento to Dessert Sector");
                         break;
                 }
             }

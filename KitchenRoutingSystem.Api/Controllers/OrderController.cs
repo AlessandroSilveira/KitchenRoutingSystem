@@ -1,5 +1,4 @@
-﻿using KitchenRoutingSystem.Domain.Commands.OrderCommands.Request;
-using KitchenRoutingSystem.Domain.DTOs;
+﻿using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -18,8 +17,7 @@ namespace KitchenRoutingSystem.Api.Controllers
         }
 
         [HttpPost("/Order")]       
-        public async Task<ActionResult<CommandResponse>> Create([FromBody] OrderDto command
-        )
+        public async Task<ActionResult<CommandResponse>> Create([FromBody] OrderDto command)
         {
             var result = await _mediator.Send(command);
 

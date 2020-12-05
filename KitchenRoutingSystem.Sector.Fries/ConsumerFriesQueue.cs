@@ -52,7 +52,7 @@ namespace KitchenRoutingSystem.Sector.Fries
                 var request = JsonConvert.DeserializeObject<PrepareFriesRequest>(json);
                 var orderprcessed = await _mediator.Send(request);
 
-                return orderprcessed.StatusCode == 201 ? true : false;
+                return orderprcessed.StatusCode == 201;
             }
             catch (Exception e)
             {

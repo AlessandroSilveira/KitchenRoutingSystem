@@ -2,27 +2,29 @@
 using KitchenRoutingSystem.Domain.Commands.PorcessOrderCommands.Request;
 using KitchenRoutingSystem.Domain.Commands.PorcessOrderCommands.Response;
 using KitchenRoutingSystem.Domain.Commands.ProcessProductCommads;
+using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Domain.Repository.UnitOfWork;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers
+namespace KitchenRoutingSystem.Domain.Handlers.CreateOrderHandlers
 {
-    public class ProcessOrderHandler : CommandHandler, IRequestHandler<ProcessOrderRequest, CommandResponse>
+    public class CreateOrderHandler : CommandHandler, IRequestHandler<ProcessOrderRequest, CommandResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly ILogger<ProcessOrderHandler> _logger;
+        private readonly ILogger<CreateOrderHandler> _logger;
         private readonly IMediator _mediator;
 
-        public ProcessOrderHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<ProcessOrderHandler> logger, IMediator mediator)
+        public CreateOrderHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<CreateOrderHandler> logger, IMediator mediator)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -38,22 +40,28 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandlers
                 return BadRequestResponse(null, "Your order contains no products");
             }
 
-            var product = _mapper.Map<List<Product>>(request.Products)
-            // Create Order
+            var product = _mapper.Map<List<Product>>(request.Products);
 
-              
-            var order = new Order(product.FirstOrDefault().ProductId);
+            // Create Order
+            var order = new Order(product);
+            await _unitOfWork.Orders.Add(order);
+
+
+            //Create OrderProcess
+            foreach(var itens in order.Product)
+            {
+                var orderProductDto = new OrderProductDto(order.Id, Guid.Parse(itens.ProductId), itens.Value, itens.Quantity, Enums.EProductType.);
+                await _mediator.Send(orderProductDto);
+            }
 
             // Consolida as notificações
             AddNotifications(order);
 
-            var newOrder = await _unitOfWork.Orders.Add(order);
-            _logger.LogInformation("Order Created");
 
             // Return data
-            if (newOrder != null)
+            if (order != null)
             {
-                var processProductsCommand = new ProcessProductCommad { orderId = newOrder.Number, products = request.Products };
+                var processProductsCommand = new ProcessProductCommad { orderId = order.Number, products = request.Products };
                 await _mediator.Send(processProductsCommand);
                 var data = new ProcessOrderResponse(order.Number, order.CreateDate, order.LastUpdateDate, request.Products, order.Total, order.Notes, order.Status, 1);
 
