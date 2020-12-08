@@ -37,9 +37,7 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
             _logger.LogInformation("Preparing Fries...");
 
             var products = _unitOfWork.Products.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
-
             var orderProduct = await _unitOfWork.OrderProducts.Get(request.orderId);
-
             var productDto = _mapper.Map<List<ProductDto>>(Convert.ToInt32(products.ProductId));
 
             if (orderProduct != null)
@@ -50,9 +48,8 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
 
                     try
                     {
-                        order.RemoveProduct(products);
-                        await _unitOfWork.Orders.Update(order);
-                        _logger.LogInformation("Order Updated");
+                        await _unitOfWork.OrderProducts.Delete(orderProduct.ProductId);                       
+                        _logger.LogInformation("OrderProduct Updated");
 
                         await UpdateProductList(products, order);
                     }
@@ -74,7 +71,7 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
             }
 
 
-            var data = new CreateOrderResponse(order.Number, order.CreateDate, order.LastUpdateDate, productDto, order.Total, order.Notes, order.Status);
+            var data = new CreateOrderResponse(orderProduct.Number, orderProduct.CreateDate, orderProduct.LastUpdateDate, productDto, orderProduct.Total, orderProduct.Notes, orderProduct.Status);
             return CreateResponse(data, "Fries delivered");
         }
 

@@ -10,7 +10,7 @@ namespace KitchenRoutingSystem.Domain.Repository.Base
         Task<TEntity> Get(string id);
         Task<IEnumerable<TEntity>> GetAll();
         Task<TEntity> Add(TEntity entity);
-        Task<int> Delete(int id);
+        Task<int> Delete(Guid id);
         Task<int> Update(TEntity entity);
     }
 }
