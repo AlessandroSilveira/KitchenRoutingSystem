@@ -43,14 +43,14 @@ namespace KitchenRoutingSystem.Domain.Handlers.CreateOrderHandlers
             var product = _mapper.Map<List<Product>>(request.Products);
 
             // Create Order
-            var order = new Order(product);
+            var order = new Order();
             await _unitOfWork.Orders.Add(order);
 
 
             //Create OrderProcess
-            foreach(var itens in order.Product)
+            foreach(var itens in request.Products)
             {
-                var orderProductDto = new OrderProductDto(order.Id, Guid.Parse(itens.ProductId), itens.Value, itens.Quantity, Enums.EProductType.);
+                var orderProductDto = new OrderProductDto(order.Id, Guid.Parse(itens.ProductId), itens.Value, itens.Quantity, itens.ProductType);
                 await _mediator.Send(orderProductDto);
             }
 

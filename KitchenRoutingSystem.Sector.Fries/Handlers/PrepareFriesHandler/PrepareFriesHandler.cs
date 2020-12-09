@@ -42,26 +42,46 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
 
             if (orderProduct != null)
             {
-                if (products.Quantity == 0 || products.Quantity < orderProduct.Quantity)
+                if (products.Quantity == 0)
                 {
                     _logger.LogInformation("Missing Fries, updating your order");
 
                     try
                     {
-                        await _unitOfWork.OrderProducts.Delete(orderProduct.ProductId);                       
+                        await _unitOfWork.OrderProducts.Delete(orderProduct.ProductId);
                         _logger.LogInformation("OrderProduct Updated");
 
-                        await UpdateProductList(products, order);
+                        var orderDto = _mapper.Map<OrderDto>(orderProduct);
+
+                        await UpdateProductList(products, orderDto);
                     }
                     catch (Exception e)
                     {
-                        _logger.LogError($"Error on update order, message: {e}");
+                        _logger.LogError($"Error on update OrderProduct, message: {e}");
+                        throw;
+                    }
+                }
+                else if (products.Quantity < orderProduct.Quantity)
+                {
+                    try
+                    {
+                        orderProduct.ChangeQuantity(products.Quantity);
+                        await _unitOfWork.OrderProducts.Update(orderProduct);
+                        _logger.LogError($"Product quantity was updated in OrderProduct, the new quantity is {orderProduct.Quantity} ");
+
+                        var orderDto = _mapper.Map<OrderDto>(orderProduct);
+                        await UpdateProductList(products, orderDto);
+                    }
+                    catch (Exception e)
+                    {
+                        _logger.LogError($"Error on update quantity in OrderProduct, message: {e}");
                         throw;
                     }
                 }
                 else
                 {
-                    await UpdateProductList(products, order);
+                    var orderDto = _mapper.Map<OrderDto>(orderProduct);
+                    await UpdateProductList(products, orderDto);
                 }
             }
             else
@@ -70,22 +90,23 @@ namespace KitchenRoutingSystem.Sector.Fries.Handlers.PrepareFriesHandler
                 return BadRequestResponse(null, "It´s not possible deliver Fries without an order");
             }
 
-
-            var data = new CreateOrderResponse(orderProduct.Number, orderProduct.CreateDate, orderProduct.LastUpdateDate, productDto, orderProduct.Total, orderProduct.Notes, orderProduct.Status);
+            var order = _mapper.Map<Order>(orderProduct);
+            var data = new CreateOrderResponse(order.Number, order.CreateDate, order.LastUpdateDate, productDto, order.Total, order.Notes, order.Status);
             return CreateResponse(data, "Fries delivered");
         }
 
-        private async Task UpdateProductList(Product products, Order order)
+        private async Task UpdateProductList(Product products, OrderDto orderDto)
         {
-            var productDto = _mapper.Map<List<ProductDto>>(order.Products);
-            var newQuantity = products.Quantity - order.Products.Where(a => a.ProductType == Domain.Enums.EProductType.Fries).FirstOrDefault().Quantity;
+            var productDto = _mapper.Map<List<ProductDto>>(orderDto.Products);
+            var newQuantity = products.Quantity - orderDto.Products.Where(a => a.ProductType == Domain.Enums.EProductType.Fries).FirstOrDefault().Quantity;
 
             products.Quantity = newQuantity;
 
             await _unitOfWork.Products.Update(products);
             _logger.LogInformation("Fries quantity has updated");
 
-            //order.UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
+            var order = _mapper.Map<Order>(orderDto);
+
             await _unitOfWork.Orders.Update(order);
 
             _logger.LogInformation("Fries delivered");

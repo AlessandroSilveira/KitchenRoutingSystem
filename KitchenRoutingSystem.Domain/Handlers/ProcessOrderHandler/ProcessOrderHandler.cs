@@ -34,7 +34,7 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler
 
             productMap = CheckForProductInStock(productMap);
 
-            var order = new Order(productMap);
+            var order = new Order();
             var createOrderRequest = _mapper.Map<CreateOrderRequest>(order);
 
             _orderPublishService.PublishOrder(createOrderRequest);

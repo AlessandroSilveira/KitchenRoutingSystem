@@ -40,6 +40,11 @@ namespace KitchenRoutingSystem.Infra.Repositories
             return affectedRows;
         }
 
+        public Task<int> Delete(System.Guid id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public async Task<OrderProduct> Get(string id)
         {
             var sql = "SELECT * FROM OrderProducts WHERE Id = @Id;";

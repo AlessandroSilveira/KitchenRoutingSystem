@@ -2,15 +2,12 @@
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
 using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
-using KitchenRoutingSystem.Domain.Enums;
-using KitchenRoutingSystem.Domain.Repository;
 using KitchenRoutingSystem.Domain.Repository.UnitOfWork;
 using KitchenRoutingSystem.Sector.Drinks.Commands.Request;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,48 +19,68 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
     public class PrepareDrinksHandler : CommandHandler, IRequestHandler<PrepareDrinksRequest, CommandResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger<PrepareDrinksHandler> _logger;
         private readonly IMapper _mapper;
+        private readonly ILogger<PrepareDrinksHandler> _logger;
+        private readonly IMediator _mediator;
 
-        public PrepareDrinksHandler( ILogger<PrepareDrinksHandler> logger, IMapper mapper, IUnitOfWork unitOfWork)
-        {            
-            _logger = logger;            
-            _mapper = mapper;
+        public PrepareDrinksHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<PrepareDrinksHandler> logger, IMediator mediator)
+        {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
+            _logger = logger;
+            _mediator = mediator;
         }
 
         public async Task<CommandResponse> Handle(PrepareDrinksRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Preparing Drinks...");
 
-            //Verifying product in storage
             var products = _unitOfWork.Products.GetAll().Result.Where(a => a.ProductType == request.products.FirstOrDefault().ProductType).FirstOrDefault();
-            var order = _unitOfWork.Orders.Get(request.orderId).Result;
-            var productDto = _mapper.Map<List<ProductDto>>(order.Products);
+            var orderProduct = await _unitOfWork.OrderProducts.Get(request.orderId);
+            var productDto = _mapper.Map<List<ProductDto>>(Convert.ToInt32(products.ProductId));
 
-            if (order != null)
+            if (orderProduct != null)
             {
-                if (products.Quantity == 0 || products.Quantity < order.Products.FirstOrDefault().Quantity)
+                if (products.Quantity == 0)
                 {
                     _logger.LogInformation("Missing Drinks, updating your order");
 
                     try
                     {
-                        order.RemoveProduct(products);
-                        await _unitOfWork.Orders.Update(order);
-                        _logger.LogInformation("Order Updated");
+                        await _unitOfWork.OrderProducts.Delete(orderProduct.ProductId);
+                        _logger.LogInformation("OrderProduct Updated");
 
-                        await UpdateProductList(products, order);
+                        var orderDto = _mapper.Map<OrderDto>(orderProduct);
+
+                        await UpdateProductList(products, orderDto);
                     }
                     catch (Exception e)
                     {
-                        _logger.LogError($"Error on update order, message: {e}");
+                        _logger.LogError($"Error on update OrderProduct, message: {e}");
+                        throw;
+                    }
+                }
+                else if (products.Quantity < orderProduct.Quantity)
+                {
+                    try
+                    {
+                        orderProduct.ChangeQuantity(products.Quantity);
+                        await _unitOfWork.OrderProducts.Update(orderProduct);
+                        _logger.LogError($"Product quantity was updated in OrderProduct, the new quantity is {orderProduct.Quantity} ");
+
+                        var orderDto = _mapper.Map<OrderDto>(orderProduct);
+                        await UpdateProductList(products, orderDto);
+                    }
+                    catch (Exception e)
+                    {
+                        _logger.LogError($"Error on update quantity in OrderProduct, message: {e}");
                         throw;
                     }
                 }
                 else
                 {
-                    await UpdateProductList(products, order);
+                    var orderDto = _mapper.Map<OrderDto>(orderProduct);
+                    await UpdateProductList(products, orderDto);
                 }
             }
             else
@@ -72,36 +89,26 @@ namespace KitchenRoutingSystem.Sector.Drinks.Handlers.PrepareDrinksHandler
                 return BadRequestResponse(null, "It´s not possible deliver Drinks without an order");
             }
 
+            var order = _mapper.Map<Order>(orderProduct);
             var data = new CreateOrderResponse(order.Number, order.CreateDate, order.LastUpdateDate, productDto, order.Total, order.Notes, order.Status);
             return CreateResponse(data, "Drinks delivered");
         }
 
-        private async Task UpdateProductList(Product products, Order order)
+        private async Task UpdateProductList(Product products, OrderDto orderDto)
         {
-            var productDto = _mapper.Map<List<ProductDto>>(order.Products);
-            var newQuantity = products.Quantity - order.Products.Where(a => a.ProductType == Domain.Enums.EProductType.Drink).FirstOrDefault().Quantity;
+            var productDto = _mapper.Map<List<ProductDto>>(orderDto.Products);
+            var newQuantity = products.Quantity - orderDto.Products.Where(a => a.ProductType == Domain.Enums.EProductType.Drink).FirstOrDefault().Quantity;
 
             products.Quantity = newQuantity;
 
             await _unitOfWork.Products.Update(products);
             _logger.LogInformation("Drinks quantity has updated");
 
-            UpdateProductStatus(Domain.Enums.EProductStatus.Delivered, productDto.FirstOrDefault());
+            var order = _mapper.Map<Order>(orderDto);
+
             await _unitOfWork.Orders.Update(order);
 
             _logger.LogInformation("Drinks delivered");
-
-            var productjson = JsonConvert.SerializeObject(products);
-            var orderjson = JsonConvert.SerializeObject(order);
-            _logger.LogInformation(productjson);
-            _logger.LogInformation(orderjson);
-        }
-        public void UpdateProductStatus(EProductStatus status, ProductDto products)
-        {
-            var product = _mapper.Map<Product>(products);
-            _unitOfWork.Products.Delete(Convert.ToInt32(product.ProductId));
-            products.Status = status;
-            _unitOfWork.Products.Add(product);
         }
     }
 

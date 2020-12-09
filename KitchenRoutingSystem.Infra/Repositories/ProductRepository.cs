@@ -3,6 +3,7 @@ using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Domain.Repository;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace KitchenRoutingSystem.Infra.Repositories
             return obj;
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<int> Delete(Guid id)
         {
             var sql = "DELETE FROM Product WHERE ProductId = @Id;";
             using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
@@ -42,7 +43,7 @@ namespace KitchenRoutingSystem.Infra.Repositories
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var result = await connection.QueryAsync<Product>(sql, new { Number = id });
+                var result = await connection.QueryAsync<Product>(sql, new { @Id = id });
                 return result.FirstOrDefault();
             }
         }

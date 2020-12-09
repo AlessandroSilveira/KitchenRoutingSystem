@@ -1,0 +1,334 @@
+2020-12-08 14:07:18.980 -03:00 [INF] Starting up
+2020-12-08 14:07:25.623 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-08 14:07:25.645 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:07:25.653 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:07:25.659 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:07:25.665 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-08 14:07:25.671 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-08 14:07:27.012 -03:00 [INF] Seed Complete
+2020-12-08 14:07:27.568 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-08 14:07:27.573 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-08 14:07:27.575 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-08 14:07:27.576 -03:00 [INF] Hosting environment: Development
+2020-12-08 14:07:27.577 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-08 14:07:34.836 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-08 14:07:35.153 -03:00 [INF] Request finished in 325.9608ms 200 text/html;charset=utf-8
+2020-12-08 14:07:37.391 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2020-12-08 14:07:37.429 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2020-12-08 14:07:37.471 -03:00 [INF] The file /swagger-ui.css was not modified
+2020-12-08 14:07:37.471 -03:00 [INF] The file /swagger-ui-bundle.js was not modified
+2020-12-08 14:07:37.474 -03:00 [INF] Request finished in 45.11ms 304 text/css
+2020-12-08 14:07:37.474 -03:00 [INF] Request finished in 83.0496ms 304 application/javascript
+2020-12-08 14:07:37.475 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2020-12-08 14:07:37.477 -03:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2020-12-08 14:07:37.478 -03:00 [INF] Request finished in 2.8314ms 304 application/javascript
+2020-12-08 14:07:37.685 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-08 14:07:37.735 -03:00 [INF] Request finished in 50.6312ms 404 
+2020-12-08 14:07:37.900 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-08 14:07:37.902 -03:00 [INF] Request finished in 1.6337ms 404 
+2020-12-08 14:07:37.980 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-08 14:07:38.053 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png  
+2020-12-08 14:07:38.056 -03:00 [INF] The file /favicon-32x32.png was not modified
+2020-12-08 14:07:38.059 -03:00 [INF] Request finished in 5.3444ms 304 image/png
+2020-12-08 14:07:38.150 -03:00 [INF] Request finished in 170.7466ms 200 application/json;charset=utf-8
+2020-12-08 14:07:57.960 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-08 14:07:57.965 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 14:07:58.020 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[KitchenRoutingSystem.Shared.Commands.Response.CommandResponse]] Create(KitchenRoutingSystem.Domain.DTOs.OrderDto) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-08 14:08:01.543 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 3514.3338ms
+2020-12-08 14:08:01.550 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 14:08:01.556 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.AggregateException: One or more errors occurred. (Must declare the scalar variable "@Id".)
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@Id".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 418
+   at KitchenRoutingSystem.Infra.Repositories.ProductRepository.Get(String id) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Infra\Repositories\ProductRepository.cs:line 46
+ClientConnectionId:b50ce4f3-da83-4006-b274-e7d66021b820
+Error Number:137,State:2,Class:15
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler.ProcessOrderHandler.CheckForProductInStock(List`1 productMap) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Domain\Handlers\ProcessOrderHandler\ProcessOrderHandler.cs:line 50
+   at KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler.ProcessOrderHandler.Handle(OrderDto request, CancellationToken cancellationToken) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Domain\Handlers\ProcessOrderHandler\ProcessOrderHandler.cs:line 35
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Api.Controllers.OrderController.Create(OrderDto command) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api\Controllers\OrderController.cs:line 22
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-08 14:08:01.958 -03:00 [INF] Request finished in 3997.373ms 500 text/plain
+2020-12-08 14:36:16.532 -03:00 [INF] Starting up
+2020-12-08 14:36:21.711 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-08 14:36:21.729 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:36:21.737 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:36:21.743 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:36:21.748 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-08 14:36:21.752 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-08 14:36:22.966 -03:00 [INF] Seed Complete
+2020-12-08 14:36:23.590 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-08 14:36:23.596 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-08 14:36:23.598 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-08 14:36:23.600 -03:00 [INF] Hosting environment: Development
+2020-12-08 14:36:23.601 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-08 14:36:30.562 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-08 14:36:30.969 -03:00 [INF] Request finished in 415.6336ms 200 text/html;charset=utf-8
+2020-12-08 14:36:32.474 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-08 14:36:32.551 -03:00 [INF] Request finished in 77.3748ms 404 
+2020-12-08 14:36:32.715 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-08 14:36:32.720 -03:00 [INF] Request finished in 5.1804ms 404 
+2020-12-08 14:36:32.845 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-08 14:36:33.013 -03:00 [INF] Request finished in 167.739ms 200 application/json;charset=utf-8
+2020-12-08 14:36:47.384 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-08 14:36:47.394 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 14:36:47.444 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[KitchenRoutingSystem.Shared.Commands.Response.CommandResponse]] Create(KitchenRoutingSystem.Domain.DTOs.OrderDto) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-08 14:36:54.491 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 7040.4002ms
+2020-12-08 14:36:54.502 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 14:36:54.517 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.AggregateException: One or more errors occurred. (Must declare the scalar variable "@Id".)
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@Id".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 418
+   at KitchenRoutingSystem.Infra.Repositories.ProductRepository.Get(String id) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Infra\Repositories\ProductRepository.cs:line 46
+ClientConnectionId:33da6885-f108-453a-89e1-a943551808ed
+Error Number:137,State:2,Class:15
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler.ProcessOrderHandler.CheckForProductInStock(List`1 productMap) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Domain\Handlers\ProcessOrderHandler\ProcessOrderHandler.cs:line 50
+   at KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler.ProcessOrderHandler.Handle(OrderDto request, CancellationToken cancellationToken) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Domain\Handlers\ProcessOrderHandler\ProcessOrderHandler.cs:line 35
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Api.Controllers.OrderController.Create(OrderDto command) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api\Controllers\OrderController.cs:line 22
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-08 14:36:54.897 -03:00 [INF] Request finished in 7513.3624ms 500 text/plain
+2020-12-08 14:41:43.808 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-08 14:41:43.820 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 14:41:43.824 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[KitchenRoutingSystem.Shared.Commands.Response.CommandResponse]] Create(KitchenRoutingSystem.Domain.DTOs.OrderDto) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-08 14:41:55.494 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 11664.2067ms
+2020-12-08 14:41:55.500 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 14:41:55.507 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.AggregateException: One or more errors occurred. (Must declare the scalar variable "@Id".)
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@Id".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 418
+   at KitchenRoutingSystem.Infra.Repositories.ProductRepository.Get(String id) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Infra\Repositories\ProductRepository.cs:line 46
+ClientConnectionId:33da6885-f108-453a-89e1-a943551808ed
+Error Number:137,State:2,Class:15
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler.ProcessOrderHandler.CheckForProductInStock(List`1 productMap) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Domain\Handlers\ProcessOrderHandler\ProcessOrderHandler.cs:line 50
+   at KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler.ProcessOrderHandler.Handle(OrderDto request, CancellationToken cancellationToken) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Domain\Handlers\ProcessOrderHandler\ProcessOrderHandler.cs:line 35
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Api.Controllers.OrderController.Create(OrderDto command) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api\Controllers\OrderController.cs:line 22
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-08 14:41:55.524 -03:00 [INF] Request finished in 11715.8038ms 500 text/plain
+2020-12-08 14:43:25.081 -03:00 [INF] Starting up
+2020-12-08 14:43:29.215 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-08 14:43:29.233 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:43:29.241 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:43:29.248 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:43:29.255 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-08 14:43:29.266 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-08 14:43:29.998 -03:00 [INF] Seed Complete
+2020-12-08 14:43:30.338 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-08 14:43:30.343 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-08 14:43:30.345 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-08 14:43:30.346 -03:00 [INF] Hosting environment: Development
+2020-12-08 14:43:30.347 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-08 14:43:36.046 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-08 14:43:36.206 -03:00 [INF] Request finished in 166.8844ms 200 text/html;charset=utf-8
+2020-12-08 14:43:37.804 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-08 14:43:37.871 -03:00 [INF] Request finished in 67.6287ms 404 
+2020-12-08 14:43:37.953 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-08 14:43:37.956 -03:00 [INF] Request finished in 2.7422ms 404 
+2020-12-08 14:43:38.035 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-08 14:43:38.190 -03:00 [INF] Request finished in 154.841ms 200 application/json;charset=utf-8
+2020-12-08 14:44:03.462 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-08 14:44:03.471 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 14:44:03.518 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[KitchenRoutingSystem.Shared.Commands.Response.CommandResponse]] Create(KitchenRoutingSystem.Domain.DTOs.OrderDto) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-08 14:44:11.754 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 8227.5512ms
+2020-12-08 14:44:11.760 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 14:44:11.764 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.AggregateException: One or more errors occurred. (Must declare the scalar variable "@Id".)
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@Id".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 418
+   at KitchenRoutingSystem.Infra.Repositories.ProductRepository.Get(String id) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Infra\Repositories\ProductRepository.cs:line 46
+ClientConnectionId:f708617f-e270-499b-8995-9a035b6ab42d
+Error Number:137,State:2,Class:15
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler.ProcessOrderHandler.CheckForProductInStock(List`1 productMap) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Domain\Handlers\ProcessOrderHandler\ProcessOrderHandler.cs:line 50
+   at KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler.ProcessOrderHandler.Handle(OrderDto request, CancellationToken cancellationToken) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Domain\Handlers\ProcessOrderHandler\ProcessOrderHandler.cs:line 35
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at KitchenRoutingSystem.Api.Controllers.OrderController.Create(OrderDto command) in C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api\Controllers\OrderController.cs:line 22
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-08 14:44:11.901 -03:00 [INF] Request finished in 8439.8246ms 500 text/plain
+2020-12-08 14:44:58.028 -03:00 [INF] Starting up
+2020-12-08 14:45:02.261 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-08 14:45:02.279 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:45:02.286 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:45:02.292 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 14:45:02.297 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-08 14:45:02.303 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-08 14:45:03.067 -03:00 [INF] Seed Complete
+2020-12-08 14:45:03.447 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-08 14:45:03.451 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-08 14:45:03.452 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-08 14:45:03.453 -03:00 [INF] Hosting environment: Development
+2020-12-08 14:45:03.454 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-08 14:45:08.391 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-08 14:45:08.542 -03:00 [INF] Request finished in 154.2371ms 200 text/html;charset=utf-8
+2020-12-08 14:45:10.140 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-08 14:45:10.207 -03:00 [INF] Request finished in 67.23ms 404 
+2020-12-08 14:45:10.332 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-08 14:45:10.336 -03:00 [INF] Request finished in 4.1913ms 404 
+2020-12-08 14:45:10.478 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-08 14:45:10.690 -03:00 [INF] Request finished in 212.0434ms 200 application/json;charset=utf-8
+2020-12-08 14:45:21.298 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-08 14:45:21.308 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 14:45:21.350 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[KitchenRoutingSystem.Shared.Commands.Response.CommandResponse]] Create(KitchenRoutingSystem.Domain.DTOs.OrderDto) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-08 14:46:08.335 -03:00 [INF] Message delived in  queue 
+2020-12-08 14:46:12.081 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Shared.Commands.Response.CommandResponse'.
+2020-12-08 14:46:12.109 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 50751.8254ms
+2020-12-08 14:46:12.117 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 14:46:12.118 -03:00 [INF] Request finished in 50820.3026ms 200 application/json; charset=utf-8
+2020-12-08 14:46:13.547 -03:00 [INF] Your order contains no products
+2020-12-08 14:46:13.549 -03:00 [ERR] Message not consumed.
+2020-12-08 15:14:53.116 -03:00 [INF] Starting up
+2020-12-08 15:14:59.091 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-08 15:14:59.114 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 15:14:59.121 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 15:14:59.128 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-08 15:14:59.135 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-08 15:14:59.143 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-08 15:15:00.452 -03:00 [INF] Seed Complete
+2020-12-08 15:15:00.995 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-08 15:15:01.000 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-08 15:15:01.003 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-08 15:15:01.005 -03:00 [INF] Hosting environment: Development
+2020-12-08 15:15:01.006 -03:00 [INF] Content root path: C:\Users\alessandro.silveira\source\repos\KitchenRoutingSystem2\KitchenRoutingSystem.Api
+2020-12-08 15:15:11.344 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-08 15:15:11.543 -03:00 [INF] Request finished in 203.3655ms 200 text/html;charset=utf-8
+2020-12-08 15:15:12.773 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js.map  
+2020-12-08 15:15:12.940 -03:00 [INF] Request finished in 166.7696ms 404 
+2020-12-08 15:15:13.201 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js.map  
+2020-12-08 15:15:13.210 -03:00 [INF] Request finished in 9.1531ms 404 
+2020-12-08 15:15:13.450 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-08 15:15:13.761 -03:00 [INF] Request finished in 311.2614ms 200 application/json;charset=utf-8
+2020-12-08 15:15:34.754 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Order application/json 82
+2020-12-08 15:15:34.769 -03:00 [INF] Executing endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 15:15:34.852 -03:00 [INF] Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[KitchenRoutingSystem.Shared.Commands.Response.CommandResponse]] Create(KitchenRoutingSystem.Domain.DTOs.OrderDto) on controller KitchenRoutingSystem.Api.Controllers.OrderController (KitchenRoutingSystem.Api).
+2020-12-08 15:16:34.253 -03:00 [INF] Message delived in  queue 
+2020-12-08 15:16:35.869 -03:00 [INF] Executing ObjectResult, writing value of type 'KitchenRoutingSystem.Shared.Commands.Response.CommandResponse'.
+2020-12-08 15:17:07.095 -03:00 [INF] Executed action KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api) in 92232.8059ms
+2020-12-08 15:17:07.101 -03:00 [INF] Executed endpoint 'KitchenRoutingSystem.Api.Controllers.OrderController.Create (KitchenRoutingSystem.Api)'
+2020-12-08 15:17:07.103 -03:00 [INF] Request finished in 92347.6368ms 200 application/json; charset=utf-8
+2020-12-08 15:17:08.624 -03:00 [INF] Your order contains no products
+2020-12-08 15:17:08.628 -03:00 [ERR] Message not consumed.
+2020-12-08 15:17:44.917 -03:00 [INF] Application is shutting down...

@@ -3,6 +3,7 @@ using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Domain.Repository;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace KitchenRoutingSystem.Infra.Repositories
             }
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<int> Delete(Guid id)
         {
             var sql = "DELETE FROM Order WHERE Number = @Id;";
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))

@@ -20,5 +20,10 @@ namespace KitchenRoutingSystem.Domain.Entities
         public decimal Value { get; private set; }
         public int Quantity { get; private set; }
         public EProductType ProductType { get; private set; }
+
+        public void ChangeQuantity(int quantity)
+        {
+            Quantity = quantity;
+        }
     }
 }

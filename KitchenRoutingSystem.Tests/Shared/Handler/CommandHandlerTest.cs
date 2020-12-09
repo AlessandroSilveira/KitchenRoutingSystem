@@ -3,9 +3,6 @@ using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Shared.Commands.Response;
 using KitchenRoutingSystem.Shared.Handler;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace KitchenRoutingSystem.Tests.Shared.Handler
@@ -22,10 +19,7 @@ namespace KitchenRoutingSystem.Tests.Shared.Handler
                 CallBase = true
             };
 
-            order = new Order(new List<Product>
-            {
-                new Product()
-            });
+            order = new Order();
         }
 
         [Fact]

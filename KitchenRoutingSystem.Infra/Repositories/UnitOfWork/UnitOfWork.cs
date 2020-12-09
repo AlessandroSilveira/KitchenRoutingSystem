@@ -16,5 +16,6 @@ namespace KitchenRoutingSystem.Infra.Repositories.UnitOfWork
 
         public IOrderRepository Orders { get; }
         public IProductRepository Products { get; }
+        public IOrderProductsRepository OrderProducts { get; set; }
     }
 }
