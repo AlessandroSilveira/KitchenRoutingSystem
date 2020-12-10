@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\ProcessOrderHandlers\" />
     <Folder Include="Strategies\NewFolder\" />
   </ItemGroup>
 

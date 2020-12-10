@@ -1,0 +1,17 @@
+2020-12-09 19:53:23.869 -03:00 [INF] Starting up
+2020-12-09 19:53:36.670 -03:00 [INF] krs.order.consumer Consumer started.
+2020-12-09 19:53:36.691 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-09 19:53:36.701 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-09 19:53:36.710 -03:00 [INF] krs.fries.consumer Consumer started.
+2020-12-09 19:53:36.722 -03:00 [INF] krs.drink.consumer Consumer started.
+2020-12-09 19:53:36.735 -03:00 [INF] krs.dessert.consumer Consumer started.
+2020-12-09 19:53:42.263 -03:00 [INF] Seed Complete
+2020-12-09 19:53:42.691 -03:00 [INF] Now listening on: http://localhost:5000
+2020-12-09 19:53:42.712 -03:00 [INF] Now listening on: https://localhost:5001
+2020-12-09 19:53:42.714 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-09 19:53:42.715 -03:00 [INF] Hosting environment: Development
+2020-12-09 19:53:42.717 -03:00 [INF] Content root path: C:\Users\alesi\source\repos\KitchenRoutingSystem\KitchenRoutingSystem\KitchenRoutingSystem.Api
+2020-12-09 19:54:10.103 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2020-12-09 19:54:10.618 -03:00 [INF] Request finished in 509.0494ms 200 text/html;charset=utf-8
+2020-12-09 19:54:12.216 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2020-12-09 19:54:12.649 -03:00 [INF] Request finished in 433.1216ms 200 application/json;charset=utf-8

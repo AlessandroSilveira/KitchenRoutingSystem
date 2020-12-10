@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Request;
 using KitchenRoutingSystem.Domain.Commands.OrderCommands.Response;
+using KitchenRoutingSystem.Domain.Commands.OrderProductCommands.Request;
 using KitchenRoutingSystem.Domain.DTOs;
 using KitchenRoutingSystem.Domain.Entities;
 using KitchenRoutingSystem.Domain.Repository.UnitOfWork;
@@ -20,12 +21,14 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler
         private readonly IOrderPublishService _orderPublishService;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unityOfWork;
+        private readonly IMediator _mediator;
 
-        public ProcessOrderHandler(IOrderPublishService orderPublishService, IMapper mapper, IUnitOfWork unityOfWork)
+        public ProcessOrderHandler(IOrderPublishService orderPublishService, IMapper mapper, IUnitOfWork unityOfWork, IMediator mediator)
         {
             _orderPublishService = orderPublishService;
             _mapper = mapper;
             _unityOfWork = unityOfWork;
+            _mediator = mediator;
         }
 
         public async Task<CommandResponse> Handle(OrderDto request, CancellationToken cancellationToken)
@@ -36,9 +39,14 @@ namespace KitchenRoutingSystem.Domain.Handlers.ProcessOrderHandler
 
             var order = new Order();
             var createOrderRequest = _mapper.Map<CreateOrderRequest>(order);
-
             _orderPublishService.PublishOrder(createOrderRequest);
 
+            foreach (var item in productMap)
+            {
+                var ProductOrder = new OrderProductRequest(order.Id, Guid.Parse(item.ProductId), item.Value, item.Quantity, item.ProductType);
+                await _mediator.Send(ProductOrder);
+            }
+          
             var data = new CreateOrderResponse(createOrderRequest.Number, createOrderRequest.CreateDate, createOrderRequest.LastUpdateDate, request.Products, createOrderRequest.Total, createOrderRequest.Notes, createOrderRequest.Status);
             return CreateResponse(data, "Order sent successfully");
         }
